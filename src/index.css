@@ -4,9 +4,11 @@
 @theme {
   --color-roxo-primario: #6F0264;
   --color-verde-primario: #6FB654;
+  --color-rosa-forte: #AA0078;
+  --color-cinza: #474747;
   --color-branco: #fff;
   --color-preto: #000;
-  --color-dark: #1A1A1A;
+  --color-dark: #1F1F1F;
   --font-inter: 'Inter', sans-serif;
 }
 

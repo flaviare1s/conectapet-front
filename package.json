@@ -14,13 +14,14 @@
     "axios": "^1.9.0",
     "conectapet-front": "file:",
     "react": "^19.1.0",
+    "react-burger-menu": "^3.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.56.2",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
+    "react-modal": "^3.16.3",
     "react-router-dom": "^7.5.3",
-    "tailwindcss": "^4.1.5",
-    "zod": "^3.24.4"
+    "tailwindcss": "^4.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

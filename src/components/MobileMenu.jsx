@@ -15,7 +15,7 @@ export const MobileMenu = () => {
         {isOpen ? <HiX size={34} /> : <HiMenu size={34} />}
       </button>
 
-      <div
+      <nav
         className={`
           absolute top-[104px] right-0 w-full bg-white shadow-lg p-6 rounded-bl-md z-50 flex flex-col gap-4 text-gray-800
           transform transition-transform duration-300 ease-out
@@ -44,7 +44,7 @@ export const MobileMenu = () => {
         >
           Entrar
         </Link>
-      </div>
+      </nav>
     </div>
   )
 }

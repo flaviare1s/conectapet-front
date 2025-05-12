@@ -5,7 +5,7 @@ import { MobileMenu } from './MobileMenu'
 
 export const Header = () => {
   return (
-    <div className='h-[104px] flex justify-between items-center px-6'>
+    <header className='h-[104px] flex justify-between items-center px-6'>
       <Link to="/" className='w-[74px] sm:w-[105px]'>
         <img className='w-full' src={logo} alt="Logo ConectaPet" />
       </Link>
@@ -15,6 +15,6 @@ export const Header = () => {
       <div className="sm:hidden">
         <MobileMenu />
       </div>
-    </div>
+    </header>
   )
 }

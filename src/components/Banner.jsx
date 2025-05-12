@@ -1,7 +1,7 @@
 export const Banner = () => {
     return (
       <div>
-        Banner
+        Estou fazendo o banner
       </div>
     )
   }

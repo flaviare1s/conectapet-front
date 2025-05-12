@@ -41,7 +41,7 @@ export const Footer = () => {
             <div className="text-sm flex flex-col gap-2">
               <a className="hover:opacity-50" href="mailto:contato@conectapet.com" target="_blank">contato@conectapet.com</a>
               <a className="hover:opacity-50" href="tel:+5585999999999">(85) 99999-9999</a>
-              <Link className="hover:opacity-50" to="/privacidade" >Política de Privacidade</Link>
+              <Link className="hover:opacity-50" to="/privacy-policy" >Política de Privacidade</Link>
             </div>
           </div>
         </div>

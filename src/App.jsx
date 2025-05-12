@@ -14,6 +14,7 @@ import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { SelectAccountType } from "./pages/SelectAccountType"
 import { PetProfile } from "./pages/PetProfile"
+import { PoliticaPrivacidade } from "./pages/PoliticaPrivacidade"
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/pets/edit/:id" element={<PetEdit />} />
             <Route path='/ongs' element={<ONGs />} />
             <Route path='/congratulations' element={<Congratulations />} />
+            <Route path='/privacidade' element={<PoliticaPrivacidade />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </main>

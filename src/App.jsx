@@ -14,7 +14,8 @@ import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { SelectAccountType } from "./pages/SelectAccountType"
 import { PetProfile } from "./pages/PetProfile"
-import { PoliticaPrivacidade } from "./pages/PoliticaPrivacidade"
+import { PrivacyPolicy } from "./pages/PrivacyPolicy"
+import { MyPets } from "./pages/MyPets"
 
 function App() {
 
@@ -33,10 +34,11 @@ function App() {
             <Route path="/pets" element={<Pets />} />
             <Route path="/pets/:id" element={<PetProfile />} />
             <Route path="/pets/add" element={<PetRegister />} />
-            <Route path="/pets/edit/:id" element={<PetEdit />} />
+            <Route path="/mypets" element={<MyPets />} />
+            <Route path="/mypets/edit/:id" element={<PetEdit />} />
             <Route path='/ongs' element={<ONGs />} />
             <Route path='/congratulations' element={<Congratulations />} />
-            <Route path='/privacidade' element={<PoliticaPrivacidade />} />
+            <Route path='/privacidade' element={<PrivacyPolicy />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </main>

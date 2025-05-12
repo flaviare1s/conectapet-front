@@ -46,8 +46,8 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-cinza text-center border-t border-cinza pt-4 w-full">
-        <p>© 2025 - ConectaPet</p>
+      <div className="text-center border-t border-cinza pt-4 w-full">
+        <p className="text-[rgba(255,255,255,0.41)]">© 2025 - ConectaPet</p>
       </div>
     </footer>
   )

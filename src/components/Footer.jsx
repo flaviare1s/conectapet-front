@@ -3,8 +3,8 @@ import logo from "../assets/logo-pb.png"
 
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white p-4 flex flex-col justify-center items-center">
-      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
+    <footer className="bg-black text-white p-4 flex flex-col items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-4">
         <div>
           <div className="flex items-center gap-3">
             <div className="w-[56px] md:w-[83px]">
@@ -18,35 +18,35 @@ export const Footer = () => {
         </div>
         <div className="grid grid-cols-2">
           <div>
-            <h3 className="font-bold">Navegação</h3>
-            <nav className="flex flex-col text-sm">
-              <Link to="/" >Início</Link>
-              <Link to="/about" >Sobre</Link>
-              <Link to="/pets" >Pets</Link>
-              <Link to="/ongs" >ONGs parceiras</Link>
+            <h3 className="font-bold mb-3">Navegação</h3>
+            <nav className="flex flex-col text-sm gap-2">
+              <Link className="hover:text-cinza" to="/" >Início</Link>
+              <Link className="hover:text-cinza" to="/about" >Sobre</Link>
+              <Link className="hover:text-cinza" to="/pets" >Pets</Link>
+              <Link className="hover:text-cinza" to="/ongs" >ONGs parceiras</Link>
             </nav>
           </div>
           <div>
-            <h3 className="font-bold">Quero ajudar</h3>
-            <nav className="flex flex-col text-sm">
-              <Link to="/signup/user" >Quero adotar</Link>
-              <Link to="/pets" >Conectar pets</Link>
-              <Link to="/signup/guardian" >Sou uma ONG</Link>
+            <h3 className="font-bold mb-3">Quero ajudar</h3>
+            <nav className="flex flex-col text-sm gap-2">
+              <Link className="hover:text-cinza" to="/signup/user" >Quero adotar</Link>
+              <Link className="hover:text-cinza" to="/pets" >Conectar pets</Link>
+              <Link className="hover:text-cinza" to="/signup/guardian" >Sou uma ONG</Link>
             </nav>
           </div>
         </div>
         <div>
-          <div>
-            <h3 className="font-bold">Fale com a gente</h3>
-            <div className="text-sm">
-              <p>contato@conectapet.com</p>
-              <p>(85) 99999-9999</p>
-              <Link to="/privacidade" >Política de Privacidade</Link>
+          <div className="md:mt-[-30px]">
+            <h3 className="font-bold mb-3">Fale com a gente</h3>
+            <div className="text-sm flex flex-col gap-2">
+              <a className="hover:text-cinza" href="mailto:contato@conectapet.com" target="_blank">contato@conectapet.com</a>
+              <a className="hover:text-cinza" href="tel:+5585999999999">(85) 99999-9999</a>
+              <Link className="hover:text-cinza" to="/privacidade" >Política de Privacidade</Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="text-cinza text-center border-t border-cinza py-4 w-full">
+      <div className="text-cinza text-center border-t border-cinza pt-4 w-full">
         <p>© 2025 - ConectaPet</p>
       </div>
     </footer>

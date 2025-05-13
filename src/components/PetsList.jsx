@@ -1,9 +1,23 @@
-import data from "../../db.json"
 import { Link } from "react-router-dom"
 import { PetCard } from "./PetCard"
+import { useEffect, useState } from "react"
+import { getPets } from "../api/pets"
 
 export const PetsList = () => {
-  const pets = data.pets
+  const [pets, setPets] = useState([])
+
+  useEffect(() => {
+    const fetchPets = async () => {
+      try {
+        const result = await getPets()
+        setPets(result)
+      } catch (error) {
+        console.error("Erro ao buscar pets: ", error)
+      }
+    }
+    fetchPets()
+  }, [])
+
   return (
     <div className="p-6 md:p-10 lg:px-20 bg-purple-50">
       <div className="flex items-center justify-between mb-5">

@@ -2,20 +2,53 @@ import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
+import { createUser } from "../api/users";
+import toast from "react-hot-toast";
+import { useUser } from "../hooks/useUser";
+import { useNavigate } from "react-router-dom";
+
+import bgDog1 from "../assets/bg-dog1.png";
+import bgDog2 from "../assets/bg-dog2.png";
+import bgDog3 from "../assets/bg-dog3.png";
+import bgDog4 from "../assets/bg-dog4.png";
 
 export const UserRegister = () => {
+  const { login } = useUser();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      await createUser(data);
+      toast.success("Usuário cadastrado com sucesso!");
+
+      login(data);
+      navigate("/");
+    } catch (error) {
+      toast.error("Erro ao cadastrar usuário");
+      console.error("Erro ao cadastrar usuário:", error);
+    }
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   return (
-    <div className="bg-verde-primario flex flex-col flex-grow min-h-[95vh] items-center justify-center">
+    <div className="bg-verde-primario flex flex-col flex-grow min-h-[95vh] items-center justify-center relative">
+      <div className="absolute bottom-0 right-0 hidden lg:block w-[300px]">
+        <img className="w-full" src={bgDog1} alt="Desenho de cachorro" />
+      </div>
+      <div className="absolute bottom-0 left-0 hidden lg:block w-[300px]">
+        <img className="w-full" src={bgDog2} alt="Desenho de cachorro" />
+      </div>
+      <div className="absolute bottom-[300px] right-0 hidden lg:block w-[300px]">
+        <img className="w-full" src={bgDog3} alt="Desenho de cachorro" />
+      </div>
+      <div className="absolute bottom-[300px] left-0 hidden lg:block w-[300px]">
+        <img className="w-full" src={bgDog4} alt="Desenho de cachorro" />
+      </div>
       <div className="bg-white p-[30px] flex flex-col justify-center w-[90%] sm:w-[500px] rounded-xs">
         <h2 className="font-bold text-xl text-center mb-2 sm:text-2xl">
           <span className="text-verde-primario">&lt;</span>Crie sua conta
@@ -68,7 +101,11 @@ export const UserRegister = () => {
             }}
           />
           <HiddenRoleInput value="user" register={register} />
-          <SubmitButton label="Criar conta" />
+          <SubmitButton
+            label="Criar conta"
+            bgColor="roxo-primario"
+            hoverColor="rosa-forte"
+          />
         </form>
       </div>
     </div>

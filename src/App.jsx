@@ -29,7 +29,7 @@ function App() {
   };
 
   return (
-    <div className="font-inter flex flex-col min-h-screen">
+    <div className="font-inter flex flex-col min-h-screen overflow-x-hidden">
       <Header user={user} onLogout={handleLogout} />
       <main className="flex-grow">
         <Routes>

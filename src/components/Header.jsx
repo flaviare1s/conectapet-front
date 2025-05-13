@@ -11,11 +11,17 @@ export const Header = () => {
       <Link to="/" className='w-[74px] sm:w-[105px]'>
         <img className='w-full' src={logo} alt="Logo ConectaPet" />
       </Link>
+      <div className='flex-1 flex justify-end pr-4 pb-3 sm:pb-0 sm:pr-10 items-center'>
+        {user && (
+          <span className="text-sm text-verde-primario font-semibold mt-2 sm:mt-0">
+            Olá, <span className='text-roxo-primario'>{user.name}</span>!
+          </span>
+        )}
+      </div>
 
       <div className="hidden sm:flex gap-3">
         {user ? (
           <div className="flex items-center gap-4">
-            <span className="text-verde-primario font-semibold">Olá, <span className='text-roxo-primario'>{user.name}</span>!</span>
             <DesktopMenu user={user} onLogout={logout} />
           </div>
         ) : (

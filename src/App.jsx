@@ -19,6 +19,7 @@ import { MyPets } from "./pages/MyPets";
 
 import { useState } from "react";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { Forbidden } from "./pages/Forbidden";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -46,8 +47,8 @@ function App() {
           <Route path="/ongs" element={<ONGs />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/forbiden" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/forbidden" element={<NotFound />} />
+          <Route path="*" element={<Forbidden />} />
         </Routes>
       </main>
       <Footer />

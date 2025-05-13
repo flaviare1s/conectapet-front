@@ -320,5 +320,8 @@
       "vacinado": "sim",
       "observacoes": "Perfeito para quem mora sozinho."
     }
-  ]
+  ],
+  "users": [],
+  "guardians": [],
+  "ongs": []
 }

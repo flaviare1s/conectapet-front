@@ -68,7 +68,7 @@ export const GuardianRegister = () => {
             }}
           />
           <HiddenRoleInput value="guardian" register={register} />
-          <SubmitButton label="Criar conta" />
+          <SubmitButton label="Criar conta" bgColor="roxo-primario" hoverColor="rosa-forte" />
         </form>
       </div>
     </div>

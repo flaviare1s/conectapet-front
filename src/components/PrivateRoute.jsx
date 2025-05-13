@@ -6,7 +6,7 @@ export const PrivateRoute = ({ element, ...rest }) => {
 
   if (!user || user.role !== "guardian") {
 
-    return <Navigate to="/forbiden" replace />;
+    return <Navigate to="/forbidden" replace />;
   }
 
   return <Route {...rest} element={element} />;

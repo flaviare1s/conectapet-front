@@ -8,7 +8,7 @@ export const MobileMenu = ({ user, onLogout }) => {
   const isGuardian = user?.type === 'guardian';
 
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="text-roxo-primario focus:outline-none cursor-pointer"

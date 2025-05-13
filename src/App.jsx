@@ -24,7 +24,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   const handleLogout = () => {
-    setUser(null); // Limpar o estado de usuário
+    setUser(null);
   };
 
   return (

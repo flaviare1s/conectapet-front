@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 const users = [
   { email: "joao.silva@example.com", password: "senha123", role: "user" },
@@ -10,6 +12,7 @@ const users = [
 
 export const Login = () => {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState(null); // Estado para armazenar os dados do usuário
 
   const {
     register,
@@ -25,16 +28,30 @@ export const Login = () => {
     );
 
     if (user) {
+      // Salvar no localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Atualizar o estado local
+      setUserData(user);
+
+      // Redirecionar de acordo com o papel do usuário
       if (user.role === "user") {
         navigate("/pets");
-      }
-      else if (user.role === "guardian") {
+      } else if (user.role === "guardian") {
         navigate("/pets/add");
       }
     } else {
-      alert("Usuário ou senha incorretos");
+      toast.error("Usuário ou senha incorretos");
     }
   };
+
+  useEffect(() => {
+    // Verificar se há um usuário salvo no localStorage ao carregar a página
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUserData(JSON.parse(savedUser));
+    }
+  }, []);
 
   return (
     <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center">

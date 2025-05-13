@@ -1,9 +1,11 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { HiMenu, HiX } from 'react-icons/hi'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { HiMenu, HiX } from 'react-icons/hi';
 
-export const MobileMenu = () => {
-  const [isOpen, setIsOpen] = useState(false)
+export const MobileMenu = ({ user, onLogout }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const isLoggedIn = user !== null;
+  const isGuardian = user?.type === 'guardian';
 
   return (
     <div className="sm:hidden">
@@ -22,29 +24,41 @@ export const MobileMenu = () => {
           ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}
         `}
       >
-        <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-roxo-primario hover:underline">
-          Início
-        </Link>
-        <Link onClick={() => setIsOpen(false)} to="/About" className="hover:text-roxo-primario hover:underline">
-          Sobre
-        </Link>
-        <Link onClick={() => setIsOpen(false)} to="/Pets" className="hover:text-roxo-primario hover:underline">
-          Pets
-        </Link>
-        <Link onClick={() => setIsOpen(false)} to="/ONGs" className="hover:text-roxo-primario hover:underline">
-          ONGs
-        </Link>
-        <Link onClick={() => setIsOpen(false)} to="/signup" className="hover:text-roxo-primario hover:underline">
-          Cadastre-se
-        </Link>
-        <Link
-          onClick={() => setIsOpen(false)}
-          to="/Login"
-          className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-center text-sm font-bold"
-        >
-          Entrar
-        </Link>
+        <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-roxo-primario hover:underline">Início</Link>
+        <Link onClick={() => setIsOpen(false)} to="/About" className="hover:text-roxo-primario hover:underline">Sobre</Link>
+        <Link onClick={() => setIsOpen(false)} to="/Pets" className="hover:text-roxo-primario hover:underline">Pets</Link>
+        <Link onClick={() => setIsOpen(false)} to="/ONGs" className="hover:text-roxo-primario hover:underline">ONGs</Link>
+
+        {isLoggedIn ? (
+          <>
+            {isGuardian ? (
+              <>
+                <Link onClick={() => setIsOpen(false)} to="/pets/add" className="hover:text-roxo-primario hover:underline">Cadastre seu pet</Link>
+                <Link onClick={() => setIsOpen(false)} to="/mypets" className="hover:text-roxo-primario hover:underline">Meus pets</Link>
+              </>
+            ) : (
+              <></>
+            )}
+            <button
+              onClick={onLogout}
+              className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-center text-sm font-bold"
+            >
+              Sair
+            </button>
+          </>
+        ) : (
+          <>
+            <Link onClick={() => setIsOpen(false)} to="/signup" className="hover:text-roxo-primario hover:underline">Cadastre-se</Link>
+            <Link
+              onClick={() => setIsOpen(false)}
+              to="/Login"
+              className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-center text-sm font-bold"
+            >
+              Entrar
+            </Link>
+          </>
+        )}
       </nav>
     </div>
-  )
-}
+  );
+};

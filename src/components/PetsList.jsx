@@ -1,4 +1,3 @@
-import data from "../../server/db.json"
 import { Link } from "react-router-dom"
 import { PetCard } from "./PetCard"
 import { useEffect, useState } from "react"

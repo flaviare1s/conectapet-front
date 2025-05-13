@@ -2,17 +2,25 @@ import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
+import toast from "react-hot-toast";
+import { createGuardian } from "../api/guardians.js";
 
 export const GuardianRegister = () => {
+  const onSubmit = async (data) => {
+    try {
+      await createGuardian(data);
+      toast.success("Usuário cadastrado com sucesso!");
+    } catch (error) {
+      toast.error("Erro ao cadastrar usuário");
+      console.error("Erro ao cadastrar usuário:", error);
+    }
+  }
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   return (
     <div className="bg-verde-primario flex flex-col flex-grow min-h-[95vh] items-center justify-center">

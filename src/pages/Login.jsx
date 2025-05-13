@@ -5,11 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
-const users = [
-  { email: "joao.silva@example.com", password: "senha123", role: "user" },
-  { email: "contato@ongamigos.com", password: "ongsenha456", role: "guardian" }
-];
-
 export const Login = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null); // Estado para armazenar os dados do usuário

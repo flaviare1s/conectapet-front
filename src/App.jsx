@@ -47,8 +47,8 @@ function App() {
           <Route path="/ongs" element={<ONGs />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/forbidden" element={<NotFound />} />
-          <Route path="*" element={<Forbidden />} />
+          <Route path="/forbidden" element={<Forbidden />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

@@ -3,9 +3,9 @@ import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import toast from "react-hot-toast";
-import { createGuardian } from "../api/guardians.js";
 import { useUser } from "../hooks/useUser";
 import { useNavigate } from "react-router-dom";
+import { createGuardian } from "../api/users.js";
 
 export const GuardianRegister = () => {
   const { login } = useUser();

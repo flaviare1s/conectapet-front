@@ -7,3 +7,12 @@ export const createUser = async (userData) => {
   });
   return response.data;
 };
+
+export const createGuardian = async (guardianData) => {
+  const response = await axios.post("/users", {
+    ...guardianData,
+    id: crypto.randomUUID(),
+    role: "guardian",
+  });
+  return response.data;
+};

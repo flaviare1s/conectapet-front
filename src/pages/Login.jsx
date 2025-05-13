@@ -4,7 +4,7 @@ import { SubmitButton } from "../components/SubmitButton";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import { fetchGuardians, fetchUsers } from "../api/auth";
+import { fetchUsers } from "../api/auth";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -19,12 +19,9 @@ export const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const [users, guardians] = await Promise.all([
-        fetchUsers(),
-        fetchGuardians(),
-      ]);
+      const users = await fetchUsers();
 
-      const user = [...users, ...guardians].find(
+      const user = users.find(
         (user) => user.email === data.email && user.password === data.password
       );
 

@@ -401,7 +401,7 @@
       "name": "APATA",
       "email": "apata@teste.com",
       "password": "123456",
-      "role": "user"
+      "role": "guardian"
     },
     {
       "id": "b7ca78e0-1747-467b-839a-6e5b5309b157",
@@ -409,9 +409,7 @@
       "email": "maria@testemail.com",
       "password": "123456",
       "role": "user"
-    }
-  ],
-  "guardians": [
+    },
     {
       "id": "5145556f-4e33-40aa-ac4d-30e674f2dbc1",
       "name": "UPAC",
@@ -432,6 +430,20 @@
       "email": "testemail@gmail.com",
       "password": "1234567",
       "role": "guardian"
+    },
+    {
+      "id": "9b4cab45-962a-4484-ae78-19ab8b14c9f7",
+      "name": "Abrace",
+      "email": "abs@teste.com",
+      "password": "123456",
+      "role": "guardian"
+    },
+    {
+      "id": "1dffa0ed-aab0-4681-9714-7a71ac50d39c",
+      "name": "Pedro",
+      "email": "pedrim@hotmail.com",
+      "password": "123456",
+      "role": "user"
     }
   ],
   "ongs": []

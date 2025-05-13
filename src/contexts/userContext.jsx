@@ -9,7 +9,10 @@ export const UserProvider = ({ children }) => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
       try {
-        setUser(JSON.parse(savedUser));
+        const parsedUser = JSON.parse(savedUser);
+        if (parsedUser && parsedUser.role) {
+          setUser(parsedUser);
+        }
       } catch (error) {
         console.error("Erro ao parsear o usuário do localStorage:", error);
       }
@@ -17,8 +20,12 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
+    if (userData && userData.role) {
+      setUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+    } else {
+      console.error("Dados inválidos para o login");
+    }
   };
 
   const logout = () => {
@@ -33,4 +40,6 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const useUser = () => useContext(UserContext);
+export const useUser = () => {
+  return useContext(UserContext);
+};

@@ -18,6 +18,7 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { MyPets } from "./pages/MyPets";
 
 import { useState } from "react";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -39,12 +40,13 @@ function App() {
           <Route path="/signup/guardian" element={<GuardianRegister />} />
           <Route path="/pets" element={<Pets />} />
           <Route path="/pets/:id" element={<PetProfile />} />
-          <Route path="/pets/add" element={<PetRegister />} />
-          <Route path="/mypets" element={<MyPets />} />
-          <Route path="/mypets/edit/:id" element={<PetEdit />} />
+          <Route path="/pets/add" element={<PrivateRoute element={<PetRegister />} />} />
+          <Route path="/mypets" element={<PrivateRoute element={<MyPets />} />} />
+          <Route path="/mypets/edit/:id" element={<PrivateRoute element={<PetEdit />} />} />
           <Route path="/ongs" element={<ONGs />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/forbiden" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

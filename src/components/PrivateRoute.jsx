@@ -1,13 +1,13 @@
-import { Navigate } from 'react-router-dom';
-import { useUser } from '../hooks/useUser';
+import { Route, Navigate } from "react-router-dom";
+import { useUser } from "../contexts/userContext";
 
-// eslint-disable-next-line no-unused-vars
 export const PrivateRoute = ({ element, ...rest }) => {
   const { user } = useUser();
 
-  if (!user || user.role !== 'guardian') {
-    return <Navigate to="*" replace />;
+  if (!user || user.role !== "guardian") {
+
+    return <Navigate to="/forbiden" replace />;
   }
 
-  return element;
+  return <Route {...rest} element={element} />;
 };

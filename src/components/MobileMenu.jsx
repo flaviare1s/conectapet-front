@@ -5,7 +5,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 export const MobileMenu = ({ user, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isLoggedIn = user !== null;
-  const isGuardian = user?.type === 'guardian';
+  const isGuardian = user?.role === 'guardian';
 
   return (
     <div className="md:hidden">
@@ -33,8 +33,8 @@ export const MobileMenu = ({ user, onLogout }) => {
           <>
             {isGuardian ? (
               <>
-                <Link onClick={() => setIsOpen(false)} to="/pets/add" className="hover:text-roxo-primario hover:underline">Cadastre seu pet</Link>
-                <Link onClick={() => setIsOpen(false)} to="/mypets" className="hover:text-roxo-primario hover:underline">Meus pets</Link>
+                <Link onClick={() => setIsOpen(false)} to="/pets/add" className="hover:text-roxo-primario hover:underline font-semibold">Cadastrar pet</Link>
+                <Link onClick={() => setIsOpen(false)} to="/mypets" className="hover:text-roxo-primario hover:underline font-semibold">Meus pets</Link>
               </>
             ) : (
               <></>

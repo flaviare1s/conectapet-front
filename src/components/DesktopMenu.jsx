@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const DesktopMenu = ({ user, onLogout }) => {
   const isLoggedIn = user !== null;
-  const isGuardian = user?.type === 'guardian';
+  const isGuardian = user?.role === 'guardian';
 
   return (
     <nav className="hidden sm:flex gap-3">
@@ -13,13 +13,11 @@ export const DesktopMenu = ({ user, onLogout }) => {
 
       {isLoggedIn ? (
         <>
-          {isGuardian ? (
+          {isGuardian && ( // Exibindo links apenas se for guardian
             <>
-              <Link className="hover:text-roxo-primario hover:underline p-1" to='/pets/add'>Cadastre seu pet</Link>
-              <Link className="hover:text-roxo-primario hover:underline p-1" to='/mypets'>Meus pets</Link>
+              <Link className="hover:text-roxo-primario hover:underline p-1 font-semibold" to='/pets/add'>Cadastrar pet</Link>
+              <Link className="hover:text-roxo-primario hover:underline p-1 font-semibold" to='/mypets'>Meus pets</Link>
             </>
-          ) : (
-            <></>
           )}
           <button
             onClick={onLogout}

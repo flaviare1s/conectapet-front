@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { fetchUsers } from "../api/auth";
 
-import bgDog1 from "../assets/bg-dog1.png"
-import bgDog2 from "../assets/bg-dog2.png"
-import bgDog3 from "../assets/bg-dog3.png"
-import bgDog4 from "../assets/bg-dog4.png"
+import bgDog1 from "../assets/bg-dog1.png";
+import bgDog2 from "../assets/bg-dog2.png";
+import bgDog3 from "../assets/bg-dog3.png";
+import bgDog4 from "../assets/bg-dog4.png";
 
 export const Login = () => {
   const navigate = useNavigate();

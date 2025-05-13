@@ -4,12 +4,21 @@ import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import toast from "react-hot-toast";
 import { createGuardian } from "../api/guardians.js";
+import { useUser } from "../hooks/useUser";
+import { useNavigate } from "react-router-dom";
 
 export const GuardianRegister = () => {
+  const { login } = useUser();
+  const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     try {
       await createGuardian(data);
       toast.success("Usuário cadastrado com sucesso!");
+
+      login(data);
+      navigate("/");
+
     } catch (error) {
       toast.error("Erro ao cadastrar usuário");
       console.error("Erro ao cadastrar usuário:", error);

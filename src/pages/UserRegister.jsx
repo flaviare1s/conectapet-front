@@ -4,12 +4,21 @@ import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import { createUser } from "../api/users";
 import toast from "react-hot-toast";
+import { useUser } from "../hooks/useUser";
+import { useNavigate } from "react-router-dom";
 
 export const UserRegister = () => {
+  const { login } = useUser();
+  const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     try {
       await createUser(data);
       toast.success("Usuário cadastrado com sucesso!");
+
+      login(data); // Login automático
+      navigate("/"); // Redireciona para home
+
     } catch (error) {
       toast.error("Erro ao cadastrar usuário");
       console.error("Erro ao cadastrar usuário:", error);

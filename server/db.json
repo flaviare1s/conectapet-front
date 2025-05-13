@@ -388,6 +388,27 @@
       "email": "flaviarster@gmail.com",
       "password": "usuario123",
       "role": "user"
+    },
+    {
+      "id": "2505b869-9835-48ce-ace8-6341f363d266",
+      "name": "Flávia Reis",
+      "email": "flaviarster@gmail.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "d10828d4-bc5c-42ec-bdd7-ba80ef89b370",
+      "name": "APATA",
+      "email": "apata@teste.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "b7ca78e0-1747-467b-839a-6e5b5309b157",
+      "name": "Maria",
+      "email": "maria@testemail.com",
+      "password": "123456",
+      "role": "user"
     }
   ],
   "guardians": [
@@ -396,6 +417,20 @@
       "name": "UPAC",
       "email": "upac@gmail.com.br",
       "password": "souumaong",
+      "role": "guardian"
+    },
+    {
+      "id": "00b50b86-81e8-4ab0-831b-631f4cb4f5d3",
+      "name": "Abrigo Love Pets",
+      "email": "email@teste.com",
+      "password": "1234567",
+      "role": "guardian"
+    },
+    {
+      "id": "abfbb0e2-bab1-4065-9589-3be5c72795b2",
+      "name": "Amigos Pet",
+      "email": "testemail@gmail.com",
+      "password": "1234567",
       "role": "guardian"
     }
   ],

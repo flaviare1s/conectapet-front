@@ -4,10 +4,12 @@ import { SubmitButton } from "../components/SubmitButton";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import { fetchGuardians, fetchUsers } from "../api/auth";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState(null); // Estado para armazenar os dados do usuário
+  // eslint-disable-next-line no-unused-vars
+  const [userData, setUserData] = useState(null);
 
   const {
     register,
@@ -15,33 +17,36 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Dados enviados:", data);
+  const onSubmit = async (data) => {
+    try {
+      const [users, guardians] = await Promise.all([
+        fetchUsers(),
+        fetchGuardians(),
+      ]);
 
-    const user = users.find(
-      (user) => user.email === data.email && user.password === data.password
-    );
+      const user = [...users, ...guardians].find(
+        (user) => user.email === data.email && user.password === data.password
+      );
 
-    if (user) {
-      // Salvar no localStorage
-      localStorage.setItem("user", JSON.stringify(user));
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        setUserData(user);
 
-      // Atualizar o estado local
-      setUserData(user);
-
-      // Redirecionar de acordo com o papel do usuário
-      if (user.role === "user") {
-        navigate("/pets");
-      } else if (user.role === "guardian") {
-        navigate("/pets/add");
+        if (user.role === "user") {
+          navigate("/pets");
+        } else if (user.role === "guardian") {
+          navigate("/pets/add");
+        }
+      } else {
+        toast.error("Usuário ou senha incorretos");
       }
-    } else {
-      toast.error("Usuário ou senha incorretos");
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      toast.error("Erro ao conectar com o servidor");
     }
   };
 
   useEffect(() => {
-    // Verificar se há um usuário salvo no localStorage ao carregar a página
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
       setUserData(JSON.parse(savedUser));

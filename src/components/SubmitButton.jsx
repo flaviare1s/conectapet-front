@@ -1,6 +1,6 @@
 const bgClasses = {
   "verde-primario": "bg-verde-primario hover:bg-verde-escuro",
-  "rosa-forte": "bg-rosa-forte hover:bg-rosa-escura",
+  "roxo-primario": "bg-roxo-primario hover:bg-rosa-forte",
 };
 
 export const SubmitButton = ({ label, bgColor = "verde-primario" }) => {

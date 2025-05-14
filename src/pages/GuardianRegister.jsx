@@ -37,16 +37,16 @@ export const GuardianRegister = () => {
 
   return (
     <div className="bg-verde-primario flex flex-col flex-grow min-h-[95vh] items-center justify-center relative">
-      <div className="absolute bottom-0 right-0 hidden lg:block w-[300px]">
+      <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">
         <img className="w-full" src={bgDog1} alt="Desenho de cachorro" />
       </div>
-      <div className="absolute bottom-0 left-0 hidden lg:block w-[300px]">
+      <div className="absolute bottom-0 left-0 hidden lg:block w-[250px]">
         <img className="w-full" src={bgDog2} alt="Desenho de cachorro" />
       </div>
-      <div className="absolute bottom-[300px] right-0 hidden lg:block w-[300px]">
+      <div className="absolute bottom-[230px] right-0 hidden lg:block w-[250px]">
         <img className="w-full" src={bgDog3} alt="Desenho de cachorro" />
       </div>
-      <div className="absolute bottom-[300px] left-0 hidden lg:block w-[300px]">
+      <div className="absolute bottom-[230px] left-0 hidden lg:block w-[250px]">
         <img className="w-full" src={bgDog4} alt="Desenho de cachorro" />
       </div>
       <div className="bg-white p-[30px] flex flex-col justify-center w-[90%] sm:w-[500px] rounded-xs">

@@ -1,7 +1,7 @@
 import { Route, Navigate } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
 
-export const PrivateRoute = ({ element, ...rest }) => {
+export const PrivateRoute = ({ children }) => {
   const { user } = useUser();
 
   if (!user || user.role !== "guardian") {
@@ -9,5 +9,5 @@ export const PrivateRoute = ({ element, ...rest }) => {
     return <Navigate to="/forbidden" replace />;
   }
 
-  return <Route {...rest} element={element} />;
+  return children;
 };

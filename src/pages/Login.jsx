@@ -37,7 +37,7 @@ export const Login = () => {
         if (user.role === "user") {
           navigate("/pets");
         } else if (user.role === "guardian") {
-          navigate("/pets/add");
+          navigate("/");
         }
       } else {
         toast.error("Usuário ou senha incorretos");

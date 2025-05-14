@@ -41,9 +41,9 @@ function App() {
           <Route path="/signup/guardian" element={<GuardianRegister />} />
           <Route path="/pets" element={<Pets />} />
           <Route path="/pets/:id" element={<PetProfile />} />
-          <Route path="/pets/add" element={<PrivateRoute element={<PetRegister />} />} />
-          <Route path="/mypets" element={<PrivateRoute element={<MyPets />} />} />
-          <Route path="/mypets/edit/:id" element={<PrivateRoute element={<PetEdit />} />} />
+          <Route path="/pets/add" element={<PrivateRoute><PetRegister /></PrivateRoute>} />
+          <Route path="/mypets" element={<PrivateRoute><MyPets /></PrivateRoute>} />
+          <Route path="/mypets/edit/:id" element={<PrivateRoute><PetEdit /></PrivateRoute>} />
           <Route path="/ongs" element={<ONGs />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

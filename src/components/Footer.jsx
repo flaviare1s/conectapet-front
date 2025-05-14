@@ -3,7 +3,7 @@ import logo from "../assets/logo-pb.png"
 
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white p-4 flex flex-col items-center">
+    <footer className="bg-black text-white p-6 flex flex-col items-center">
       <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-4">
         <div>
           <div className="flex items-center gap-3">
@@ -13,25 +13,25 @@ export const Footer = () => {
             <h2 className="font-bold text-lg md:text-xl">ConectaPet</h2>
           </div>
           <div>
-            <p>Somos uma ponte entre animais resgatados e pessoas dispostas a amar. No ConectaPet, acreditamos que todo pet merece um lar seguro, acolhedor e responsável.</p>
+            <p className="text-sm">Somos uma ponte entre animais resgatados e pessoas dispostas a amar. No ConectaPet, acreditamos que todo pet merece um lar seguro, acolhedor e responsável.</p>
           </div>
         </div>
         <div className="grid grid-cols-2">
           <div>
             <h3 className="font-bold mb-3">Navegação</h3>
             <nav className="flex flex-col text-sm gap-2">
-              <Link className="hover:text-cinza" to="/" >Início</Link>
-              <Link className="hover:text-cinza" to="/about" >Sobre</Link>
-              <Link className="hover:text-cinza" to="/pets" >Pets</Link>
-              <Link className="hover:text-cinza" to="/ongs" >ONGs parceiras</Link>
+              <Link className="hover:opacity-50" to="/" >Início</Link>
+              <Link className="hover:opacity-50" to="/about" >Sobre</Link>
+              <Link className="hover:opacity-50" to="/pets" >Pets</Link>
+              <Link className="hover:opacity-50" to="/ongs" >ONGs parceiras</Link>
             </nav>
           </div>
           <div>
             <h3 className="font-bold mb-3">Quero ajudar</h3>
             <nav className="flex flex-col text-sm gap-2">
-              <Link className="hover:text-cinza" to="/signup/user" >Quero adotar</Link>
-              <Link className="hover:text-cinza" to="/pets" >Conectar pets</Link>
-              <Link className="hover:text-cinza" to="/signup/guardian" >Sou uma ONG</Link>
+              <Link className="hover:opacity-50" to="/signup/user" >Quero adotar</Link>
+              <Link className="hover:opacity-50" to="/pets" >Conectar pets</Link>
+              <Link className="hover:opacity-50" to="/signup/guardian" >Sou uma ONG</Link>
             </nav>
           </div>
         </div>
@@ -39,15 +39,15 @@ export const Footer = () => {
           <div className="md:mt-[-30px]">
             <h3 className="font-bold mb-3">Fale com a gente</h3>
             <div className="text-sm flex flex-col gap-2">
-              <a className="hover:text-cinza" href="mailto:contato@conectapet.com" target="_blank">contato@conectapet.com</a>
-              <a className="hover:text-cinza" href="tel:+5585999999999">(85) 99999-9999</a>
-              <Link className="hover:text-cinza" to="/privacidade" >Política de Privacidade</Link>
+              <a className="hover:opacity-50" href="mailto:contato@conectapet.com" target="_blank">contato@conectapet.com</a>
+              <a className="hover:opacity-50" href="tel:+5585999999999">(85) 99999-9999</a>
+              <Link className="hover:opacity-50" to="/privacy-policy" >Política de Privacidade</Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="text-cinza text-center border-t border-cinza pt-4 w-full">
-        <p>© 2025 - ConectaPet</p>
+      <div className="text-center border-t border-cinza pt-4 w-full">
+        <p className="text-[rgba(255,255,255,0.41)]">© 2025 - ConectaPet</p>
       </div>
     </footer>
   )

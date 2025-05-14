@@ -1,13 +1,13 @@
-export const NotFound = () => {
+export const Forbidden = () => {
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">
-        <h1 className="text-6xl font-extrabold text-roxo-primario mb-4">404</h1>
+        <h1 className="text-6xl font-extrabold text-roxo-primario mb-4">403</h1>
         <p className="text-xl md:text-2xl font-medium text-cinza mb-4">
-          A página que você procurou não foi encontrada.
+          Você não tem permissão para acessar esta página.
         </p>
         <p className="text-base md:text-lg text-cinza">
-          Volte para a página inicial e tente novamente.
+          Faça login com uma conta autorizada ou volte para a página inicial.
         </p>
         <a
           href="/"

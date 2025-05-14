@@ -117,7 +117,6 @@ export const Login = () => {
           <SubmitButton
             label="Entrar"
             bgColor="verde-primario"
-            hoverColor="verde-piscina"
           />
         </form>
       </div>

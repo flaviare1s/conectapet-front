@@ -29,10 +29,3 @@ export const ONGsSection = () => {
     </div>
   );
 };
-
-
-
-
-
-
-

@@ -3,8 +3,7 @@ import { AboutSection } from "../components/AboutSection"
 import { PetsList } from "../components/PetsList"
 import { ONGsSection } from "../components/ONGsSection"
 import { Contact } from "../components/Contact"
-
-
+import { Loader } from "../components/Loader"
 
 export const Home = () => {
   return (

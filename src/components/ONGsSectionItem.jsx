@@ -10,7 +10,7 @@ export const ONGsSectionItem = ({ image, name, borderColor }) => {
       <div className={`bg-white p-1 rounded-full shadow border border-purple-200 ${borderClasses[borderColor]}`}>
         <img className="w-[56px] md:w-[83px] aspect-square: text-Primary rounded-full" src={image} alt= {`Logo da ONG {name}`}/>
       </div>
-      <p className="font-semibold text-xs p-2"> {name} </p>
+      <p className="font-semibold text-xs py-2"> {name} </p>
 
     </div>
   )

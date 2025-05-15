@@ -4,8 +4,6 @@ import { PetsList } from "../components/PetsList"
 import { ONGsSection } from "../components/ONGsSection"
 import { Contact } from "../components/Contact"
 
-
-
 export const Home = () => {
   return (
     <div>

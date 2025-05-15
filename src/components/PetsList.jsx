@@ -2,9 +2,11 @@ import { Link } from "react-router-dom"
 import { PetCard } from "./PetCard"
 import { useEffect, useState } from "react"
 import { getPets } from "../api/pets"
+import { Loader } from "./Loader"
 
 export const PetsList = () => {
   const [pets, setPets] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -13,10 +15,16 @@ export const PetsList = () => {
         setPets(result)
       } catch (error) {
         console.error("Erro ao buscar pets: ", error)
+      } finally {
+        setLoading(false)
       }
     }
     fetchPets()
   }, [])
+
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <div className="p-6 md:p-10 lg:px-20 bg-purple-50">

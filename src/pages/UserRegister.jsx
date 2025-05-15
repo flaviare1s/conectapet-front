@@ -104,7 +104,6 @@ export const UserRegister = () => {
           <SubmitButton
             label="Criar conta"
             bgColor="roxo-primario"
-            hoverColor="rosa-forte"
           />
         </form>
       </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { getPets } from "../api/pets"
 import { Loader } from "./Loader"
 
-export const PetsList = ({ limit, showResponsavel = true, showDescricao = true }) => {
+export const PetsList = ({ limit, showDescricao = true }) => {
   const [pets, setPets] = useState([])
   const [loading, setLoading] = useState(true)
   const location = useLocation()
@@ -42,7 +42,7 @@ export const PetsList = ({ limit, showResponsavel = true, showDescricao = true }
       <div className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {petsToShow.map((pet) => (
-            <PetCard key={pet.id} pet={pet} showDescricao={showDescricao} showResponsavel={showResponsavel} />
+            <PetCard key={pet.id} pet={pet} showDescricao={showDescricao} />
           ))}
         </div>
       </div>

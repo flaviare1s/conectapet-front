@@ -1,4 +1,4 @@
-export const PetCard = ({ pet, showResponsavel = true, showDescricao = true }) => {
+export const PetCard = ({ pet, showDescricao = true }) => {
   const statusClasses = {
     "Coração livre!": "bg-verde-primario text-black font-bold",
     "Quase lá!": "bg-yellow-300 text-black font-bold",
@@ -24,10 +24,12 @@ export const PetCard = ({ pet, showResponsavel = true, showDescricao = true }) =
         <div className="font-medium text-lg">
           <span>{pet.nome}</span> - <span>{pet.idade}</span>
         </div>
-        <div className="flex items-center gap-1">
-          <span className="bg-[#8F8F8F] h-[1px] w-12"></span>
-          {showResponsavel && <p className="text-sm text-cinza">Responsavel: {pet.responsavel}</p>}
-          {showDescricao && <p className="text-sm text-cinza">{pet.descricao}</p>}
+        <div className="flex flex-col">
+          <div className="flex items-center gap-1">
+            <span className="bg-[#8F8F8F] h-[1px] w-10"></span>
+            <p className="text-sm text-cinza font-bold">{pet.responsavel}</p>
+          </div>
+          {showDescricao && <p className="text-sm text-cinza mt-3">{pet.descricao}</p>}
         </div>
       </div>
     </div>

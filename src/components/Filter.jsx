@@ -22,7 +22,7 @@ export const Filter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="sm:w-[190px] sm:text-base bg-white p-4 shadow-2xl w-[170px] text-sm">
+    <div className="sm:w-[190px] sm:text-base bg-white py-4 px-2 sm:px-4 shadow-2xl w-[150px] text-sm">
       <FilterGroup
         title="Status"
         name="status"

@@ -10,7 +10,9 @@ export const PetCard = ({ pet, showDescricao = true }) => {
   return (
     <div className="rounded p-4 shadow-md bg-white max-w-[300px]">
       <div className="relative">
-        <div className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${badgeClass}`}>
+        <div
+          className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${badgeClass}`}
+        >
           {pet.status}
         </div>
         <img
@@ -29,7 +31,9 @@ export const PetCard = ({ pet, showDescricao = true }) => {
             <span className="bg-[#8F8F8F] h-[1px] w-10"></span>
             <p className="text-sm text-cinza font-bold">{pet.responsavel}</p>
           </div>
-          {showDescricao && <p className="text-sm text-cinza mt-3">{pet.descricao}</p>}
+          {showDescricao && (
+            <p className="text-sm text-cinza mt-3">{pet.descricao}</p>
+          )}
         </div>
       </div>
     </div>

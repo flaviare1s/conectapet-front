@@ -1,9 +1,14 @@
-import { PetsList } from "../components/PetsList"
+import { useState } from "react";
+import { Filter } from "../components/Filter";
+import { PetsList } from "../components/PetsList";
 
 export const Pets = () => {
+  const [filters, setFilters] = useState({});
+
   return (
-    <div>
-      <PetsList showResponsavel={false} showDescricao />
+    <div className="flex">
+      <Filter onFilterChange={setFilters} />
+      <PetsList showResponsavel={false} showDescricao filters={filters} />
     </div>
-  )
-}
+  );
+};

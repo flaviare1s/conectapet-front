@@ -1,42 +1,52 @@
-import { Link, useLocation } from "react-router-dom"
-import { PetCard } from "./PetCard"
-import { useEffect, useState } from "react"
-import { getPets } from "../api/pets"
-import { Loader } from "./Loader"
+import { Link, useLocation } from "react-router-dom";
+import { PetCard } from "./PetCard";
+import { useEffect, useState } from "react";
+import { getPets } from "../api/pets";
+import { Loader } from "./Loader";
 
-export const PetsList = ({ limit, showDescricao = true }) => {
-  const [pets, setPets] = useState([])
-  const [loading, setLoading] = useState(true)
-  const location = useLocation()
+export const PetsList = ({ limit, showDescricao = true, filters = {} }) => {
+  const [pets, setPets] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const result = await getPets()
-        setPets(result)
+        const result = await getPets();
+        setPets(result);
       } catch (error) {
-        console.error("Erro ao buscar pets: ", error)
+        console.error("Erro ao buscar pets: ", error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    fetchPets()
-  }, [])
+    };
+    fetchPets();
+  }, []);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
-  const petsToShow = limit ? pets.slice(0, limit) : pets
+  const filteredPets = pets.filter((pet) => {
+    return Object.entries(filters).every(([key, selectedValues]) => {
+      return selectedValues.length === 0 || selectedValues.includes(pet[key]);
+    });
+  });
+
+  const petsToShow = limit ? filteredPets.slice(0, limit) : filteredPets;
 
   return (
     <div className="p-6 md:p-10 lg:px-20 bg-purple-50">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-bold md:text-xl">Galeria dos peludinhos:</h2>
-        {location.pathname === '/pets' ? (
-          <Link className="text-roxo-primario hover:underline" to="/">Voltar</Link>
+        {location.pathname === "/pets" ? (
+          <Link className="text-roxo-primario hover:underline" to="/">
+            Voltar
+          </Link>
         ) : (
-          <Link className="text-roxo-primario hover:underline" to="/pets">Ver todos →</Link>
+          <Link className="text-roxo-primario hover:underline" to="/pets">
+            Ver todos →
+          </Link>
         )}
       </div>
       <div className="flex flex-col justify-center items-center">
@@ -47,5 +57,5 @@ export const PetsList = ({ limit, showDescricao = true }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

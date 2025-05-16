@@ -1,5 +1,9 @@
+import { PetsList } from "../components/PetsList"
+
 export const Pets = () => {
   return (
-    <div>Pets</div>
+    <div>
+      <PetsList showResponsavel={false} showDescricao />
+    </div>
   )
 }

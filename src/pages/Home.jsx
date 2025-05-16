@@ -9,7 +9,7 @@ export const Home = () => {
     <div>
       <Banner />
       <AboutSection />
-      <PetsList />
+      <PetsList limit={8} showDescricao={false} showResponsavel />
       <ONGsSection />
       <Contact />
     </div>

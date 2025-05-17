@@ -94,6 +94,7 @@ export const PetRegister = () => {
             name="descricao"
             placeholder="Conte mais sobre o pet"
             register={register}
+            validation={{ required: "Campo obrigatório" }}
             error={errors.descricao?.message}
           />
 

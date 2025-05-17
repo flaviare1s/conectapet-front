@@ -24,8 +24,7 @@ export const PetRegister = () => {
     const petData = {
       ...data,
       guardianId: user.id,
-      responsavel: user.name,
-      temperamento: data.temperamento.split(",").map((t) => t.trim())
+      responsavel: user.name
     };
 
     try {
@@ -99,17 +98,9 @@ export const PetRegister = () => {
             error={errors.observacoes?.message}
           />
 
-          <InputField
-            label="Temperamento"
-            name="temperamento"
-            placeholder="Ex: brincalhão, calmo"
-            register={register}
-            error={errors.temperamento?.message}
-          />
-
           <div className="flex flex-col">
-            <label>Status</label>
-            <select {...register("status", { required: true })} className="input">
+            <label className="text-sm font-medium mb-1 text-gray-700">Status</label>
+            <select {...register("status", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
               <option value="">Selecione</option>
               <option value="Coração livre!">Coração livre!</option>
               <option value="Quase lá!">Quase lá!</option>
@@ -119,8 +110,8 @@ export const PetRegister = () => {
           </div>
 
           <div className="flex flex-col">
-            <label>Porte</label>
-            <select {...register("porte", { required: true })} className="input">
+            <label className="text-sm font-medium mb-1 text-gray-700">Porte</label>
+            <select {...register("porte", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
               <option value="">Selecione</option>
               <option value="pequeno">Pequeno</option>
               <option value="médio">Médio</option>
@@ -130,8 +121,8 @@ export const PetRegister = () => {
           </div>
 
           <div className="flex flex-col">
-            <label>Sexo</label>
-            <select {...register("sexo", { required: true })} className="input">
+            <label className="text-sm font-medium mb-1 text-gray-700">Sexo</label>
+            <select {...register("sexo", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
               <option value="">Selecione</option>
               <option value="macho">Macho</option>
               <option value="fêmea">Fêmea</option>
@@ -140,8 +131,8 @@ export const PetRegister = () => {
           </div>
 
           <div className="flex flex-col">
-            <label>Vacinado</label>
-            <select {...register("vacinado", { required: true })} className="input">
+            <label className="text-sm font-medium mb-1 text-gray-700">Vacinado</label>
+            <select {...register("vacinado", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
               <option value="">Selecione</option>
               <option value="sim">Sim</option>
               <option value="não">Não</option>
@@ -150,8 +141,8 @@ export const PetRegister = () => {
           </div>
 
           <div className="flex flex-col">
-            <label>Castrado</label>
-            <select {...register("castrado", { required: true })} className="input">
+            <label className="text-sm font-medium mb-1 text-gray-700">Castrado</label>
+            <select {...register("castrado", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
               <option value="">Selecione</option>
               <option value="sim">Sim</option>
               <option value="não">Não</option>

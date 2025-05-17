@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
-import { InputField } from "../components/InputField"; // ajuste o caminho se necessário
+import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { addPet } from "../api/pets";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { UserContext } from "../contexts/userContext";
 
 export const PetRegister = () => {
+  const { user } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -13,8 +16,15 @@ export const PetRegister = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    if (!user || !user.id) {
+      console.error("Usuário não está logado ou não possui ID.");
+      return;
+    }
+
     const petData = {
       ...data,
+      guardianId: user.id,
+      responsavel: user.name,
       temperamento: data.temperamento.split(",").map((t) => t.trim())
     };
 
@@ -97,7 +107,6 @@ export const PetRegister = () => {
             error={errors.temperamento?.message}
           />
 
-          {/* Selects estilizados na mão (pode ser um componente depois) */}
           <div className="flex flex-col">
             <label>Status</label>
             <select {...register("status", { required: true })} className="input">

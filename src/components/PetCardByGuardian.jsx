@@ -1,7 +1,22 @@
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { deletePet } from "../api/pets";
+import toast from "react-hot-toast";
 
 export const PetCardByGuardian = ({ pet }) => {
+  const removerPet = async () => {
+    const confirmDelete = window.confirm("Tem certeza de que deseja remover?");
+    if(confirmDelete) {
+      try {
+        await deletePet(pet.id);
+        window.location.reload();
+      } catch (error) {
+        console.error("Erro ao remover pet: ", error);
+        toast.error("Erro ao remover pet");
+      }
+    }
+  }
+
   const statusClasses = {
     "Coração livre!": "bg-verde-primario text-black font-bold",
     "Quase lá!": "bg-yellow-300 text-black font-bold",
@@ -37,7 +52,7 @@ export const PetCardByGuardian = ({ pet }) => {
           <div className="flex items-center justify-end gap-2">
             <Link to={`/mypets/edit/${pet.id}`}><FiEdit
              className="text-verde-primario text-xl" /></Link>
-            <button className="cursor-pointer"><FiTrash2 className="text-roxo-primario text-xl" /></button>
+            <button onClick={removerPet} className="cursor-pointer"><FiTrash2 className="text-roxo-primario text-xl" /></button>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePet } from "../api/pets";
 import toast from "react-hot-toast";
+import { AiOutlineEye } from "react-icons/ai";
 
 export const PetCardByGuardian = ({ pet }) => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ export const PetCardByGuardian = ({ pet }) => {
     if(confirmDelete) {
       try {
         await deletePet(pet.id);
+        window.location.reload();
         navigate("/mypets");
       } catch (error) {
         console.error("Erro ao remover pet: ", error);
@@ -27,7 +29,7 @@ export const PetCardByGuardian = ({ pet }) => {
   const badgeClass = statusClasses[pet.status] || "bg-gray-300 text-gray-800";
 
   return (
-    <Link to={`/pets/${pet.id}`} className="rounded p-4 shadow-md bg-white max-w-[300px]">
+    <div className="rounded p-4 shadow-md bg-white max-w-[300px]">
       <div className="relative">
         <div
           className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${badgeClass}`}
@@ -51,12 +53,13 @@ export const PetCardByGuardian = ({ pet }) => {
             <p className="text-sm text-cinza font-bold">{pet.responsavel}</p>
           </div>
           <div className="flex items-center justify-end gap-2">
+            <Link to={`/pets/${pet.id}`}><AiOutlineEye className="text-yellow-600 text-2xl hover:text-yellow-800 mt-1" /></Link>
             <Link to={`/mypets/edit/${pet.id}`}><FiEdit
              className="text-verde-primario text-xl hover:text-verde-escuro" /></Link>
-            <button onClick={removerPet} className="cursor-pointer"><FiTrash2 className="text-roxo-primario text-xl hover:text-rosa-forte" /></button>
+            <button onClick={removerPet} className="cursor-pointer"><FiTrash2 className="text-rosa-forte text-xl hover:text-roxo-primario" /></button>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };

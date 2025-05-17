@@ -6,7 +6,7 @@ export const PrivacyPolicy = () => {
           <span className="text-verde-primario">&lt;</span>ConectaPet<span className="text-verde-primario">&gt;</span> - Política de Privacidade
         </h1>
         <p className="text-cinza mb-4 text-sm">
-          Em <span className="text-roxo-primario"><spam className="text-verde-primario">&lt;</spam>ConectaPet<span className="text-verde-primario">&gt;</span></span>, a sua privacidade é muito importante para nós. Esta Política de Privacidade explica como coletamos, usamos, protegemos e compartilhamos suas informações pessoais quando você utiliza nosso serviço.
+          Em <span className="text-roxo-primario"><span className="text-verde-primario">&lt;</span>ConectaPet<span className="text-verde-primario">&gt;</span></span>, a sua privacidade é muito importante para nós. Esta Política de Privacidade explica como coletamos, usamos, protegemos e compartilhamos suas informações pessoais quando você utiliza nosso serviço.
         </p>
 
         <h2 className="text-lg font-semibold text-roxo-primario mb-4">1. Informações Coletadas</h2>

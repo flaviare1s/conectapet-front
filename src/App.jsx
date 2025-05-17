@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
 import { Loader } from "./components/Loader";
+import { AdoptionForm } from "./pages/AdoptionForm";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -63,6 +64,7 @@ function App() {
           <Route path="/mypets" element={<PrivateRoute><MyPets /></PrivateRoute>} />
           <Route path="/mypets/edit/:id" element={<PrivateRoute><PetEdit /></PrivateRoute>} />
           <Route path="/ongs" element={<ONGs />} />
+          <Route path="/pets/adopt/:id" element={<AdoptionForm />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/forbidden" element={<Forbidden />} />

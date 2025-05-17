@@ -5,6 +5,11 @@ export const getPets = async () => {
   return data
 }
 
+export const getPet = async (id) => {
+  const { data } = await axios.get(`/pets/${id}`)
+  return data
+}
+
 export const getPetsByGuardianId = async (guardianId) => {
   const response = await axios.get(`/pets?guardianId=${guardianId}`);
   if (!Array.isArray(response.data)) {

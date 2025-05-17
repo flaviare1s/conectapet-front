@@ -21,8 +21,8 @@ export const UserProvider = ({ children }) => {
 
   const login = (userData) => {
     if (userData && userData.role) {
-      setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
+      setUser(userData);
     } else {
       console.error("Dados inválidos para o login");
     }

@@ -26,7 +26,7 @@ export const PetCardByGuardian = ({ pet }) => {
   const badgeClass = statusClasses[pet.status] || "bg-gray-300 text-gray-800";
 
   return (
-    <div className="rounded p-4 shadow-md bg-white max-w-[300px]">
+    <Link to={`/pets/${pet.id}`} className="rounded p-4 shadow-md bg-white max-w-[300px]">
       <div className="relative">
         <div
           className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${badgeClass}`}
@@ -51,11 +51,11 @@ export const PetCardByGuardian = ({ pet }) => {
           </div>
           <div className="flex items-center justify-end gap-2">
             <Link to={`/mypets/edit/${pet.id}`}><FiEdit
-             className="text-verde-primario text-xl" /></Link>
-            <button onClick={removerPet} className="cursor-pointer"><FiTrash2 className="text-roxo-primario text-xl" /></button>
+             className="text-verde-primario text-xl hover:text-verde-escuro" /></Link>
+            <button onClick={removerPet} className="cursor-pointer"><FiTrash2 className="text-roxo-primario text-xl hover:text-rosa-forte" /></button>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

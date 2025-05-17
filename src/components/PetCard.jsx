@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const PetCard = ({ pet, showDescricao = true }) => {
   const statusClasses = {
     "Coração livre!": "bg-verde-primario text-black font-bold",
@@ -8,7 +10,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
   const badgeClass = statusClasses[pet.status] || "bg-gray-300 text-gray-800";
 
   return (
-    <div className="rounded p-4 shadow-md bg-white max-w-[300px]">
+    <Link to={`/pets/${pet.id}`} className="rounded p-4 shadow-md bg-white max-w-[300px]">
       <div className="relative">
         <div
           className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${badgeClass}`}
@@ -36,6 +38,6 @@ export const PetCard = ({ pet, showDescricao = true }) => {
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

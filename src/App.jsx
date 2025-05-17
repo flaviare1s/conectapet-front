@@ -17,16 +17,34 @@ import { PetProfile } from "./pages/PetProfile";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { MyPets } from "./pages/MyPets";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
+import { Loader } from "./components/Loader";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loadingApp, setLoadingApp] = useState(true);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoadingApp(false);
+  }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem("user");
     setUser(null);
   };
+
+
+  if (loadingApp) {
+    return (
+      <Loader />
+    );
+  }
 
   return (
     <div className="font-inter flex flex-col min-h-screen overflow-x-hidden">

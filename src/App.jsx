@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Login } from "./pages/Login";
@@ -24,6 +24,7 @@ import { Loader } from "./components/Loader";
 import { AdoptionForm } from "./pages/AdoptionForm";
 
 function App() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loadingApp, setLoadingApp] = useState(true);
 
@@ -38,6 +39,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
+    navigate("/login");
   };
 
 

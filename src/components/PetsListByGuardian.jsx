@@ -16,7 +16,6 @@ export const PetsListByGuardian = ({ guardianId }) => {
     const fetchPetsByGuardian = async () => {
       try {
         const result = await getPetsByGuardianId(guardianId);
-        console.log("result", result);
         setPets(result);
       } catch (error) {
         console.error("Erro ao buscar pets: ", error);

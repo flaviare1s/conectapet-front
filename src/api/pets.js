@@ -19,6 +19,14 @@ export const getPetsByGuardianId = async (guardianId) => {
   return response.data.filter((pet) => pet.guardianId === guardianId);
 };
 
+export const addPet = async (pet) => {
+  await axios.post("/pets", pet);
+}
+
+export const updatePet = async (id, pet) => {
+  await axios.put(`/pets/${id}`, pet);
+}
+
 export const deletePet = async (id) => {
   await axios.delete(`/pets/${id}`);
 }

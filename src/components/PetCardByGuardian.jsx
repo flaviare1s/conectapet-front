@@ -1,15 +1,16 @@
 import { FiEdit, FiTrash2 } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deletePet } from "../api/pets";
 import toast from "react-hot-toast";
 
 export const PetCardByGuardian = ({ pet }) => {
+  const navigate = useNavigate();
   const removerPet = async () => {
     const confirmDelete = window.confirm("Tem certeza de que deseja remover?");
     if(confirmDelete) {
       try {
         await deletePet(pet.id);
-        window.location.reload();
+        navigate("/mypets");
       } catch (error) {
         console.error("Erro ao remover pet: ", error);
         toast.error("Erro ao remover pet");

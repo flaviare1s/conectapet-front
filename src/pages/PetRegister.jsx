@@ -5,14 +5,17 @@ import { addPet } from "../api/pets";
 import toast from "react-hot-toast";
 import { useContext } from "react";
 import { UserContext } from "../contexts/userContext";
+import { SelectField } from "../components/SelectField";
+import { useNavigate } from "react-router-dom";
 
 export const PetRegister = () => {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -24,13 +27,14 @@ export const PetRegister = () => {
     const petData = {
       ...data,
       guardianId: user.id,
-      responsavel: user.name
+      responsavel: user.name,
     };
 
     try {
       await addPet(petData);
       toast.success("Pet cadastrado com sucesso!");
       reset();
+      navigate("/mypets");
     } catch (err) {
       toast.error("Erro ao cadastrar pet.");
       console.error("Erro ao cadastrar pet:", err);
@@ -45,7 +49,10 @@ export const PetRegister = () => {
           <span className="text-verde-primario">&gt;</span>
         </h2>
 
-        <form className="my-4 flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="my-4 flex flex-col gap-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <InputField
             label="Nome"
             name="nome"
@@ -98,57 +105,67 @@ export const PetRegister = () => {
             error={errors.observacoes?.message}
           />
 
-          <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1 text-gray-700">Status</label>
-            <select {...register("status", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
-              <option value="">Selecione</option>
-              <option value="Coração livre!">Coração livre!</option>
-              <option value="Quase lá!">Quase lá!</option>
-              <option value="Final feliz!">Final feliz!</option>
-            </select>
-            {errors.status && <small className="text-red-500">{errors.status.message}</small>}
-          </div>
+          <SelectField
+            label="Status"
+            name="status"
+            options={[
+              { value: "Coração livre!", label: "Coração livre!" },
+              { value: "Quase lá!", label: "Quase lá!" },
+              { value: "Final feliz!", label: "Final feliz!" },
+            ]}
+            register={register}
+            validation={{ required: "Campo obrigatório" }}
+            error={errors.status?.message}
+          />
 
-          <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1 text-gray-700">Porte</label>
-            <select {...register("porte", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
-              <option value="">Selecione</option>
-              <option value="pequeno">Pequeno</option>
-              <option value="médio">Médio</option>
-              <option value="grande">Grande</option>
-            </select>
-            {errors.porte && <small className="text-red-500">{errors.porte.message}</small>}
-          </div>
+          <SelectField
+            label="Porte"
+            name="porte"
+            options={[
+              { value: "pequeno", label: "Pequeno" },
+              { value: "médio", label: "Médio" },
+              { value: "grande", label: "Grande" },
+            ]}
+            register={register}
+            validation={{ required: "Campo obrigatório" }}
+            error={errors.porte?.message}
+          />
 
-          <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1 text-gray-700">Sexo</label>
-            <select {...register("sexo", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
-              <option value="">Selecione</option>
-              <option value="macho">Macho</option>
-              <option value="fêmea">Fêmea</option>
-            </select>
-            {errors.sexo && <small className="text-red-500">{errors.sexo.message}</small>}
-          </div>
+          <SelectField
+            label="Sexo"
+            name="sexo"
+            options={[
+              { value: "macho", label: "Macho" },
+              { value: "fêmea", label: "Fêmea" },
+            ]}
+            register={register}
+            validation={{ required: "Campo obrigatório" }}
+            error={errors.sexo?.message}
+          />
 
-          <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1 text-gray-700">Vacinado</label>
-            <select {...register("vacinado", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
-              <option value="">Selecione</option>
-              <option value="sim">Sim</option>
-              <option value="não">Não</option>
-            </select>
-            {errors.vacinado && <small className="text-red-500">{errors.vacinado.message}</small>}
-          </div>
+          <SelectField
+            label="Vacinado"
+            name="vacinado"
+            options={[
+              { value: "sim", label: "Sim" },
+              { value: "não", label: "Não" },
+            ]}
+            register={register}
+            validation={{ required: "Campo obrigatório" }}
+            error={errors.vacinado?.message}
+          />
 
-          <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1 text-gray-700">Castrado</label>
-            <select {...register("castrado", { required: true })} className="py-2 px-3 rounded-md border border-gray-300">
-              <option value="">Selecione</option>
-              <option value="sim">Sim</option>
-              <option value="não">Não</option>
-            </select>
-            {errors.castrado && <small className="text-red-500">{errors.castrado.message}</small>}
-          </div>
+          <SelectField
+            label="Castrado"
+            name="castrado"
+            options={[
+              { value: "sim", label: "Sim" },
+              { value: "não", label: "Não" },
+            ]}
+            register={register}
+            validation={{ required: "Campo obrigatório" }}
+            error={errors.castrado?.message}
+          />
 
           <SubmitButton label="Cadastrar Pet" />
         </form>

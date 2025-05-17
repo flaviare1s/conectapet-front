@@ -5,7 +5,7 @@ import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import { createUser } from "../api/users";
 import toast from "react-hot-toast";
 import { useUser } from "../hooks/useUser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
@@ -56,9 +56,9 @@ export const UserRegister = () => {
         </h2>
         <small className="text-dark text-center">
           Já possui uma conta? Entre{" "}
-          <a className="underline" href="/login">
+          <Link className="underline" to="/login">
             aqui
-          </a>
+          </Link>
         </small>
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">
           <InputField

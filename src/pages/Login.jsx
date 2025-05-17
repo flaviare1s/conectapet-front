@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { fetchUsers } from "../api/auth";
@@ -76,9 +76,9 @@ export const Login = () => {
         </h2>
         <small className="text-dark text-center">
           Não possui uma conta? Cadastre-se{" "}
-          <a className="underline" href="/signup">
+          <Link className="underline" to="/signup">
             aqui
-          </a>
+          </Link>
         </small>
 
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">

@@ -4,7 +4,7 @@ import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import toast from "react-hot-toast";
 import { useUser } from "../hooks/useUser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createGuardian } from "../api/users.js";
 
 import bgDog1 from "../assets/bg-dog1.png";
@@ -56,9 +56,9 @@ export const GuardianRegister = () => {
         </h2>
         <small className="text-dark text-center">
           Já possui uma conta? Entre{" "}
-          <a className="underline" href="/login">
+          <Link className="underline" to="/login">
             aqui
-          </a>
+          </Link>
         </small>
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">
           <InputField

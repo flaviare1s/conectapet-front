@@ -11,8 +11,7 @@ export const PetCardByGuardian = ({ pet }) => {
     if(confirmDelete) {
       try {
         await deletePet(pet.id);
-        window.location.reload();
-        navigate("/mypets");
+        navigate(0);
       } catch (error) {
         console.error("Erro ao remover pet: ", error);
         toast.error("Erro ao remover pet");

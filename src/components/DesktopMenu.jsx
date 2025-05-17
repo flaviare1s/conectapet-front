@@ -15,7 +15,6 @@ export const DesktopMenu = ({ user, onLogout }) => {
         <>
           {isGuardian && ( // Exibindo links apenas se for guardian
             <>
-              <Link className="hover:text-roxo-primario hover:underline p-1 font-semibold" to='/pets/add'>Cadastrar pet</Link>
               <Link className="hover:text-roxo-primario hover:underline p-1 font-semibold" to='/mypets'>Meus pets</Link>
             </>
           )}

@@ -27,7 +27,6 @@ function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loadingApp, setLoadingApp] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");

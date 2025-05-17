@@ -17,16 +17,35 @@ import { PetProfile } from "./pages/PetProfile";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { MyPets } from "./pages/MyPets";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
+import { Loader } from "./components/Loader";
+import { AdoptionForm } from "./pages/AdoptionForm";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loadingApp, setLoadingApp] = useState(true);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoadingApp(false);
+  }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem("user");
     setUser(null);
   };
+
+
+  if (loadingApp) {
+    return (
+      <Loader />
+    );
+  }
 
   return (
     <div className="font-inter flex flex-col min-h-screen overflow-x-hidden">
@@ -45,6 +64,7 @@ function App() {
           <Route path="/mypets" element={<PrivateRoute><MyPets /></PrivateRoute>} />
           <Route path="/mypets/edit/:id" element={<PrivateRoute><PetEdit /></PrivateRoute>} />
           <Route path="/ongs" element={<ONGs />} />
+          <Route path="/pets/adopt/:id" element={<AdoptionForm />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/forbidden" element={<Forbidden />} />

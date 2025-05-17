@@ -33,7 +33,6 @@ export const MobileMenu = ({ user, onLogout }) => {
           <>
             {isGuardian ? (
               <>
-                <Link onClick={() => setIsOpen(false)} to="/pets/add" className="hover:text-roxo-primario hover:underline font-semibold">Cadastrar pet</Link>
                 <Link onClick={() => setIsOpen(false)} to="/mypets" className="hover:text-roxo-primario hover:underline font-semibold">Meus pets</Link>
               </>
             ) : (

@@ -39,7 +39,10 @@ export const MobileMenu = ({ user, onLogout }) => {
               <></>
             )}
             <button
-              onClick={onLogout}
+              onClick={() => {
+                setIsOpen(false); // Fecha o menu
+                onLogout();       // Executa o logout
+              }}
               className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-center text-sm font-bold cursor-pointer"
             >
               Sair

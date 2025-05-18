@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Login } from "./pages/Login";
@@ -22,37 +22,23 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
 import { Loader } from "./components/Loader";
 import { AdoptionForm } from "./pages/AdoptionForm";
+import { useAuth } from "./contexts/AuthConText";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
   const [loadingApp, setLoadingApp] = useState(true);
-  const navigate = useNavigate();
-
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
     setLoadingApp(false);
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-    navigate("/login");
-  };
-
-
   if (loadingApp) {
-    return (
-      <Loader />
-    );
+    return <Loader />;
   }
 
   return (
     <div className="font-inter flex flex-col min-h-screen overflow-x-hidden">
-      <Header user={user} onLogout={handleLogout} />
+      <Header user={user} />
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />

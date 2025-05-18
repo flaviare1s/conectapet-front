@@ -4,7 +4,7 @@ import { SubmitButton } from "../components/SubmitButton";
 import { addPet } from "../api/pets";
 import toast from "react-hot-toast";
 import { useContext } from "react";
-import { UserContext } from "../contexts/userContext";
+import { UserContext } from "../contexts/UserContext";
 import { SelectField } from "../components/SelectField";
 import { useNavigate } from "react-router-dom";
 

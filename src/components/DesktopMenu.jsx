@@ -13,7 +13,7 @@ export const DesktopMenu = ({ user, onLogout }) => {
 
       {isLoggedIn ? (
         <>
-          {isGuardian && ( // Exibindo links apenas se for guardian
+          {isGuardian && (
             <>
               <Link className="hover:text-roxo-primario hover:underline p-1 font-semibold" to='/mypets'>Meus pets</Link>
             </>

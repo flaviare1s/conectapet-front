@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { DesktopMenu } from './DesktopMenu';
 import { MobileMenu } from './MobileMenu';
-import { useUser } from '../hooks/useUser';
+import { useAuth } from '../contexts/AuthConText';
 
 export const Header = () => {
-  const { user, logout } = useUser()
+  const { user, logout } = useAuth()
   return (
     <header className='h-[104px] flex justify-between items-center px-6'>
       <Link to="/" className='w-[74px] md:w-[105px]'>

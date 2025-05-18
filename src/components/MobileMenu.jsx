@@ -19,7 +19,7 @@ export const MobileMenu = ({ user, onLogout }) => {
 
       <nav
         className={`
-          absolute top-[104px] right-0 w-full bg-white shadow-lg p-6 rounded-bl-md z-50 flex flex-col gap-4 text-gray-800
+          absolute top-[104px] right-0 w-full h-screen bg-white shadow-lg p-6 rounded-bl-md z-50 flex flex-col gap-4 text-gray-800
           transform transition-transform duration-300 ease-out
           ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}
         `}
@@ -33,15 +33,17 @@ export const MobileMenu = ({ user, onLogout }) => {
           <>
             {isGuardian ? (
               <>
-                <Link onClick={() => setIsOpen(false)} to="/pets/add" className="hover:text-roxo-primario hover:underline font-semibold">Cadastrar pet</Link>
                 <Link onClick={() => setIsOpen(false)} to="/mypets" className="hover:text-roxo-primario hover:underline font-semibold">Meus pets</Link>
               </>
             ) : (
               <></>
             )}
             <button
-              onClick={onLogout}
-              className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-center text-sm font-bold"
+              onClick={() => {
+                setIsOpen(false); // Fecha o menu
+                onLogout();       // Executa o logout
+              }}
+              className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-center text-sm font-bold cursor-pointer"
             >
               Sair
             </button>

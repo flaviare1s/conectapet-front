@@ -17,20 +17,28 @@ import { PetProfile } from "./pages/PetProfile";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { MyPets } from "./pages/MyPets";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
+import { Loader } from "./components/Loader";
+import { AdoptionForm } from "./pages/AdoptionForm";
+import { useAuth } from "./contexts/AuthConText";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
+  const [loadingApp, setLoadingApp] = useState(true);
 
-  const handleLogout = () => {
-    setUser(null);
-  };
+  useEffect(() => {
+    setLoadingApp(false);
+  }, []);
+
+  if (loadingApp) {
+    return <Loader />;
+  }
 
   return (
     <div className="font-inter flex flex-col min-h-screen overflow-x-hidden">
-      <Header user={user} onLogout={handleLogout} />
+      <Header user={user} />
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -45,6 +53,7 @@ function App() {
           <Route path="/mypets" element={<PrivateRoute><MyPets /></PrivateRoute>} />
           <Route path="/mypets/edit/:id" element={<PrivateRoute><PetEdit /></PrivateRoute>} />
           <Route path="/ongs" element={<ONGs />} />
+          <Route path="/pets/adopt/:id" element={<AdoptionForm />} />
           <Route path="/congratulations" element={<Congratulations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/forbidden" element={<Forbidden />} />

@@ -20,7 +20,7 @@ export const DesktopMenu = ({ user, onLogout }) => {
           )}
           <button
             onClick={onLogout}
-            className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-xs font-bold"
+            className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-xs font-bold cursor-pointer"
           >
             Sair
           </button>

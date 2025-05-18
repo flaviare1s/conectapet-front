@@ -28,6 +28,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [loadingApp, setLoadingApp] = useState(true);
 
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {

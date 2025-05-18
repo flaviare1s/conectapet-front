@@ -14,8 +14,9 @@ export const AboutSection = () => {
         </div>
       </div>
       <div className='mt-5 mb-0 relative flex items-center justify-center'>
-        <picture>
-          <img src={Dog} alt="Dog Black" className='w-[300px] sm:w-[400px]'/>
+        <picture className='relative'>
+          <div className='bg-[#b34e95] absolute left-[20px] z-0 rounded-full w-[270px] sm:w-[370px] h-[270px] sm:h-[370px]'></div>
+          <img src={Dog} alt="Dog Black" className='w-[300px] sm:w-[400px] relative z-20'/>
         </picture>
       </div>
     </div>

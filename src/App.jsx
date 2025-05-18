@@ -28,6 +28,7 @@ function App() {
   const [loadingApp, setLoadingApp] = useState(true);
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {

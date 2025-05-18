@@ -33,7 +33,7 @@ export const PetProfile = () => {
 
   return (
     <section>
-      <div className="flex items-center justify-between mb-6 max-w-4xl mx-auto">
+      <div className="flex items-center justify-between mb-6 max-w-4xl mx-auto px-6">
         <h2 className="text-xl font-semibold text-roxo-primario">
           <span className="text-verde-primario">&lt;</span>
           Meu Perfil

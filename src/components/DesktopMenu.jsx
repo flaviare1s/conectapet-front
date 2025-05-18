@@ -13,14 +13,14 @@ export const DesktopMenu = ({ user, onLogout }) => {
 
       {isLoggedIn ? (
         <>
-          {isGuardian && ( // Exibindo links apenas se for guardian
+          {isGuardian && (
             <>
               <Link className="hover:text-roxo-primario hover:underline p-1 font-semibold" to='/mypets'>Meus pets</Link>
             </>
           )}
           <button
             onClick={onLogout}
-            className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-xs font-bold"
+            className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-6 text-xs font-bold cursor-pointer"
           >
             Sair
           </button>

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export const Filter = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({
+    tipo: [],
     status: [],
     porte: [],
     sexo: [],
@@ -23,6 +24,14 @@ export const Filter = ({ onFilterChange }) => {
 
   return (
     <div className="sm:w-[190px] sm:text-base bg-white py-4 px-2 sm:px-4 shadow-2xl w-[150px] text-sm">
+      <FilterGroup
+        title="Tipo"
+        name="tipo"
+        options={["cachorro", "gato"]}
+        selected={filters.tipo}
+        onChange={handleChange}
+      />
+
       <FilterGroup
         title="Status"
         name="status"

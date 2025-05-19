@@ -8,7 +8,7 @@ export const Banner = () => {
   return (
     <div className="h-[90vh] w-full">
       <Swiper
-        modules={[Pagination]}
+        modules={[Autoplay, Pagination]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         loop={true}

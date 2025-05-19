@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import 'swiper/css';
 @import 'swiper/css/pagination';
-/* @import 'swiper/css/autoplay'; */
+@import 'swiper/css/autoplay';
 
 @theme {
   --color-roxo-primario: #6F0264;

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export const SelectAccountType = () => {
   return (
@@ -8,27 +8,22 @@ export const SelectAccountType = () => {
           <span className="text-verde-primario">&lt;</span>
           Escolha o tipo de conta
           <span className="text-verde-primario">&gt;</span>
-
-
         </h2>
-
         <small className="text-dark text-center">
-          Já possui uma conta? {" "}
-          <Link to="/login">
-            <strong>Entre aqui</strong>
-          </Link> 
+          Já possui uma conta? Entre{" "}
+          <Link className="underline" to="/login">
+            aqui
+          </Link>
         </small>
-
         <div>
-          <div className="text-white font-medium text-sm py-2 px-4 rounded-md transition-colors duration-75 font-inter focus:outline-none focus:shadow-outline w-full cursor-pointer mt-5 bg-roxo-primario hover:bg-rosa-forte flex justify-center"><Link to="/signup/user">Quero adotar</Link></div>
-          <div className="text-white font-medium text-sm py-2 px-4 rounded-md transition-colors duration-75 font-inter focus:outline-none focus:shadow-outline w-full cursor-pointer mt-5 bg-roxo-primario hover:bg-rosa-forte flex justify-center "><Link to="/signup/guardian">Quero cadastrar pets !</Link></div>
+          <div className="text-white font-medium text-sm py-2 px-4 rounded-md transition-colors duration-75 font-inter focus:outline-none focus:shadow-outline w-full cursor-pointer mt-5 bg-roxo-primario hover:bg-rosa-forte flex justify-center">
+            <Link to="/signup/user">Quero adotar</Link>
+          </div>
+          <div className="text-white font-medium text-sm py-2 px-4 rounded-md transition-colors duration-75 font-inter focus:outline-none focus:shadow-outline w-full cursor-pointer mt-5 bg-roxo-primario hover:bg-rosa-forte flex justify-center ">
+            <Link to="/signup/guardian">Quero cadastrar pets !</Link>
+          </div>
         </div>
       </div>
-
     </div>
-
-  )
-}
-
-// Span tag - serve para estilizar     
-// mudar tag a para Link 
+  );
+};

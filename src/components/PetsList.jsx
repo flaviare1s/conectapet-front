@@ -38,9 +38,9 @@ export const PetsList = ({ limit, showDescricao = true, filters = {} }) => {
     <div className="p-6 md:p-10 lg:px-20 bg-purple-50">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-bold md:text-xl">Galeria dos peludinhos:</h2>
-          <Link className="text-roxo-primario hover:underline" to="/pets">
-            Ver todos →
-          </Link>
+        <Link className="text-roxo-primario hover:underline" to="/pets">
+          Ver todos →
+        </Link>
       </div>
       <div className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

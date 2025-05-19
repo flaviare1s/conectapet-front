@@ -40,7 +40,7 @@ export const PetsListComplete = ({
   const petsToShow = limit ? filteredPets.slice(0, limit) : filteredPets;
 
   return (
-    <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50">
+    <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50 w-screen">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-bold md:text-xl sm:hidden">Pets:</h2>
         <h2 className="font-bold md:text-xl hidden sm:block">
@@ -54,6 +54,7 @@ export const PetsListComplete = ({
         </button>
       </div>
       <div className="flex flex-col justify-center items-center">
+        {petsToShow.length === 0 && <p className="text-gray-600 h-[60vh]">Nenhum resultado encontrado!</p>}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {petsToShow.map((pet) => (
             <PetCard key={pet.id} pet={pet} showDescricao={showDescricao} />

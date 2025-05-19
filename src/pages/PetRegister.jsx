@@ -53,6 +53,18 @@ export const PetRegister = () => {
           className="my-4 flex flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}
         >
+          <SelectField
+            label="Tipo"
+            name="tipo"
+            options={[
+              { value: "cachorro", label: "Cachorro" },
+              { value: "gato", label: "Gato" },
+            ]}
+            register={register}
+            validation={{ required: "Campo obrigatório" }}
+            error={errors.status?.message}
+          />
+
           <InputField
             label="Nome"
             name="nome"
@@ -69,15 +81,6 @@ export const PetRegister = () => {
             register={register}
             validation={{ required: "Campo obrigatório" }}
             error={errors.idade?.message}
-          />
-
-          <InputField
-            label="Tipo"
-            name="tipo"
-            placeholder="Ex: cachorro"
-            register={register}
-            validation={{ required: "Campo obrigatório" }}
-            error={errors.tipo?.message}
           />
 
           <InputField

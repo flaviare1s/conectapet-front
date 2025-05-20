@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
+import { useAuth } from "../contexts/AuthConText";
 
 export const PetProfile = () => {
+  const { user } = useAuth();
   const { id } = useParams();
   const [petInfo, setPetInfo] = useState(null);
   const navigate = useNavigate();
@@ -97,12 +99,21 @@ export const PetProfile = () => {
               )}
             </div>
           </div>
+          {user && user.role === "user" ? (
           <Link
             to={`/pets/adopt/${petInfo.id}`}
             className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
           >
             Quero Adotar!
-          </Link>
+          </Link> 
+          ) : (
+            <Link
+              to={`/signup/user`}
+              className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
+            >
+              Quero Adotar!
+            </Link>
+          )}
         </div>
       </div>
     </section>

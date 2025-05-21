@@ -4,9 +4,9 @@ import { SiGoogleforms } from "react-icons/si";
 
 export const About = () => {
   return (
-    <div className="flex flex-col flex-grow items-center justify-center my-15">
+    <div className="flex flex-col flex-grow items-center justify-center my-15 max-w-[1200px] mx-auto">
         <div className="flex flex-col flex-grow items-center justify-center">
-          <h1 className="text-verde-primario text-5xl p-4"><strong>Nossa missão</strong></h1>
+          <h1 className="text-verde-primario text-center text-5xl p-4"><strong>Nossa missão</strong></h1>
           <p className="text-2xl text-left px-10 pb-5">
             No <strong className="text-3xl text-roxo-primario">ConectaPet</strong>, acreditamos que todo animal merece amor, cuidado e um lar seguro. Nossa missão é ser a ponte entre animais resgatados e pessoas dispostas a oferecer uma nova chance para quem já sofreu demais. Mais do que um site, somos um movimento de empatia, responsabilidade e esperança.
           </p>

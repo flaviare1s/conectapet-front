@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaInstagram } from "react-icons/fa"
 
-export const ONGItem = ({ img, nome, link , descricao }) => {
+export const ONGItem = ({ img, nome, link , pix }) => {
     return (
         <div>
             <div className="rounded p-4 shadow-md bg-white max-w-[300px]">
@@ -10,27 +10,26 @@ export const ONGItem = ({ img, nome, link , descricao }) => {
                 >
                     { }
                 </div>
-                <img
-                    src={img}
-                    alt={`${nome}`}
-
-                    className="w-[300px] h-[200px] object-cover rounded"
-                />
+                <div className="w-[250px] h-[250px]">
+                    <img
+                        src={img}
+                        alt={`${nome}`}
+                        className="w-full  object-contain"
+                    />
+                </div>
 
 
                 <div className="mt-3">
-                    <small className="text-xs text-cinza capitalize">Ongs</small>
-                    <div className="font-medium text-lg">
-                        <span>{nome}</span> 
-                    </div>
+                    <small className="text-xs text-cinza capitalize">Ong</small>
                     <div className="flex flex-col">
-                        <div className="flex items-center gap-1">
-                            <span className=""></span>
-                            <a href={link} className="text-sm text-cinza font-bold"><FaInstagram className='text-2xl text-roxo-primario hover:text-rosa-forte cursor-pointer'/></a>
+                        <div>
+                            <a href={link} target="_blank" className="text-sm text-cinza font-bold flex item-center py-2 gap-2" >
+                                <FaInstagram className='text-2xl text-roxo-primario hover:text-rosa-forte cursor-pointer py-'/>
+                                <span className='text-roxo-primario text-lg cursor-pointer py- hover:text-rosa-forte ' >{nome}</span></a>
                         </div>
                     <small className="text-xs text-cinza capitalize">Descrição</small>
-                    <div className="font-extralight text-lg">
-                        <span>{descricao}</span> 
+                    <div className="font-extralight text-sm ">
+                        <p>Ajude-nos doando atraves do nosso pix:<span className="font-semibold">{pix}</span></p> 
                     </div>
 
                     </div>          

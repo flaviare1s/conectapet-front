@@ -24,15 +24,15 @@ export const ONGsList = () => {
         </button>
       </div>``
       <div className="flex flex-col justify-center items-center"></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <ONGItem nome='Apata' img={logoApata} link='https://www.instagram.com//apata_ceara' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="Abrace" img={logoAbrace} Link='https://www.instagram.com/ong.abrace/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="Asl"  img={logoASL} Link='https://www.instagram.com/abrigosaolazaro/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="Au" img={logoAu} Link='https://www.instagram.com/animaisuniversitarios/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="CausaPet" img={logoCausaPet} Link='https://www.instagram.com/causapet/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="GPA" img={logoGPA} Link='https://www.instagram.com/gpa_grupodeprotecaoanimal/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="Upac" img={logoUpac} Link='https://www.instagram.com/projetoviralatascomraca/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
-            <ONGItem nome="APA" img={logoApa} Link='https://www.instagram.com/apa_fortaleza/' descricao={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, deserunt! Vitae et autem tenetur, totam illo error architecto dolor debitis obcaecati velit quisquam illum, eligendi consectetur repellendus nemo sit nisi."}/>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <ONGItem nome='GPA' img={logoApata} link='https://www.instagram.com//apata_ceara' pix=" E-mail apatace@gmail.com"/>
+            <ONGItem nome="Abrace" img={logoAbrace} link='https://www.instagram.com/ong.abrace/' pix=" ABRACE 24287894000100 C"/>
+            <ONGItem nome="Abrigo São Lázaro"  img={logoASL} link='https://www.instagram.com/abrigosaolazaro/' pix=" 13043465/0001-71"/>
+            <ONGItem nome="Apata" img={logoAu} link='https://www.instagram.com/animaisuniversitarios/' pix=" 85989079977"/>
+            <ONGItem nome="Au" img={logoCausaPet} link='https://www.instagram.com/causapet/' pix=" queroajudar@causapet.com"/>
+            <ONGItem nome="Abrace" img={logoGPA} link='https://www.instagram.com/gpa_grupodeprotecaoanimal/' pix=" gpa.internet@gmail.com"/>
+            <ONGItem nome="Apa" img={logoUpac} link='https://www.instagram.com/projetoviralatascomraca/' pix=" pvlr.pix@gmail.com"/>
+            <ONGItem nome="Causa Pet" img={logoApa} link='https://www.instagram.com/apa_fortaleza/' pix=" (85) 98994-8973"/>
 
             
         </div>

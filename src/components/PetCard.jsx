@@ -11,6 +11,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
 
   return (
     <Link to={`/pets/${pet.id}`} className="rounded p-4 shadow-md bg-white max-w-[300px]">
+      
       <div className="relative">
         <div
           className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${badgeClass}`}
@@ -23,6 +24,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
           className="w-full h-[200px] object-cover rounded"
         />
       </div>
+      
       <div className="mt-3">
         <small className="text-xs text-cinza capitalize">{pet.tipo}</small>
         <div className="font-medium text-lg">
@@ -37,6 +39,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
             <p className="text-sm text-cinza mt-3">{pet.descricao}</p>
           )}
         </div>
+        
       </div>
     </Link>
   );

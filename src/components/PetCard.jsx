@@ -37,6 +37,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
             <p className="text-sm text-cinza mt-3">{pet.descricao}</p>
           )}
         </div>
+        
       </div>
     </Link>
   );

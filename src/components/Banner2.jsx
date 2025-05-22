@@ -47,12 +47,12 @@ export const Banner2 = () => {
         )}
       </div>
       <div className="sm:hidden flex flex-col items-center justify-between p-10 h-full">
-        <h1 className="text-3xl text-roxo-primario font-extrabold">
+        <h2 className="text-4xl text-roxo-primario font-extrabold">
           <span>
             <span className="text-verde-primario">&lt;</span>ConectaPet
             <span className="text-verde-primario">&gt;</span>
           </span>
-        </h1>
+        </h2>
         <div className="flex flex-col items-center justify-end">
           <p className="font-bold mb-7 text-lg text-center px-10">
             Ajude um pet a encontrar seu lar!

@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
 import { PetCard } from "./PetCard";
 import { useEffect, useState } from "react";
 import { getPets } from "../api/pets";
 import { Loader } from "./Loader";
+import ReturnButton from "./ReturnButton";
 
 export const PetsListComplete = ({
   limit,
@@ -11,7 +11,6 @@ export const PetsListComplete = ({
 }) => {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -46,12 +45,7 @@ export const PetsListComplete = ({
         <h2 className="font-bold md:text-xl hidden sm:block">
           Galeria dos peludinhos:
         </h2>
-        <button
-          onClick={() => navigate(-1)}
-          className="text-roxo-primario hover:underline cursor-pointer"
-        >
-          &larr; Voltar
-        </button>
+        <ReturnButton />
       </div>
       <div className="flex flex-col justify-center items-center">
         {petsToShow.length === 0 && <p className="text-gray-600 h-[60vh]">Nenhum resultado encontrado!</p>}

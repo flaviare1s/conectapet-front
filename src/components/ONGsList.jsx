@@ -7,10 +7,9 @@ import logoAu from '../assets/logos-ongs/Ongs_listaPage/ong5.jpg'
 import logoCausaPet from '../assets/logos-ongs/Ongs_listaPage/ong6.jpg'
 import logoGPA from '../assets/logos-ongs/Ongs_listaPage/ong7.jpg'
 import logoUpac from '../assets/logos-ongs/Ongs_listaPage/ong8.jpg'
-import { useNavigate } from "react-router-dom";
+import ReturnButton from "./ReturnButton";
 
 export const ONGsList = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50 w-screen flex flex-col">
@@ -18,12 +17,7 @@ export const ONGsList = () => {
         <h2 className="font-bold md:text-xl">
           Nossos parceiros:
         </h2>
-        <button
-          onClick={() => navigate(-1)}
-          className="text-roxo-primario hover:underline cursor-pointer"
-        >
-          &larr; Voltar
-        </button>
+        <ReturnButton />
       </div>
       <div className="flex flex-col justify-center items-center"></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center">

@@ -7,13 +7,15 @@ import logoAu from '../assets/logos-ongs/Ongs_listaPage/ong5.jpg'
 import logoCausaPet from '../assets/logos-ongs/Ongs_listaPage/ong6.jpg'
 import logoGPA from '../assets/logos-ongs/Ongs_listaPage/ong7.jpg'
 import logoUpac from '../assets/logos-ongs/Ongs_listaPage/ong8.jpg'
+import { useNavigate } from "react-router-dom";
 
 export const ONGsList = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50 w-screen">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="font-bold md:text-xl sm:hidden">Pets:</h2>
-        <h2 className="font-bold md:text-xl hidden sm:block">
+    <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50 w-screen flex flex-col">
+      <div className="flex items-center justify-between mb-5 px-6 sm:px-0">
+        <h2 className="font-bold md:text-xl">
           Nossos parceiros:
         </h2>
         <button
@@ -22,9 +24,9 @@ export const ONGsList = () => {
         >
           &larr; Voltar
         </button>
-      </div>``
+      </div>
       <div className="flex flex-col justify-center items-center"></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center">
             <ONGItem nome='GPA' img={logoApata} link='https://www.instagram.com//apata_ceara' pix=" E-mail apatace@gmail.com"/>
             <ONGItem nome="Abrace" img={logoAbrace} link='https://www.instagram.com/ong.abrace/' pix=" ABRACE 24287894000100 C"/>
             <ONGItem nome="Abrigo São Lázaro"  img={logoASL} link='https://www.instagram.com/abrigosaolazaro/' pix=" 13043465/0001-71"/>
@@ -39,5 +41,3 @@ export const ONGsList = () => {
     </div>
   );
 };
-
-// Trocar noem do backend para colocar de forma dinamica 

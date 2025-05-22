@@ -11,7 +11,7 @@ import logoUpac from '../assets/logos-ongs/logo-upac.jpg'
 
 export const ONGsSection = () => {
   return (
-    <div className="p-6 md:p-10 lg:px-20 bg-purple-50 flex flex-col items-center justify-center mb-5">
+    <div className="p-6 md:p-10 lg:px-20 bg-purple-50 flex flex-col items-center justify-center">
       <h2 className="font-bold md:text-xl text-center">Instituições Parceiras:</h2>
 
       <div className="w-full overflow-x-auto flex justify-center items-center">

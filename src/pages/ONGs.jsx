@@ -1,7 +1,12 @@
+import {ONGsList} from "../components/ONGsList"
+
+
 export const ONGs = () => {
+  
+
   return (
-    <div className="flex flex-col flex-grow items-center justify-center">
-      <p className="text-2xl max-w-1/2 text-center">Essa página ainda está em construção!</p>
+    <div>
+      <ONGsList/>
     </div>
-  )
-}
+  );
+};

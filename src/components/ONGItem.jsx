@@ -3,12 +3,12 @@ import { FaInstagram } from "react-icons/fa";
 export const ONGItem = ({ img, nome, link, pix }) => {
   return (
     <div>
-      <div className="rounded p-4 shadow-md bg-white max-w-[300px] h-[460px] flex flex-col justify-between">
+      <div className="rounded p-4 shadow-md bg-white max-w-[300px] h-[460px] flex flex-col justify-between items-center">
         <div
           className={`absolute top-2 left-2 text-xs px-2 pt-1 rounded-full`}
         ></div>
-        <div className="max-w-[250px] h-[250px]">
-          <img src={img} alt={`${nome}`} className="w-full  object-contain" />
+        <div className="w-[250px] h-[250px]">
+          <img src={img} alt={`${nome}`} className="w-full rounded-full object-contain" />
         </div>
 
         <div className="mt-3">

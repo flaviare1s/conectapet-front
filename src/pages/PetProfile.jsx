@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
 import { useAuth } from "../contexts/AuthConText";
+import ReturnButton from "../components/ReturnButton";
 
 export const PetProfile = () => {
   const { user } = useAuth();
   const { id } = useParams();
   const [petInfo, setPetInfo] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -41,12 +41,7 @@ export const PetProfile = () => {
           Meu Perfil
           <span className="text-verde-primario">&gt;</span>
         </h2>
-        <button
-          onClick={() => navigate(-1)}
-          className="text-roxo-primario hover:underline cursor-pointer"
-        >
-          &larr; Voltar
-        </button>
+        <ReturnButton />
       </div>
       <div className="flex flex-col md:flex-row bg-white rounded shadow-md p-6 gap-6 max-w-4xl mx-auto mt-6">
         <div className="relative md:w-1/2">

@@ -16,11 +16,11 @@ export const Contact = () => {
   };
 
   return (
-    <section className="w-full min-h-[400px] bg-rosa-forte grid grid-cols-1 md:grid-cols-2 gap-5 items-center justify-between px-4 md:px-16 py-10 relative overflow-hidden">
-      {/* X decorativo canto superior direito */}
-      <img src={vectorx} alt="decorativo" className="absolute left-0 bottom-0 w-10 md:w-16" style={{zIndex:1}} />
+    <section className="w-full min-h-[400px] bg-rosa-forte grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-between px-4 md:px-20 py-10 relative overflow-hidden">
       {/* X decorativo canto inferior esquerdo */}
-      <img src={vectorx} alt="decorativo" className="absolute right-0 bottom-0 w-16 md:w-24 rotate-180" style={{zIndex:1}} />
+      <img src={vectorx} alt="decorativo" className="absolute left-0 bottom-8 w-10 md:w-16" style={{zIndex:1}} />
+      {/* X decorativo canto inferior direito */}
+      <img src={vectorx} alt="decorativo" className="absolute right-6 bottom-8 w-16 md:w-20 rotate-180" style={{zIndex:1}} /> 
       <div className="flex-1 z-10 max-w-xl">
         <p className="text-verde-vibrante text-xs md:text-sm font-bold mb-2 mt-2">
           Tem uma dúvida, quer colaborar ou contar sua história de adoção? Escreve pra gente!
@@ -81,8 +81,9 @@ export const Contact = () => {
         </form>
       </div>
       <div className="flex-1 flex justify-center items-center z-10 mt-8 md:mt-0">
-        <img src={Abraco} alt="Pessoa abraçando cachorro" className="rounded-lg shadow-lg w-full object-cover" />
+        <img src={Abraco} alt="Pessoa abraçando cachorro" />
       </div>
     </section>
   );
 };
+ 

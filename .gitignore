@@ -25,6 +25,5 @@ dist-ssr
 
 server/db.json
 
-
 # Environment variables
 .env

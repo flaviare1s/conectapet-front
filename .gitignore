@@ -24,7 +24,4 @@ dist-ssr
 *.sw?
 
 server/db.json
-
-
-# Environment variables
 .env

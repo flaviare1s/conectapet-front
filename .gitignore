@@ -27,4 +27,4 @@ server/db.json
 
 
 # Environment variables
-.env.example 
+.env

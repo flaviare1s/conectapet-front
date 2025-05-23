@@ -29,11 +29,10 @@ export const Congratulations = () => {
           <hr className="m-3 opacity-20"/>
 
           <div className="display: flex flex-col p-5 gap-2">
-            <p className="text-roxo-primario font-bold">Informações de ONG</p>
+            <p className="text-roxo-primario font-bold">Informações do pet</p>
             <span>Nome:</span>
-            <span>Email:</span>
-            <span>Cidade:</span>
-            <span>Telefone:</span>            
+            <span>Responsável:</span>
+            <span>Email:</span>           
           </div>
 
           <div className="w-full flex items-center justify-center p-6">

@@ -4,7 +4,7 @@ export const Congratulations = () => {
   return (
     <>
         <div className="display: flex justify-center bg-gray-100 h-300">
-        <div className="max-w-200 max-h-190 m-25 bg-white">
+        <div className="max-w-200 m-1 sm:m-25 bg-white">
           <div className="display: flex justify-center text-6xl text-roxo-primario pb-5 pt-8"><FaHeart/></div>
         
           <div className="display: flex justify-center text-3xl font-bold text-center text-roxo-primario font-inter: font-sans-serif w-50 m-auto pb-5">   

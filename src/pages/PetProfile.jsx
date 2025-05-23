@@ -4,6 +4,7 @@ import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
 import { useAuth } from "../contexts/AuthConText";
 import ReturnButton from "../components/ReturnButton";
+import toast from "react-hot-toast";
 
 export const PetProfile = () => {
   const { user } = useAuth();
@@ -103,6 +104,7 @@ export const PetProfile = () => {
           </Link> 
           ) : (
             <Link
+              onClick={() => toast.error("Para adotar um pet, voce precisa ter uma conta de usuário!")}
               to={`/signup/user`}
               className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
             >

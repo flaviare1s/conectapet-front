@@ -32,7 +32,7 @@ export const PetProfile = () => {
   };
 
   const badgeClass =
-    statusClasses[petInfo.status] || "bg-gray-300 text-gray-800";
+    statusClasses[petInfo.status] || "bg-transparent";
 
   return (
     <section>

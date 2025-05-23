@@ -31,8 +31,7 @@ export const PetProfile = () => {
     "Final feliz!": "bg-roxo-primario text-white font-bold",
   };
 
-  const badgeClass =
-    statusClasses[petInfo.status] || "bg-transparent";
+  const badgeClass = statusClasses[petInfo.status] || "bg-transparent";
 
   return (
     <section>
@@ -95,17 +94,33 @@ export const PetProfile = () => {
               )}
             </div>
           </div>
-          {user && user.role === "user" ? (
-          <Link
-            to={`/pets/adopt/${petInfo.id}`}
-            className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
-          >
-            Quero Adotar!
-          </Link> 
-          ) : (
+          {user && user.role === "user" && (
             <Link
-              onClick={() => toast.error("Para adotar um pet, voce precisa ter uma conta de usuário!")}
+              to={`/pets/adopt/${petInfo.id}`}
+              className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
+            >
+              Quero Adotar!
+            </Link>
+          )}
+          {user && user.role === "guardian" && (
+            <Link
+              onClick={() =>
+                toast.error(
+                  "Para adotar um pet, você precisa ter uma conta de usuário!"
+                )
+              }
               to={`/signup/user`}
+              className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
+            >
+              Quero Adotar!
+            </Link>
+          )}
+          {!user && (
+            <Link
+              onClick={() =>
+                toast.error("Para adotar um pet, você precisa estar logado!")
+              }
+              to={`/login`}
               className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
             >
               Quero Adotar!

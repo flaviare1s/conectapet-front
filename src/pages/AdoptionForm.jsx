@@ -96,20 +96,6 @@ export const AdoptionForm = () => {
       return;
     }
 
-    const dataWithUserId = {
-      ...data,
-      userId: user?.id,
-    };
-
-    console.log("Dados do formulário com userId:", dataWithUserId);
-    navigate("/congratulations", {
-      state: {
-        pet,
-        guardian,
-        user,
-      }
-    });
-
     const adoptionData = {
       ...data,
       userId: user.id,
@@ -118,19 +104,32 @@ export const AdoptionForm = () => {
       guardianId: guardian.id,
       guardianName: guardian.name,
       guardianEmail: guardian.email,
+      email: user.email,
     };
 
     try {
       await postAdoption(adoptionData);
       toast.success("Cadastro realizado com sucesso!");
+
+      console.log("Dados do formulário com userId:", adoptionData);
+      navigate("/congratulations", {
+        state: {
+          adoption: adoptionData,
+          pet,
+          guardian,
+          user,
+        },
+      });
     } catch (err) {
       toast.error("Erro ao fazer cadastro.");
       console.error("Erro ao cadastrar:", err);
     }
   };
 
-  const handleNext = () => setFormStep((prev) => prev + 1);
-
+  const handleNext = () => {
+    setFormStep((prev) => prev + 1);
+  };
+  
   return (
     <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center relative py-6">
       <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">

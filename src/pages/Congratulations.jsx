@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export const Congratulations = () => {
   const location = useLocation();
-  const { pet, guardian, user } = location.state || {};
+  const { pet, guardian, user, adoption } = location.state || {};
 
   if (!pet || !guardian || !user) {
     return <p className="text-center p-20">Dados não encontrados.</p>;
@@ -29,10 +29,10 @@ export const Congratulations = () => {
 
           <div className="flex flex-col p-5 gap-2">
             <p className="text-roxo-primario font-bold">Informações pessoais</p>
-            <span>Nome: {user.name}</span>
-            <span>CPF: {user.cpf}</span>
-            <span>Email: {user.email}</span>
-            <span>Celular: {user.phone}</span>
+            <span>Nome: {adoption.nome}</span>
+            <span>CPF: {adoption.cpf}</span>
+            <span>E-mail: {adoption.email}</span>
+            <span>Telefone: {adoption.cel}</span>
           </div>
 
           <hr className="m-3 opacity-20" />

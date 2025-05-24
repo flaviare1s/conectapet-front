@@ -7,7 +7,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
     "Final feliz!": "bg-roxo-primario text-white font-bold",
   };
 
-  const badgeClass = statusClasses[pet.status] || "bg-gray-300 text-gray-800";
+  const badgeClass = statusClasses[pet.status] || "bg-transparent";
 
   return (
     <Link to={`/pets/${pet.id}`} className="rounded p-4 shadow-md bg-white max-w-[300px]">

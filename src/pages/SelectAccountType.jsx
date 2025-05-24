@@ -20,7 +20,7 @@ export const SelectAccountType = () => {
             <Link to="/signup/user">Quero adotar</Link>
           </div>
           <div className="text-white font-medium text-sm py-2 px-4 rounded-md transition-colors duration-75 font-inter focus:outline-none focus:shadow-outline w-full cursor-pointer mt-5 bg-roxo-primario hover:bg-rosa-forte flex justify-center ">
-            <Link to="/signup/guardian">Quero cadastrar pets !</Link>
+            <Link to="/signup/guardian">Quero conectar pets!</Link>
           </div>
         </div>
       </div>

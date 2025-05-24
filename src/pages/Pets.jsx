@@ -26,7 +26,7 @@ export const Pets = () => {
       </div>
 
       {/* Lista de pets */}
-      <div className="flex-1 p-2 sm:p-4">
+      <div className="flex-1 px-1">
         <PetsListComplete
           showResponsavel={false}
           showDescricao

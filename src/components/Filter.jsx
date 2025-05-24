@@ -23,7 +23,7 @@ export const Filter = ({ onFilterChange, onClose }) => {
   };
 
   return (
-    <div className="sm:w-[190px] sm:text-base w-full text-sm p-4 shadow-2xl bg-white/80 rounded-lg backdrop-blur">
+    <div className="sm:w-[190px] text-base w-full p-4 shadow-2xl bg-white/80 rounded-lg backdrop-blur h-screen sm:h-auto">
       {/* Botão de fechar (somente mobile) */}
       <div className="flex justify-end sm:hidden mb-2">
         <button

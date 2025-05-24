@@ -26,8 +26,7 @@ export const AdoptionForm = () => {
   const handleNext = () => setFormStep((prev) => prev + 1);
 
   return (
-    <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center relative">
-      {/* Background images */}
+    <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center relative py-6">
       <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">
         <img className="w-full" src={bgDog1} alt="Desenho de cachorro" />
       </div>
@@ -47,7 +46,7 @@ export const AdoptionForm = () => {
           <span className="text-verde-primario">&gt;</span>
         </h2>
 
-        <form className="my-4" onSubmit={handleSubmit(formStep < 3 ? handleNext : onSubmit)}>
+        <form className="my-1" onSubmit={handleSubmit(formStep < 3 ? handleNext : onSubmit)}>
           {formStep === 1 && (
             <div className="flex flex-col gap-4">
               <InputField

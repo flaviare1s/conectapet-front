@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import api from "../services/api";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
@@ -15,8 +16,11 @@ import toast from "react-hot-toast";
 
 export const AdoptionForm = () => {
   const { user } = useContext(UserContext);
+  const { petId } = useParams();
   const [formStep, setFormStep] = useState(1);
   const navigate = useNavigate();
+  const [pet, setPet] = useState(null);
+  const [guardian, setGuardian] = useState(null);
 
   const {
     register,
@@ -68,7 +72,30 @@ export const AdoptionForm = () => {
     return true;
   };
 
+  useEffect(() => {
+    const fetchPetAndGuardian = async () => {
+      try {
+        const petRes = await api.get(`/pets/${petId}`);
+        setPet(petRes.data);
+
+        const guardianRes = await api.get(
+          `/users/${petRes.data.guardianId}`
+        );
+        setGuardian(guardianRes.data);
+      } catch (err) {
+        console.error("Erro ao buscar pet ou guardian:", err);
+      }
+    };
+
+    fetchPetAndGuardian();
+  }, [petId]);
+
   const onSubmit = async (data) => {
+    if (!pet || !guardian) {
+      toast.error("Dados do pet ou do guardião não carregados.");
+      return;
+    }
+
     const dataWithUserId = {
       ...data,
       userId: user?.id,
@@ -79,8 +106,12 @@ export const AdoptionForm = () => {
 
     const adoptionData = {
       ...data,
-      guardianId: user.id,
-      responsavel: user.name,
+      userId: user.id,
+      petId: pet.id,
+      petName: pet.nome,
+      guardianId: guardian.id,
+      guardianName: guardian.name,
+      guardianEmail: guardian.email,
     };
 
     try {

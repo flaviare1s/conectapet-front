@@ -4,6 +4,7 @@ import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
 import { useAuth } from "../contexts/AuthConText";
 import ReturnButton from "../components/ReturnButton";
+import toast from "react-hot-toast";
 
 export const PetProfile = () => {
   const { user } = useAuth();
@@ -30,8 +31,7 @@ export const PetProfile = () => {
     "Final feliz!": "bg-roxo-primario text-white font-bold",
   };
 
-  const badgeClass =
-    statusClasses[petInfo.status] || "bg-gray-300 text-gray-800";
+  const badgeClass = statusClasses[petInfo.status] || "bg-transparent";
 
   return (
     <section>
@@ -94,16 +94,42 @@ export const PetProfile = () => {
               )}
             </div>
           </div>
-          {user && user.role === "user" ? (
-          <Link
-            to={`/pets/adopt/${petInfo.id}`}
-            className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
-          >
-            Quero Adotar!
-          </Link> 
+
+          {petInfo.status === "Final feliz!" ? (
+            <p className="mt-6 self-start text-roxo-primario font-bold">
+              Esse pet já encontrou uma família! 🩷
+            </p>
+          ) : petInfo.status === "Quase lá!" ? (
+            <p className="mt-6 self-start text-yellow-700 font-bold">
+              Estamos quase encontrando uma família para este pet! 🩷
+            </p>
+          ) : user ? (
+            user.role === "user" ? (
+              <Link
+                to={`/pets/adopt/${petInfo.id}`}
+                className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
+              >
+                Quero Adotar!
+              </Link>
+            ) : user.role === "guardian" ? (
+              <Link
+                onClick={() =>
+                  toast.error(
+                    "Para adotar um pet, você precisa ter uma conta de usuário!"
+                  )
+                }
+                to={`/signup/user`}
+                className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
+              >
+                Quero Adotar!
+              </Link>
+            ) : null
           ) : (
             <Link
-              to={`/signup/user`}
+              onClick={() =>
+                toast.error("Para adotar um pet, você precisa estar logado!")
+              }
+              to={`/login`}
               className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
             >
               Quero Adotar!

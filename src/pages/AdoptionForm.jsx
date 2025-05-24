@@ -1,18 +1,27 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import api from "../services/api";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
+import { UserContext } from "../contexts/UserContext";
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
+import { postAdoption } from "../api/adoptions";
+import toast from "react-hot-toast";
+import { updatePetStatus } from "../api/pets";
 
 export const AdoptionForm = () => {
+  const { user } = useContext(UserContext);
+  const { petId } = useParams();
   const [formStep, setFormStep] = useState(1);
   const navigate = useNavigate();
+  const [pet, setPet] = useState(null);
+  const [guardian, setGuardian] = useState(null);
 
   const {
     register,
@@ -64,13 +73,65 @@ export const AdoptionForm = () => {
     return true;
   };
 
-  const onSubmit = (data) => {
-    console.log("Dados do formulário:", data);
-    navigate("/congratulations");
+  useEffect(() => {
+    const fetchPetAndGuardian = async () => {
+      try {
+        const petRes = await api.get(`/pets/${petId}`);
+        setPet(petRes.data);
+
+        const guardianRes = await api.get(
+          `/users/${petRes.data.guardianId}`
+        );
+        setGuardian(guardianRes.data);
+      } catch (err) {
+        console.error("Erro ao buscar pet ou guardian:", err);
+      }
+    };
+
+    fetchPetAndGuardian();
+  }, [petId]);
+
+  const onSubmit = async (data) => {
+    if (!pet || !guardian) {
+      toast.error("Dados do pet ou do guardião não carregados.");
+      return;
+    }
+
+    const adoptionData = {
+      ...data,
+      userId: user.id,
+      petId: pet.id,
+      petName: pet.nome,
+      guardianId: guardian.id,
+      guardianName: guardian.name,
+      guardianEmail: guardian.email,
+      email: user.email,
+    };
+
+    try {
+      await postAdoption(adoptionData);
+      await updatePetStatus(pet.id, "Quase lá!");
+      toast.success("Cadastro realizado com sucesso!");
+
+      console.log("Dados do formulário com userId:", adoptionData);
+      navigate("/congratulations", {
+        state: {
+          adoption: adoptionData,
+          pet,
+          guardian,
+          user,
+        },
+      });
+    } catch (err) {
+      toast.error("Erro ao fazer cadastro.");
+      console.error("Erro ao cadastrar:", err);
+    }
   };
 
-  const handleNext = () => setFormStep((prev) => prev + 1);
-
+  const handleNext = () => {
+    setFormStep((prev) => prev + 1);
+  };
+  
   return (
     <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center relative py-6">
       <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">

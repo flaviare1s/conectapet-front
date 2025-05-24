@@ -30,6 +30,7 @@ export const AdoptionForm = () => {
       if (cep && cep.length === 8) {
         try {
           const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+          console.log("Resposta da API:", response.data);
           if (!response.data.erro) {
             setValue("rua", response.data.logradouro);
             setValue("bairro", response.data.bairro);
@@ -175,6 +176,7 @@ export const AdoptionForm = () => {
                 register={register}
                 validation={{ required: "Informe a rua" }}
                 error={errors.rua?.message}
+                defaultValue={watch("rua")}
               />
               <InputField
                 label="Bairro:"
@@ -183,6 +185,7 @@ export const AdoptionForm = () => {
                 register={register}
                 validation={{ required: "Informe o bairro" }}
                 error={errors.bairro?.message}
+                defaultValue={watch("bairro")}
               />
               <InputField
                 label="Número:"
@@ -199,6 +202,7 @@ export const AdoptionForm = () => {
                 register={register}
                 validation={{ required: "Informe a cidade" }}
                 error={errors.cidade?.message}
+                defaultValue={watch("cidade")}
               />
               <SubmitButton label="Próximo" />
             </div>

@@ -3,9 +3,27 @@ import { Link, useNavigate } from "react-router-dom";
 import { deletePet } from "../api/pets";
 import toast from "react-hot-toast";
 import { AiOutlineEye } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { getAdoptions } from "../api/adoptions";
+import { FaWpforms } from "react-icons/fa";
 
 export const PetCardByGuardian = ({ pet }) => {
   const navigate = useNavigate();
+  const [adoption, setAdoption] = useState(null);
+
+  useEffect(() => {
+    const fetchAdoption = async () => {
+      try {
+        const response = await getAdoptions();
+        const match = response.find((a) => a.petId === pet.id);
+        setAdoption(match || null);
+      } catch (error) {
+        console.error("Erro ao buscar adoções", error);
+      }
+    };
+    fetchAdoption();
+  }, [pet.id]);
+
   const removerPet = async () => {
     const confirmDelete = window.confirm("Tem certeza de que deseja remover?");
     if(confirmDelete) {
@@ -56,6 +74,11 @@ export const PetCardByGuardian = ({ pet }) => {
             <Link to={`/mypets/edit/${pet.id}`}><FiEdit
              className="text-verde-primario text-xl hover:text-verde-escuro" /></Link>
             <button onClick={removerPet} className="cursor-pointer"><FiTrash2 className="text-rosa-forte text-xl hover:text-roxo-primario" /></button>
+            {adoption && (
+              <Link to={`/mypets/adoptions/${pet.id}`} title="Ver formulários">
+                <FaWpforms className="text-cinza text-xl hover:text-black" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

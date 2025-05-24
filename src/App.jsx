@@ -23,6 +23,7 @@ import { Forbidden } from "./pages/Forbidden";
 import { Loader } from "./components/Loader";
 import { AdoptionForm } from "./pages/AdoptionForm";
 import { useAuth } from "./contexts/AuthConText";
+import { AdoptionListByPet } from "./components/AdoptionListByPet";
 
 function App() {
   const { user } = useAuth();
@@ -52,6 +53,7 @@ function App() {
           <Route path="/pets/add" element={<PrivateRoute><PetRegister /></PrivateRoute>} />
           <Route path="/mypets" element={<PrivateRoute><MyPets /></PrivateRoute>} />
           <Route path="/mypets/edit/:id" element={<PrivateRoute><PetEdit /></PrivateRoute>} />
+          <Route path="/mypets/adoptions/:petId" element={<PrivateRoute><AdoptionListByPet /></PrivateRoute>} />
           <Route path="/ongs" element={<ONGs />} />
           <Route path="/pets/adopt/:petId" element={<AdoptionForm />} />
           <Route path="/congratulations" element={<Congratulations />} />

@@ -329,17 +329,31 @@ export const AdoptionForm = () => {
                 validation={{ required: "Campo obrigatório" }}
                 error={errors.visitas?.message}
               />
-              <SelectField
-                label="Aceita assinar um termo de responsabilidade?"
-                name="termo"
-                options={[
-                  { value: "sim", label: "Sim" },
-                  { value: "nao", label: "Não" },
-                ]}
+              <InputField
+                label="Por que quer adotar esse pet?"
+                name="motivacao"
+                type="textarea"
+                placeholder="Conte um pouco sobre sua motivação"
                 register={register}
                 validation={{ required: "Campo obrigatório" }}
-                error={errors.termo?.message}
+                error={errors.motivacao?.message}
               />
+              <div className="flex items-start gap-2">
+                <input
+                  type="checkbox"
+                  id="termo"
+                  {...register("termo", {
+                    required: "Você deve aceitar o termo de adoção para continuar.",
+                  })}
+                  className="mt-1 accent-verde-primario"
+                />
+                <label htmlFor="termo" className="text-sm text-gray-700">
+                  Estou ciente de que terei que assinar um <strong>termo de adoção</strong>.
+                </label>
+              </div>
+              {errors.termo && (
+                <span className="text-red-500 text-sm">{errors.termo.message}</span>
+              )}
               <SubmitButton label="Finalizar" />
             </div>
           )}

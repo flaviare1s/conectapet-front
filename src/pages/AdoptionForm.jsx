@@ -102,7 +102,13 @@ export const AdoptionForm = () => {
     };
 
     console.log("Dados do formulário com userId:", dataWithUserId);
-    navigate("/congratulations");
+    navigate("/congratulations", {
+      state: {
+        pet,
+        guardian,
+        user,
+      }
+    });
 
     const adoptionData = {
       ...data,

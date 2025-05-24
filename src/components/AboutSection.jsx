@@ -9,7 +9,7 @@ export const AboutSection = () => {
         <div className='flex flex-col justify-center'>
           <p className="text-branco">Somos uma ponte entre animais resgatados e pessoas dispostas a amar. No ConectaPet, você encontra pets que precisam de um lar seguro, afetuoso e responsável. Juntos, podemos transformar histórias e espalhar mais amor pelo mundo – um pet de cada vez.</p>
           <div className='bg-verde-primario hover:bg-verde-escuro w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-5'>
-            <Link to="/about" className='text-preto'>Conheça nossa missão</Link>
+            <Link to="/about" className='text-preto font-bold'>Conheça nossa missão</Link>
           </div>
         </div>
       </div>

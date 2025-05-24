@@ -13,6 +13,7 @@ import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
 import { postAdoption } from "../api/adoptions";
 import toast from "react-hot-toast";
+import { updatePetStatus } from "../api/pets";
 
 export const AdoptionForm = () => {
   const { user } = useContext(UserContext);
@@ -109,6 +110,7 @@ export const AdoptionForm = () => {
 
     try {
       await postAdoption(adoptionData);
+      await updatePetStatus(pet.id, "Quase lá!");
       toast.success("Cadastro realizado com sucesso!");
 
       console.log("Dados do formulário com userId:", adoptionData);

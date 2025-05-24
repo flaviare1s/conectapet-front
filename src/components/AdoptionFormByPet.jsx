@@ -19,10 +19,6 @@ export const AdoptionFormByPet = ({ adoption }) => {
         <p>
           <span className="font-semibold">Telefone:</span> {adoption.cel}
         </p>
-        <p>
-          <span className="font-semibold">Email:</span>{" "}
-          {adoption.email || "não informado"}
-        </p>
         <hr className="my-2 opacity-50" />
         <p>
           <span className="font-semibold">Custa vacinas e cuidados?</span>{" "}

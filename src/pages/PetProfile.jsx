@@ -12,6 +12,7 @@ export const PetProfile = () => {
   const [petInfo, setPetInfo] = useState(null);
 
   useEffect(() => {
+    console.log("ID do pet:", id);
     const fetchPet = async () => {
       try {
         const data = await getPet(id);

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
@@ -12,11 +13,53 @@ import bgDog4 from "../assets/bg-dog4.png";
 export const AdoptionForm = () => {
   const [formStep, setFormStep] = useState(1);
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch,
   } = useForm();
+
+  const cepValue = watch("cep");
+
+  useEffect(() => {
+    const fetchAddress = async () => {
+      const cep = cepValue?.replace(/\D/g, "");
+      if (cep && cep.length === 8) {
+        try {
+          const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+          if (!response.data.erro) {
+            setValue("rua", response.data.logradouro);
+            setValue("bairro", response.data.bairro);
+            setValue("cidade", response.data.localidade);
+          }
+        } catch (error) {
+          console.error("Erro ao buscar CEP:", error);
+        }
+      }
+    };
+    fetchAddress();
+  }, [cepValue, setValue]);
+
+  const validateCPF = (cpf) => {
+    const cleanCPF = cpf.replace(/[^\d]/g, "");
+    if (!/^\d{11}$/.test(cleanCPF)) return "CPF inválido";
+    let sum = 0;
+    for (let i = 0; i < 9; i++) sum += parseInt(cleanCPF.charAt(i)) * (10 - i);
+    let rev = 11 - (sum % 11);
+    if (rev === 10 || rev === 11) rev = 0;
+    if (rev !== parseInt(cleanCPF.charAt(9))) return "CPF inválido";
+
+    sum = 0;
+    for (let i = 0; i < 10; i++) sum += parseInt(cleanCPF.charAt(i)) * (11 - i);
+    rev = 11 - (sum % 11);
+    if (rev === 10 || rev === 11) rev = 0;
+    if (rev !== parseInt(cleanCPF.charAt(10))) return "CPF inválido";
+
+    return true;
+  };
 
   const onSubmit = (data) => {
     console.log("Dados do formulário:", data);
@@ -52,7 +95,6 @@ export const AdoptionForm = () => {
               <InputField
                 label="Nome completo:"
                 name="nome"
-                placeholder=""
                 register={register}
                 validation={{ required: "Preencha todos os campos" }}
                 error={errors.nome?.message}
@@ -70,7 +112,10 @@ export const AdoptionForm = () => {
                 name="cpf"
                 placeholder="000.000.000-00"
                 register={register}
-                validation={{ required: "Digite seu CPF" }}
+                validation={{
+                  required: "Digite seu CPF",
+                  validate: validateCPF,
+                }}
                 error={errors.cpf?.message}
               />
               <SelectField
@@ -87,7 +132,6 @@ export const AdoptionForm = () => {
               <InputField
                 label="Profissão:"
                 name="profissao"
-                placeholder=""
                 register={register}
               />
               <InputField
@@ -96,23 +140,34 @@ export const AdoptionForm = () => {
                 type="tel"
                 placeholder="(00) 0 0000-0000"
                 register={register}
+                validation={{
+                  pattern: {
+                    value: /^\(?\d{2}\)?[\s-]?9?\d{4}-?\d{4}$/,
+                    message: "Número inválido",
+                  },
+                }}
+                error={errors.cel?.message}
               />
               <SubmitButton label="Próximo" />
             </div>
           )}
 
           {formStep === 2 && (
-            <div className="flex flex-col">
-              <div className="max-w-50 ">
-                <InputField
-                  label="CEP:"
-                  name="cep"
-                  placeholder="00000-000"
-                  register={register}
-                  validation={{ required: "Informe o CEP" }}
-                  error={errors.cep?.message}
-                />
-              </div>
+            <div className="flex flex-col gap-4">
+              <InputField
+                label="CEP:"
+                name="cep"
+                placeholder="00000-000"
+                register={register}
+                validation={{
+                  required: "Informe o CEP",
+                  pattern: {
+                    value: /^\d{5}-?\d{3}$/,
+                    message: "CEP inválido",
+                  },
+                }}
+                error={errors.cep?.message}
+              />
               <InputField
                 label="Rua:"
                 name="rua"
@@ -121,26 +176,22 @@ export const AdoptionForm = () => {
                 validation={{ required: "Informe a rua" }}
                 error={errors.rua?.message}
               />
-              <div className="flex flex-col sm:flex-row gap-4">
-                <InputField
-                  label="Bairro:"
-                  name="bairro"
-                  placeholder="Ex: Centro"
-                  register={register}
-                  validation={{ required: "Informe o bairro" }}
-                  error={errors.bairro?.message}
-                />
-                <div className="max-w-30">
-                  <InputField
-                    label="Número:"
-                    name="numero"
-                    placeholder="Ex: 123"
-                    register={register}
-                    validation={{ required: "Informe o número" }}
-                    error={errors.numero?.message}
-                  />
-                </div>
-              </div>
+              <InputField
+                label="Bairro:"
+                name="bairro"
+                placeholder="Ex: Centro"
+                register={register}
+                validation={{ required: "Informe o bairro" }}
+                error={errors.bairro?.message}
+              />
+              <InputField
+                label="Número:"
+                name="numero"
+                placeholder="Ex: 123"
+                register={register}
+                validation={{ required: "Informe o número" }}
+                error={errors.numero?.message}
+              />
               <InputField
                 label="Cidade:"
                 name="cidade"

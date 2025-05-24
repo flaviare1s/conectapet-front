@@ -6,6 +6,7 @@ export const InputField = ({
   error,
   validation,
   placeholder,
+  defaultValue,
 }) => {
   return (
     <div className="flex flex-col w-full my-2">
@@ -17,6 +18,7 @@ export const InputField = ({
         id={name}
         name={name}
         placeholder={placeholder}
+        defaultValue={defaultValue}
         {...register(name, validation)}
         className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-primario placeholder:text-sm bg-white"
       />

@@ -8,9 +8,15 @@ export const Header = () => {
   const { user, logout } = useAuth()
   return (
     <header className='h-[104px] flex justify-between items-center px-6'>
-      <Link to="/" className='w-[74px] md:w-[105px]'>
+      {user?.role === "user" ? (
+        <Link to="/" className='w-[74px] md:w-[105px]'>
+          <img className='w-full' src={logo} alt="Logo ConectaPet" />
+        </Link>
+      ) : (
+      <Link to="/mypets" className='w-[74px] md:w-[105px]'>
         <img className='w-full' src={logo} alt="Logo ConectaPet" />
       </Link>
+      )}
       <div className='flex-1 flex justify-end pr-4 pb-3 md:pb-0 md:pr-10 items-center'>
         {user && (
           <span className="text-md text-verde-primario font-semibold mt-2 md:mt-0">

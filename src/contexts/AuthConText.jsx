@@ -15,14 +15,18 @@ export const AuthProvider = ({ children }) => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localStorage.getItem("user")]);
 
   const login = (userData) => {
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
-    setTimeout(() => navigate("/"), 100);
-  };
 
+    const redirectTo = userData.role === "guardian" ? "/mypets" : "/";
+
+    setTimeout(() => navigate(redirectTo), 100);
+  };
+  
   const logout = () => {
     localStorage.removeItem('user');
     setUser(null);
@@ -36,4 +40,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);

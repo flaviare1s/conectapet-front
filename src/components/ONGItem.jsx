@@ -27,7 +27,7 @@ export const ONGItem = ({ img, nome, link, pix }) => {
             <div className="font-extralight text-sm ">
               <p className="text-cinza font-medium">
                 Ajude-nos doando atraves do nosso{" "}
-                <span className="font-semibold uppercase text-black">pix</span>:
+                <span className="font-semibold uppercase text-black">pix</span>:{" "}
                 <span className="font-semibold">{pix}</span>
               </p>
             </div>

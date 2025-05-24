@@ -1,16 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
+import { UserContext } from "../contexts/UserContext";
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
+import { postAdoption } from "../api/adoptions";
+import toast from "react-hot-toast";
 
 export const AdoptionForm = () => {
+  const { user } = useContext(UserContext);
   const [formStep, setFormStep] = useState(1);
   const navigate = useNavigate();
 
@@ -64,9 +68,28 @@ export const AdoptionForm = () => {
     return true;
   };
 
-  const onSubmit = (data) => {
-    console.log("Dados do formulário:", data);
+  const onSubmit = async (data) => {
+    const dataWithUserId = {
+      ...data,
+      userId: user?.id,
+    };
+
+    console.log("Dados do formulário com userId:", dataWithUserId);
     navigate("/congratulations");
+
+    const adoptionData = {
+      ...data,
+      guardianId: user.id,
+      responsavel: user.name,
+    };
+
+    try {
+      await postAdoption(adoptionData);
+      toast.success("Cadastro realizado com sucesso!");
+    } catch (err) {
+      toast.error("Erro ao fazer cadastro.");
+      console.error("Erro ao cadastrar:", err);
+    }
   };
 
   const handleNext = () => setFormStep((prev) => prev + 1);

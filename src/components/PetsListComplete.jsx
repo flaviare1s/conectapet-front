@@ -47,7 +47,7 @@ export const PetsListComplete = ({
   const petsToShow = filteredPets.slice(startIndex, startIndex + limit);
 
   return (
-    <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50 w-screen">
+    <div className="py-6 px-2 sm:p-6 md:p-10 lg:px-20 bg-purple-50">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-bold md:text-xl sm:hidden">Pets:</h2>
         <h2 className="font-bold md:text-xl hidden sm:block">Galeria dos peludinhos:</h2>

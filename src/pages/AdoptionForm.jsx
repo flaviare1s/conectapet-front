@@ -29,7 +29,9 @@ export const AdoptionForm = () => {
       const cep = cepValue?.replace(/\D/g, "");
       if (cep && cep.length === 8) {
         try {
-          const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+          const response = await axios.get(
+            `https://viacep.com.br/ws/${cep}/json/`
+          );
           console.log("Resposta da API:", response.data);
           if (!response.data.erro) {
             setValue("rua", response.data.logradouro);
@@ -90,7 +92,10 @@ export const AdoptionForm = () => {
           <span className="text-verde-primario">&gt;</span>
         </h2>
 
-        <form className="my-1" onSubmit={handleSubmit(formStep < 3 ? handleNext : onSubmit)}>
+        <form
+          className="my-1"
+          onSubmit={handleSubmit(formStep < 3 ? handleNext : onSubmit)}
+        >
           {formStep === 1 && (
             <div className="flex flex-col gap-4">
               <InputField
@@ -105,9 +110,27 @@ export const AdoptionForm = () => {
                 name="dataN"
                 type="date"
                 register={register}
-                validation={{ required: "Informe sua data de nascimento" }}
+                validation={{
+                  required: "Informe sua data de nascimento",
+                  validate: (value) => {
+                    const today = new Date();
+                    const birthDate = new Date(value);
+                    const ageDifMs = today - birthDate;
+                    const ageDate = new Date(ageDifMs); // milissegundos para data
+                    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+                    if (age < 18) {
+                      return "Você deve ter pelo menos 18 anos";
+                    }
+                    if (age > 100) {
+                      return "Idade máxima permitida é 100 anos";
+                    }
+                    return true;
+                  },
+                }}
                 error={errors.dataN?.message}
               />
+
               <InputField
                 label="CPF:"
                 name="cpf"
@@ -125,6 +148,8 @@ export const AdoptionForm = () => {
                 options={[
                   { value: "solteiro", label: "Solteiro(a)" },
                   { value: "casado", label: "Casado(a)" },
+                  { value: "divorciado", label: "Divorciado(a)" },
+                  { value: "viuvo", label: "Viúvo(a)" },
                 ]}
                 register={register}
                 validation={{ required: "Campo obrigatório" }}

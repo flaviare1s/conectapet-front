@@ -505,5 +505,30 @@
       "role": "guardian"
     }
   ],
-  "adoptions": []
+  "adoptions": [
+    {
+      "id": "75c1",
+      "nome": "Maria Pereira",
+      "dataN": "2000-02-22",
+      "cpf": "000.000.000-00",
+      "ec": "solteiro",
+      "profissao": "Estudante",
+      "cel": "(85) 90000-0000",
+      "cep": "60000-000",
+      "rua": "Rua das Flores",
+      "bairro": "Papicu",
+      "numero": "1",
+      "cidade": "Fortaleza",
+      "custos": "sim",
+      "compromisso": "sim",
+      "visitas": "sim",
+      "termo": "sim",
+      "userId": "b7ca78e0-1747-467b-839a-6e5b5309b157",
+      "petId": "3",
+      "petName": "Thor",
+      "guardianId": "5145556f-4e33-40aa-ac4d-30e674f2dbc1",
+      "guardianName": "UPAC",
+      "guardianEmail": "upac@teste.com"
+    }
+  ]
 }

@@ -33,8 +33,8 @@ export const AdoptionFormByPet = ({ adoption }) => {
           {adoption.visitas === "sim" ? "Sim" : "Não"}
         </p>
         <p>
-          <span className="font-semibold">Assinou termo de responsabilidade?</span>{" "}
-          {adoption.termo === "sim" ? "Sim" : "Não"}
+          <span className="font-semibold">Motivação:</span>{" "}
+          {adoption.motivacao}
         </p>
       </div>
     </div>

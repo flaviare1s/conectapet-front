@@ -4,11 +4,8 @@ export const ONGItem = ({ img, nome, link, pix }) => {
   return (
     <div>
       <div className="rounded p-4 shadow-md bg-white max-w-[300px] h-[460px] flex flex-col justify-between items-center">
-        <div
-          className={`absolute top-2 left-2 text-xs px-2 pt-1 rounded-full`}
-        ></div>
-        <div className="w-[250px] h-[250px]">
-          <img src={img} alt={`${nome}`} className="w-full rounded-full object-contain" />
+        <div className="w-[250px] h-[250px] p-2 rounded-md">
+          <img src={img} alt={`${nome}`} className="w-full rounded-full object-contain border-2 border-verde-primario p-1" />
         </div>
 
         <div className="mt-3">
@@ -30,7 +27,7 @@ export const ONGItem = ({ img, nome, link, pix }) => {
             <div className="font-extralight text-sm ">
               <p className="text-cinza font-medium">
                 Ajude-nos doando atraves do nosso{" "}
-                <span className="font-semibold uppercase text-black">pix</span>:
+                <span className="font-semibold uppercase text-black">pix</span>:{" "}
                 <span className="font-semibold">{pix}</span>
               </p>
             </div>

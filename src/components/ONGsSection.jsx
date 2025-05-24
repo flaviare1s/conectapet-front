@@ -1,5 +1,4 @@
 import { ONGsSectionItem } from "./ONGsSectionItem"
-
 import logoAbrace from '../assets/logos-ongs/logo-abrace.jpg'
 import logoApa from '../assets/logos-ongs/logo-apa.jpg'
 import logoApata from '../assets/logos-ongs/logo-apata.jpg'

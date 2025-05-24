@@ -99,6 +99,10 @@ export const PetProfile = () => {
             <p className="mt-6 self-start text-roxo-primario font-bold">
               Esse pet já encontrou uma família! 🩷
             </p>
+          ) : petInfo.status === "Quase lá!" ? (
+            <p className="mt-6 self-start text-yellow-700 font-bold">
+              Estamos quase encontrando uma família para este pet! 🩷
+            </p>
           ) : user ? (
             user.role === "user" ? (
               <Link

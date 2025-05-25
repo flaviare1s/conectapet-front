@@ -6,10 +6,15 @@ import { useAuth } from '../contexts/AuthConText';
 
 export const Header = () => {
   const { user, logout } = useAuth()
+  const getRedirectPath = () => {
+    if (user?.role === "guardian") return "/mypets";
+    return "/";
+  };
+
   return (
     <header className='h-[104px] flex justify-between items-center px-6'>
-      <Link to="/" className='w-[74px] md:w-[105px]'>
-        <img className='w-full' src={logo} alt="Logo ConectaPet" />
+      <Link to={getRedirectPath()} className="w-[74px] md:w-[105px]">
+        <img className="w-full" src={logo} alt="Logo ConectaPet" />
       </Link>
       <div className='flex-1 flex justify-end pr-4 pb-3 md:pb-0 md:pr-10 items-center'>
         {user && (

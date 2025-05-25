@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { fetchUsers } from "../api/auth";
@@ -10,9 +10,10 @@ import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
+import { useAuth } from "../contexts/AuthConText";
 
 export const Login = () => {
-  const navigate = useNavigate();
+  const { login } = useAuth();
   // eslint-disable-next-line no-unused-vars
   const [userData, setUserData] = useState(null);
 
@@ -31,14 +32,7 @@ export const Login = () => {
       );
 
       if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-        setUserData(user);
-
-        if (user.role === "user") {
-          navigate("/pets");
-        } else if (user.role === "guardian") {
-          navigate("/");
-        }
+        login(user);
       } else {
         toast.error("Usuário ou senha incorretos");
       }
@@ -47,7 +41,7 @@ export const Login = () => {
       toast.error("Erro ao conectar com o servidor");
     }
   };
-
+  
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {

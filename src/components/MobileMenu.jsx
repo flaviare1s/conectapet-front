@@ -24,9 +24,9 @@ export const MobileMenu = ({ user, onLogout }) => {
           ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}
         `}
       >
-        <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-roxo-primario hover:underline">Início</Link>
+        {isGuardian && <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-roxo-primario hover:underline">Início</Link>}
         <Link onClick={() => setIsOpen(false)} to="/About" className="hover:text-roxo-primario hover:underline">Sobre</Link>
-        <Link onClick={() => setIsOpen(false)} to="/Pets" className="hover:text-roxo-primario hover:underline">Pets</Link>
+        {!isGuardian && <Link onClick={() => setIsOpen(false)} to="/Pets" className="hover:text-roxo-primario hover:underline">Pets</Link>}
         <Link onClick={() => setIsOpen(false)} to="/ONGs" className="hover:text-roxo-primario hover:underline">ONGs</Link>
 
         {isLoggedIn ? (

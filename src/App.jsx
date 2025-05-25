@@ -25,6 +25,7 @@ import { AdoptionForm } from "./pages/AdoptionForm";
 import { useAuth } from "./contexts/AuthConText";
 import { AdoptionListByPet } from "./components/AdoptionListByPet";
 import { RedirectHome } from "./components/RedirectHome";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 function App() {
   const { user } = useAuth();
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <div className="font-inter flex flex-col min-h-screen overflow-x-hidden">
+      <ScrollToTop />
       <Header user={user} />
       <main className="flex-grow">
         <Routes>

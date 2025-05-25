@@ -27,9 +27,9 @@ export const Contact = () => {
   return (
     <section className="w-full min-h-[400px] bg-rosa-forte grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-between px-4 md:px-22 py-10 relative overflow-hidden">
       {/* X decorativo canto inferior esquerdo */}
-      <img src={vectorx} alt="decorativo" className="absolute left-2 bottom-8 w-10 md:w-16" style={{zIndex:1}} />
+      <img src={vectorx} alt="decorativo" className="absolute left-2 bottom-8 w-10 md:w-16" />
       {/* X decorativo canto inferior direito */}
-      <img src={vectorx} alt="decorativo" className="absolute right-26 bottom-8 w-16 md:w-16 rotate-180" style={{zIndex:1}} /> 
+      <img src={vectorx} alt="decorativo" className="absolute right-5 bottom-8 w-10 sm:w-16 rotate-180" /> 
       <div className="flex-1 z-10 max-w-xl">
         <p className="text-verde-vibrante text-xs md:text-sm font-bold mb-2 mt-2">
           Tem uma dúvida, quer colaborar ou contar sua história de adoção? Escreve pra gente!

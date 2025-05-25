@@ -6,9 +6,9 @@ export const DesktopMenu = ({ user, onLogout }) => {
 
   return (
     <nav className="hidden sm:flex gap-3">
-      <Link className="hover:text-roxo-primario hover:underline p-1" to='/'>Início</Link>
+      {!isGuardian && <Link className="hover:text-roxo-primario hover:underline p-1" to='/'>Início</Link>}
       <Link className="hover:text-roxo-primario hover:underline p-1" to='/About'>Sobre</Link>
-      <Link className="hover:text-roxo-primario hover:underline p-1" to='/Pets'>Pets</Link>
+      {!isGuardian && <Link className="hover:text-roxo-primario hover:underline p-1" to='/Pets'>Pets</Link>}
       <Link className="hover:text-roxo-primario hover:underline p-1" to='/ONGs'>ONGs</Link>
 
       {isLoggedIn ? (

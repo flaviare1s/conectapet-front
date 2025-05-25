@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom"
 import logo from "../assets/logo-pb.png"
+import { useAuth } from "../contexts/AuthConText"
 
 export const Footer = () => {
+  const { user } = useAuth()
+  const getRedirectPath = () => {
+    if (user?.role === "guardian") return "/mypets";
+    return "/pets";
+  };
+
   return (
     <footer className="bg-black text-white p-6 flex flex-col items-center">
       <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-4">
@@ -20,9 +27,8 @@ export const Footer = () => {
           <div>
             <h3 className="font-bold mb-3">Navegação</h3>
             <nav className="flex flex-col text-sm gap-2">
-              <Link className="hover:opacity-50" to="/" >Início</Link>
               <Link className="hover:opacity-50" to="/about" >Sobre</Link>
-              <Link className="hover:opacity-50" to="/pets" >Pets</Link>
+              <Link className="hover:opacity-50" to={getRedirectPath()} >Pets</Link>
               <Link className="hover:opacity-50" to="/ongs" >ONGs parceiras</Link>
             </nav>
           </div>
@@ -30,7 +36,7 @@ export const Footer = () => {
             <h3 className="font-bold mb-3">Quero ajudar</h3>
             <nav className="flex flex-col text-sm gap-2">
               <Link className="hover:opacity-50" to="/signup/user" >Quero adotar</Link>
-              <Link className="hover:opacity-50" to="/pets" >Conectar pets</Link>
+              <Link className="hover:opacity-50" to={user?.role === "user" ? "/pets" : "/signup/user"}>Conectar pets</Link>
               <Link className="hover:opacity-50" to="/signup/guardian" >Sou uma ONG</Link>
             </nav>
           </div>

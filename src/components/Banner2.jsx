@@ -16,8 +16,8 @@ export const Banner2 = () => {
         />
       </div>
       <div className="bg-verde-primario h-full hidden sm:flex flex-col items-center justify-center md:px-2 lg:px-20 w-full">
-        <p className="font-bold text-xl mb-5 sm:hidden md:block">Ajude um pet a encontrar seu lar!</p>
-        <p className="font-medium mb-7 text-lg text-cinza sm:hidden md:block">
+        <p className="font-bold text-xl mb-5 sm:hidden lg:block">Ajude um pet a encontrar seu lar!</p>
+        <p className="font-medium mb-7 text-lg text-cinza sm:hidden lg:block">
           Se você é protetor independente ou representa uma ONG, cadastre
           animais resgatados e faça parte dessa rede de amor e cuidado!
         </p>
@@ -32,7 +32,7 @@ export const Banner2 = () => {
         {!user && (
           <Link
             to="/signup/guardian"
-            className="bg-roxo-primario text-branco w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-4 hover:bg-rosa-forte sm:hidden md:flex"
+            className="bg-roxo-primario text-branco w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-4 hover:bg-rosa-forte sm:hidden lg:flex"
           >
             Conecte um pet
           </Link>

@@ -24,6 +24,7 @@ import { Loader } from "./components/Loader";
 import { AdoptionForm } from "./pages/AdoptionForm";
 import { useAuth } from "./contexts/AuthConText";
 import { AdoptionListByPet } from "./components/AdoptionListByPet";
+import { RedirectHome } from "./components/RedirectHome";
 
 function App() {
   const { user } = useAuth();
@@ -42,7 +43,7 @@ function App() {
       <Header user={user} />
       <main className="flex-grow">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<RedirectHome />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SelectAccountType />} />

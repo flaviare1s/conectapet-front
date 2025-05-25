@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { SelectField } from "../components/SelectField";
 import { useNavigate } from "react-router-dom";
+import ReturnButton from "../components/ReturnButton";
 
 export const PetRegister = () => {
   const navigate = useNavigate();
@@ -43,6 +44,9 @@ export const PetRegister = () => {
 
   return (
     <div className="bg-purple-50 flex flex-col flex-grow items-center justify-center relative py-10">
+      <div className="self-end px-6 sm:px-10">
+        <ReturnButton />
+      </div>
       <div className="bg-white p-[30px] flex flex-col justify-center w-[90%] sm:w-[500px] rounded-xs">
         <h2 className="font-bold text-xl text-center mb-2 sm:text-2xl">
           <span className="text-verde-primario">&lt;</span>Cadastre seu pet

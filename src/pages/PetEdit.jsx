@@ -5,6 +5,7 @@ import { getPet, updatePet } from "../api/pets";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
+import ReturnButton from "../components/ReturnButton";
 
 export const PetEdit = () => {
   const { id } = useParams();
@@ -42,6 +43,9 @@ export const PetEdit = () => {
 
   return (
     <div className="bg-purple-50 flex flex-col flex-grow items-center justify-center relative py-10">
+      <div className="self-end px-6 sm:px-10">
+        <ReturnButton />
+      </div>
       <div className="bg-white p-[30px] flex flex-col justify-center w-[90%] sm:w-[500px] rounded-xs">
         <h2 className="font-bold text-xl text-center mb-2 sm:text-2xl">
           <span className="text-verde-primario">&lt;</span>Edite seu pet

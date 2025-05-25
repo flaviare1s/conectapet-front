@@ -43,7 +43,7 @@ export const PetEdit = () => {
 
   return (
     <div className="bg-purple-50 flex flex-col flex-grow items-center justify-center relative py-10">
-      <div className="self-end px-6 sm:px-10">
+      <div className="self-end px-6 sm:px-10 mb-2">
         <ReturnButton />
       </div>
       <div className="bg-white p-[30px] flex flex-col justify-center w-[90%] sm:w-[500px] rounded-xs">

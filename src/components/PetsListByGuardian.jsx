@@ -32,11 +32,10 @@ export const PetsListByGuardian = ({ guardianId }) => {
 
   return (
     <div className="p-6 md:p-10 lg:px-20 bg-purple-50 w-screen">
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex items-center justify-between mb-5 xl:px-16">
         <h2 className="font-bold text-sm sm:text-base md:text-xl">Meus peludinhos:</h2>
-        <nav className="flex items-center gap-6">
+        <nav>
           <Link className="bg-roxo-primario text-white hover:bg-rosa-forte rounded-md py-2 px-2 sm:px-6 text-xs font-bold" to="/pets/add">Novo pet</Link>
-          <Link className="text-roxo-primario hover:underline" to="/">Voltar</Link>
         </nav>
       </div>
       <div className="flex flex-col justify-center items-center">

@@ -6,13 +6,13 @@ A proposta consiste em um site de adoção de animais que conta com a parceria d
 O projeto foca na experiência do usuário, na responsividade e na integração com dados simulados por meio de uma API fake, além de utilizar tecnologias modernas do ecossistema JavaScript.
 
 ## Tecnologias utilizadas:
-**React 19** – Biblioteca JavaScript para construção da interface.
-**Tailwind CSS** – Framework de estilos utilitários para criação de interfaces responsivas e modernas.
-**Vite** – Ferramenta de build e desenvolvimento ultrarrápida.
-**Axios** – Cliente HTTP para comunicação com APIs.
-**JSON Server** – API REST falsa para simulação de backend durante o desenvolvimento.
-**EmailJS** – Serviço de envio de e-mails direto do frontend.
-**dotenv** – Carrega variáveis de ambiente a partir de um arquivo .env.
+- **React 19** – Biblioteca JavaScript para construção da interface.
+- **Tailwind CSS** – Framework de estilos utilitários para criação de interfaces responsivas e modernas.
+- **Vite** – Ferramenta de build e desenvolvimento ultrarrápida.
+- **Axios** – Cliente HTTP para comunicação com APIs.
+- **JSON Server** – API REST falsa para simulação de backend durante o desenvolvimento.
+- **EmailJS** – Serviço de envio de e-mails direto do frontend.
+- **dotenv** – Carrega variáveis de ambiente a partir de um arquivo .env.
 
 ## Como executar localmente:
 1. Abra o Git Bash ou terminal e vá até a pasta desejada: (cd Documents/)

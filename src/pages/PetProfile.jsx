@@ -116,7 +116,7 @@ export const PetProfile = () => {
                   )
                 }
                 to={`/signup/user`}
-                className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
+                className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all hidden"
               >
                 Quero Adotar!
               </Link>

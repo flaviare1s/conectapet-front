@@ -42,7 +42,7 @@ export const Footer = () => {
           </div>
         </div>
         <div>
-          <div className="md:mt-[-30px]">
+          <div>
             <h3 className="font-bold mb-3">Fale com a gente</h3>
             <div className="text-sm flex flex-col gap-2">
               <a className="hover:opacity-50" href="mailto:contato@conectapet.com" target="_blank">contato@conectapet.com</a>

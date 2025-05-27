@@ -109,17 +109,7 @@ export const PetProfile = () => {
                 Quero Adotar!
               </Link>
             ) : user.role === "guardian" ? (
-              <Link
-                onClick={() =>
-                  toast.error(
-                    "Para adotar um pet, você precisa ter uma conta de usuário!"
-                  )
-                }
-                to={`/signup/user`}
-                className="mt-6 self-start bg-verde-primario text-black font-bold py-2 px-4 rounded hover:brightness-90 transition-all"
-              >
-                Quero Adotar!
-              </Link>
+              null
             ) : null
           ) : (
             <Link

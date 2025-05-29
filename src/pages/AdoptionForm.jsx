@@ -93,7 +93,9 @@ export const AdoptionForm = () => {
 
   const onSubmit = async (data) => {
     if (!pet || !guardian) {
+      console.log("Dados do formulário:", data);
       toast.error("Dados do pet ou do guardião não carregados.");
+      await postAdoption(data);
       return;
     }
 

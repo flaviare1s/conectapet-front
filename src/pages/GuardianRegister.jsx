@@ -63,7 +63,7 @@ export const GuardianRegister = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">
           <InputField
             label="Nome ou ONG *"
-            name="name"
+            name="nome"
             type="text"
             placeholder="Insira sua identificação"
             register={register}
@@ -87,11 +87,11 @@ export const GuardianRegister = () => {
           />
           <InputField
             label="Senha *"
-            name="password"
+            name="senha"
             type="password"
             placeholder="Insira sua senha"
             register={register}
-            error={errors.password?.message}
+            error={errors.senha?.message}
             validation={{
               required: "Senha é obrigatória",
               minLength: {

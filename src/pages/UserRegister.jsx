@@ -63,7 +63,7 @@ export const UserRegister = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">
           <InputField
             label="Nome *"
-            name="name"
+            name="nome"
             type="text"
             placeholder="Insira seu nome"
             register={register}
@@ -87,11 +87,11 @@ export const UserRegister = () => {
           />
           <InputField
             label="Senha *"
-            name="password"
+            name="senha"
             type="password"
             placeholder="Insira sua senha"
             register={register}
-            error={errors.password?.message}
+            error={errors.senha?.message}
             validation={{
               required: "Senha é obrigatória",
               minLength: {

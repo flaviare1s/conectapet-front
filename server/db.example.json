@@ -529,7 +529,7 @@
       "guardianId": "d10828d4-bc5c-42ec-bdd7-ba80ef89b370",
       "guardianName": "APATA",
       "guardianEmail": "apata@teste.com",
-      "email": "maria@teste.com"
+      "userEmail": "maria@teste.com"
     },
     {
       "id": "ee49",
@@ -554,7 +554,7 @@
       "guardianId": "5145556f-4e33-40aa-ac4d-30e674f2dbc1",
       "guardianName": "UPAC",
       "guardianEmail": "upac@teste.com",
-      "email": "maria@teste.com"
+      "userEmail": "maria@teste.com"
     },
     {
       "id": "ee50",
@@ -579,7 +579,7 @@
       "guardianId": "d10828d4-bc5c-42ec-bdd7-ba80ef89b370",
       "guardianName": "APATA",
       "guardianEmail": "apata@teste.com",
-      "email": "maria@teste.com"
+      "userEmail": "maria@teste.com"
     },
     {
       "id": "ee22",
@@ -604,7 +604,7 @@
       "guardianId": "d10828d4-bc5c-42ec-bdd7-ba80ef89b370",
       "guardianName": "APATA",
       "guardianEmail": "apata@teste.com",
-      "email": "pedrim@hotmail.com"
+      "userEmail": "pedrim@hotmail.com"
     }
   ]
 }

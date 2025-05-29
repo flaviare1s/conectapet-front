@@ -107,7 +107,7 @@ export const AdoptionForm = () => {
       guardianId: guardian.id,
       guardianName: guardian.name,
       guardianEmail: guardian.email,
-      email: user.email,
+      userEmail: user.email,
     };
 
     try {

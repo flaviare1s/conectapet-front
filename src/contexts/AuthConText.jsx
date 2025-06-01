@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import axios from '../services/api';
 
 const AuthContext = createContext();
 
@@ -23,26 +24,64 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        setUser(jwtDecode(token));
-      } catch (err) {
+        const decoded = jwtDecode(token);
+
+        axios
+          .get(`/users/${decoded.id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            setUser({
+              ...decoded,
+              nome: response.data.nome,
+            });
+          })
+          .catch((error) => {
+            console.error('Erro ao buscar dados do usuário:', error);
+            setUser(null);
+          });
+
+      } catch (error) {
+        console.error('Erro ao decodificar token:', error);
         setUser(null);
-        console.error("Token inválido:", err);
       }
     }
   }, []);
+  
 
   const login = (userData) => {
     const { token } = userData;
+
     try {
       const decoded = jwtDecode(token);
       localStorage.setItem('token', token);
-      setUser(decoded);
-      const redirectTo = decoded.role === "guardian" ? "/mypets" : "/";
-      setTimeout(() => navigate(redirectTo), 100);
-    } catch (err) {
-      console.error("Token inválido:", err);
+
+      axios
+        .get(`/users/${decoded.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setUser({
+            ...decoded,
+            nome: response.data.nome,
+          });
+
+          const redirectTo = decoded.role === "guardian" ? "/mypets" : "/";
+          setTimeout(() => navigate(redirectTo), 100);
+        })
+        .catch((error) => {
+          console.error('Erro ao buscar dados do usuário:', error);
+        });
+
+    } catch (error) {
+      console.error('Token inválido:', error);
     }
   };
+  
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);

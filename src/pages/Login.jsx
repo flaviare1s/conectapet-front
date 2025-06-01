@@ -4,13 +4,13 @@ import { SubmitButton } from "../components/SubmitButton";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import { fetchUsers } from "../api/auth";
+import { loginUser } from "../api/auth";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
-import { useAuth } from "../contexts/AuthConText";
+import { useAuth } from "../contexts/AuthContext";
 
 export const Login = () => {
   const { login } = useAuth();
@@ -25,20 +25,11 @@ export const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const users = await fetchUsers();
-
-      const user = users.find(
-        (user) => user.email === data.email && user.password === data.password
-      );
-
-      if (user) {
-        login(user);
-      } else {
-        toast.error("Usuário ou senha incorretos");
-      }
+      const user = await loginUser(data);
+      login(user);
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
-      toast.error("Erro ao conectar com o servidor");
+      toast.error("Email ou senha inválidos");
+      console.error(error);
     }
   };
   
@@ -94,11 +85,11 @@ export const Login = () => {
 
           <InputField
             label="Senha *"
-            name="password"
+            name="senha"
             type="password"
             placeholder="Insira sua senha"
             register={register}
-            error={errors.password?.message}
+            error={errors.senha?.message}
             validation={{
               required: "Senha é obrigatória",
               minLength: {

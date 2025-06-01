@@ -1,6 +1,10 @@
 import axios from "../services/api.js";
 
-export const fetchUsers = async () => {
-  const response = await axios.get("/users");
-  return response.data;
+export async function loginUser(data) {
+  try {
+    const response = await axios.post("/login", data);
+    return response.data;
+  } catch (error) {
+    throw new Error("Falha no login", error);
+  }
 }

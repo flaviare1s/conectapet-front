@@ -2,10 +2,13 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { DesktopMenu } from './DesktopMenu';
 import { MobileMenu } from './MobileMenu';
-import { useAuth } from '../contexts/AuthConText';
+import { useAuth } from '../contexts/AuthContext';
 
 export const Header = () => {
+
   const { user, logout } = useAuth()
+  console.log('Usuário logado:', user);
+
   const getRedirectPath = () => {
     if (user?.role === "guardian") return "/mypets";
     return "/";
@@ -19,7 +22,7 @@ export const Header = () => {
       <div className='flex-1 flex justify-end pr-4 pb-3 md:pb-0 md:pr-10 items-center'>
         {user && (
           <span className="text-md text-verde-primario font-semibold mt-2 md:mt-0">
-            Olá, <span className='text-roxo-primario'>{user.name}</span>!
+            Olá, <span className='text-roxo-primario'>{user.nome}</span>!
           </span>
         )}
       </div>

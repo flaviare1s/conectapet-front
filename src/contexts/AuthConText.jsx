@@ -1,34 +1,50 @@
-import{ createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem('user');
-    return storedUser ? JSON.parse(storedUser) : null;
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        return jwtDecode(token);
+      } catch (err) {
+        console.error("Token inválido:", err);
+        return null;
+      }
+    }
+    return null;
   });
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        setUser(jwtDecode(token));
+      } catch (err) {
+        setUser(null);
+        console.error("Token inválido:", err);
+      }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localStorage.getItem("user")]);
+  }, []);
 
   const login = (userData) => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    setUser(userData);
-
-    const redirectTo = userData.role === "guardian" ? "/mypets" : "/";
-
-    setTimeout(() => navigate(redirectTo), 100);
+    const { token } = userData;
+    try {
+      const decoded = jwtDecode(token);
+      localStorage.setItem('token', token);
+      setUser(decoded);
+      const redirectTo = decoded.role === "guardian" ? "/mypets" : "/";
+      setTimeout(() => navigate(redirectTo), 100);
+    } catch (err) {
+      console.error("Token inválido:", err);
+    }
   };
-  
   const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     setUser(null);
     navigate('/login');
   };

@@ -22,7 +22,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
 import { Loader } from "./components/Loader";
 import { AdoptionForm } from "./pages/AdoptionForm";
-import { useAuth } from "./contexts/AuthConText";
+import { useAuth } from "./contexts/AuthContext";
 import { AdoptionListByPet } from "./components/AdoptionListByPet";
 import { RedirectHome } from "./components/RedirectHome";
 import { ScrollToTop } from "./components/ScrollToTop";

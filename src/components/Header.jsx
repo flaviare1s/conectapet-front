@@ -5,9 +5,7 @@ import { MobileMenu } from './MobileMenu';
 import { useAuth } from '../contexts/AuthContext';
 
 export const Header = () => {
-
-  const { user, logout } = useAuth()
-  console.log('Usuário logado:', user);
+  const { user, logout } = useAuth();
 
   const getRedirectPath = () => {
     if (user?.role === "guardian") return "/mypets";

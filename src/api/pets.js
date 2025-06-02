@@ -20,25 +20,35 @@ export const getPetsByGuardianId = async (guardianId) => {
 };
 
 export const addPet = async (formData) => {
+  const token = localStorage.getItem("token");
   const response = await axios.post("/pets", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
-    }
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   return response.data;
 };
 
 export const updatePet = async (id, pet) => {
+  const token = localStorage.getItem("token");
   await axios.put(`/pets/${id}`, pet, {
     headers: {
       "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
     },
   });
 };
 
 export const deletePet = async (id) => {
-  await axios.delete(`/pets/${id}`);
+  const token = localStorage.getItem("token");
+  await axios.delete(`/pets/${id},`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
 };
 
 export async function updatePetStatus(petId, newStatus) {

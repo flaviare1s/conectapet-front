@@ -4,28 +4,33 @@ import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import { createUser } from "../api/users";
 import toast from "react-hot-toast";
-import { useUser } from "../hooks/useUser";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { loginUser } from "../api/auth";
+import { useAuth } from "../contexts/AuthConText";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
 
+
 export const UserRegister = () => {
-  const { login } = useUser();
-  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const onSubmit = async (data) => {
     try {
       await createUser(data);
       toast.success("Usuário cadastrado com sucesso!");
 
-      login(data);
-      navigate("/");
+      const loginResponse = await loginUser({
+        email: data.email,
+        senha: data.senha,
+      });
+
+      login(loginResponse);
     } catch (error) {
-      toast.error("Erro ao cadastrar usuário");
-      console.error("Erro ao cadastrar usuário:", error);
+      console.error("Erro no login:", error.response?.data || error.message);
+      toast.error("Erro ao cadastrar ou logar");
     }
   };
 

@@ -5,6 +5,8 @@ export async function loginUser(data) {
     const response = await axios.post("/login", data);
     return response.data;
   } catch (error) {
-    throw new Error("Falha no login", error);
+    const customError = new Error("Falha no login");
+    customError.original = error;
+    throw customError;
   }
 }

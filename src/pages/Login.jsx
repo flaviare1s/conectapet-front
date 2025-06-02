@@ -10,7 +10,8 @@ import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthConText";
+
 
 export const Login = () => {
   const { login } = useAuth();

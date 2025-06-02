@@ -18,7 +18,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
           {pet.status}
         </div>
         <img
-          src={pet.imagem}
+          src={pet.imagemUrl}
           alt={`Foto de ${pet.nome}`}
           className="w-full h-[200px] object-cover rounded"
         />

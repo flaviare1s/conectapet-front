@@ -31,7 +31,7 @@ export const PetCard = ({ pet, showDescricao = true }) => {
         <div className="flex flex-col">
           <div className="flex items-center gap-1">
             <span className="bg-[#8F8F8F] h-[1px] w-10"></span>
-            <p className="text-sm text-cinza font-bold">{pet.responsavel}</p>
+            <p className="text-sm text-cinza font-bold">{pet.guardian.nome}</p>
           </div>
           {showDescricao && (
             <p className="text-sm text-cinza mt-3">{pet.descricao}</p>

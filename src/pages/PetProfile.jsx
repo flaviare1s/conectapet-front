@@ -51,7 +51,7 @@ export const PetProfile = () => {
             {petInfo.status}
           </div>
           <img
-            src={petInfo.imagem}
+            src={petInfo.imagemUrl}
             alt={`Foto de ${petInfo.nome}`}
             className="w-full h-[300px] object-cover rounded"
           />

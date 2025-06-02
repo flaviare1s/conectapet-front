@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
 import { getPet, updatePet } from "../api/pets";
@@ -10,12 +10,14 @@ import ReturnButton from "../components/ReturnButton";
 export const PetEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [pet, setPet] = useState(null);
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
+    watch,
   } = useForm();
 
   useEffect(() => {
@@ -23,6 +25,7 @@ export const PetEdit = () => {
       try {
         const data = await getPet(id);
         console.log(data);
+        setPet(data);
         reset(data);
       } catch (error) {
         console.error("Erro ao buscar pet:", error);
@@ -34,13 +37,25 @@ export const PetEdit = () => {
 
   const onSubmit = async (data) => {
     try {
-      await updatePet(id, data);
+      const formData = new FormData();
+
+      for (const key in data) {
+        if (key === "imagem" && data.imagem.length > 0) {
+          formData.append(key, data.imagem[0]);
+        } else {
+          formData.append(key, data[key]);
+        }
+      }
+
+      await updatePet(id, formData);
       navigate("/mypets");
     } catch (error) {
       console.error("Erro ao atualizar pet:", error);
     }
   };
 
+  const imagemSelecionada = watch("imagem");
+  
   return (
     <div className="bg-purple-50 flex flex-col flex-grow items-center justify-center relative py-10">
       <div className="self-end px-6 sm:px-10 mb-2">
@@ -83,10 +98,22 @@ export const PetEdit = () => {
             validation={{ required: "Campo obrigatório" }}
             error={errors.idade?.message}
           />
+          {imagemSelecionada && imagemSelecionada.length > 0 ? (
+            <p>Imagem selecionada: {imagemSelecionada[0].name}</p>
+          ) : (
+            pet && pet.imagemUrl && (
+              <img
+                src={pet.imagemUrl}
+                alt={`Foto de ${pet.nome}`}
+                className="w-40 h-40 object-cover"
+              />
+            )
+          )}
           <InputField
-            label="Imagem (URL)"
+            label="Foto"
             name="imagem"
-            placeholder="https://..."
+            type="file"
+            accept="image/*"
             register={register}
             validation={{ required: "Campo obrigatório" }}
             error={errors.imagem?.message}

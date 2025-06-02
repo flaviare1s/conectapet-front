@@ -30,7 +30,11 @@ export const addPet = async (formData) => {
 };
 
 export const updatePet = async (id, pet) => {
-  await axios.put(`/pets/${id}`, pet);
+  await axios.put(`/pets/${id}`, pet, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 
 export const deletePet = async (id) => {

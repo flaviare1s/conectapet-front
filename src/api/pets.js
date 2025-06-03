@@ -43,7 +43,7 @@ export const updatePet = async (id, pet) => {
 
 export const deletePet = async (id) => {
   const token = localStorage.getItem("token");
-  await axios.delete(`/pets/${id},`, {
+  await axios.delete(`/pets/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

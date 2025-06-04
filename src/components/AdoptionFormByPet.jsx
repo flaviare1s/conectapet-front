@@ -3,7 +3,7 @@ import { FaPaw } from "react-icons/fa";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 
-export const AdoptionFormByPet = ({ adoption }) => {
+export const AdoptionFormByPet = ({ adoption, onDelete }) => {
   const [favorited, setFavorited] = useState(false);
 
   const handleFavorite = () => {
@@ -16,10 +16,10 @@ export const AdoptionFormByPet = ({ adoption }) => {
         <div className="flex items-center gap-2">
           <FaPaw className="text-verde-primario text-2xl" />
           <h3 className="text-lg font-bold text-roxo-primario">
-            Deu match com {adoption.petName}!
+            Deu match com {adoption.pet.nome}!
           </h3>
         </div>
-        <button className="text-roxo-primario text-2xl cursor-pointer"><IoClose /></button>
+        <button onClick={onDelete} className="text-roxo-primario text-2xl cursor-pointer"><IoClose /></button>
       </div>
       <div className="space-y-1 text-cinza">
         <p>

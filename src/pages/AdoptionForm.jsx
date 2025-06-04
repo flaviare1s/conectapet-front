@@ -131,19 +131,11 @@ export const AdoptionForm = () => {
       });
       
     } catch (err) {
-      const backendMessage = err.response?.data?.message || err.response?.data || err.message;
-
-      if (
-        typeof backendMessage === "string" &&
-        backendMessage.toLowerCase().includes("unique") &&
-        backendMessage.toLowerCase().includes("adoption")
-      ) {
-        toast.error("Você já fez uma solicitação de adoção para esse pet.");
+      if (err.response && err.response.data && err.response.data.message) {
+        toast.error(err.response.data.message);
       } else {
-        toast.error("Erro ao fazer cadastro. Tente novamente.");
+        toast.error("Erro ao fazer cadastro.");
       }
-
-      console.error("Erro ao cadastrar:", backendMessage);
     }
   };
 

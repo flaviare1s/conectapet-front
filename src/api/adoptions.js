@@ -60,3 +60,15 @@ export async function getAdoptionsByPetId(petId) {
     throw error;
   }
 }
+
+export async function deleteAdoption(adoptionId) {
+  const token = localStorage.getItem("token");
+  try {
+    await axios.delete(`/adoptions/${adoptionId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  } catch (error) {
+    console.error("Erro ao deletar adoção:", error);
+    throw error;
+  }
+}

@@ -1,15 +1,34 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../components/Loader";
-import { getAdoptionsByPetId } from "../api/adoptions";
+import { deleteAdoption, getAdoptionsByPetId } from "../api/adoptions";
 import toast from "react-hot-toast";
 import { AdoptionFormByPet } from "./AdoptionFormByPet";
+import { updatePetStatus } from "../api/pets";
 
 export const AdoptionListByPet = () => {
   const { petId } = useParams();
   const [adoptions, setAdoptions] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const handleDeleteAdoption = async (adoptionId, petId) => {
+    const confirmed = window.confirm("Tem certeza que deseja deletar esse formulário?");
+    if (!confirmed) return;
+    try {
+      await deleteAdoption(adoptionId);
+
+      const updatedAdoptions = adoptions.filter(a => a.id !== adoptionId);
+      setAdoptions(updatedAdoptions);
+
+      const remaining = updatedAdoptions.filter(a => a.petId === petId);
+      if (remaining.length === 0) {
+        await updatePetStatus(petId, "Coração livre!");
+      }
+    } catch (error) {
+      toast.error("Erro ao deletar adoção", error);
+    }
+  };
+  
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -35,7 +54,7 @@ export const AdoptionListByPet = () => {
       ) : (
         <ul className="space-y-4">
           {adoptions.map((a) => (
-            <AdoptionFormByPet key={a.id} adoption={a} />
+            <AdoptionFormByPet key={a.id} adoption={a} onDelete={() => handleDeleteAdoption(a.id, petId)} />
           ))}
         </ul>
       )}

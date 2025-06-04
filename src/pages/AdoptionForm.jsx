@@ -13,7 +13,7 @@ import bgDog4 from "../assets/bg-dog4.png";
 import { postAdoption } from "../api/adoptions";
 import toast from "react-hot-toast";
 import { updatePetStatus } from "../api/pets";
-import { useAuth } from "../contexts/AuthConText";
+import { useAuth } from "../contexts/AuthContext";
 
 export const AdoptionForm = () => {
   const { user } = useAuth();
@@ -112,7 +112,7 @@ export const AdoptionForm = () => {
       petId: pet.id,
       favoritado: false
     };
-    
+
 
     console.log(adoptionData);
 
@@ -129,7 +129,7 @@ export const AdoptionForm = () => {
           adoption: adoptionData,
         },
       });
-      
+
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
         toast.error(err.response.data.message);
@@ -142,7 +142,7 @@ export const AdoptionForm = () => {
   const handleNext = () => {
     setFormStep((prev) => prev + 1);
   };
-  
+
   return (
     <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center relative py-6">
       <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">

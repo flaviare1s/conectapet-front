@@ -4,7 +4,7 @@ import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
 import ReturnButton from "../components/ReturnButton";
 import toast from "react-hot-toast";
-import { useAuth } from "../contexts/AuthConText";
+import { useAuth } from "../contexts/AuthContext";
 
 export const PetProfile = () => {
   const { user } = useAuth();

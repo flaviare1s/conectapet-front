@@ -6,7 +6,7 @@ import { createUser } from "../api/users";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { loginUser } from "../api/auth";
-import { useAuth } from "../contexts/AuthConText";
+import { useAuth } from "../contexts/AuthContext";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";

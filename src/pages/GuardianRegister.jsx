@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { createGuardian } from "../api/users.js";
 import { loginUser } from "../api/auth.js";
-import { useAuth } from "../contexts/AuthConText.jsx";
+import { useAuth } from "../contexts/AuthContext.jsx";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
@@ -33,7 +33,7 @@ export const GuardianRegister = () => {
       toast.error("Erro ao cadastrar ou logar");
     }
   };
-  
+
   const {
     register,
     handleSubmit,

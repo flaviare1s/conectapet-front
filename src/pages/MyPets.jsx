@@ -1,6 +1,6 @@
 import { Loader } from "../components/Loader";
 import { PetsListByGuardian } from "../components/PetsListByGuardian";
-import { useAuth } from "../contexts/AuthConText";
+import { useAuth } from "../contexts/AuthContext";
 
 export const MyPets = () => {
   const { user } = useAuth();

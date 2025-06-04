@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { SelectField } from "../components/SelectField";
 import { useNavigate } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
-import { useAuth } from "../contexts/AuthConText";
+import { useAuth } from "../contexts/AuthContext";
 
 export const PetRegister = () => {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ export const PetRegister = () => {
       console.error("Erro ao cadastrar pet:", err);
     }
   };
-  
+
   return (
     <div className="bg-purple-50 flex flex-col flex-grow items-center justify-center relative py-10">
       <div className="self-end px-6 sm:px-10 mb-2">

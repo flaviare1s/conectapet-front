@@ -31,7 +31,7 @@ export const Congratulations = () => {
             <p className="text-roxo-primario font-bold">Informações pessoais</p>
             <span>Nome: {adoption.nome}</span>
             <span>CPF: {adoption.cpf}</span>
-            <span>E-mail: {adoption.email}</span>
+            <span>E-mail: {user.email}</span>
             <span>Telefone: {adoption.cel}</span>
           </div>
 
@@ -40,7 +40,7 @@ export const Congratulations = () => {
           <div className="flex flex-col p-5 gap-2">
             <p className="text-roxo-primario font-bold">Informações do pet</p>
             <span>Nome: {pet.nome}</span>
-            <span>Responsável: {guardian.name}</span>
+            <span>Responsável: {guardian.nome}</span>
             <span>Email: {guardian.email}</span>
           </div>
 

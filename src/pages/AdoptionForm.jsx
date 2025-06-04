@@ -21,7 +21,6 @@ export const AdoptionForm = () => {
   const [formStep, setFormStep] = useState(1);
   const navigate = useNavigate();
   const [pet, setPet] = useState(null);
-  const [guardian, setGuardian] = useState(null);
 
   const {
     register,
@@ -41,7 +40,6 @@ export const AdoptionForm = () => {
           const response = await axios.get(
             `https://viacep.com.br/ws/${cep}/json/`
           );
-          console.log("Resposta da API:", response.data);
           if (!response.data.erro) {
             setValue("rua", response.data.logradouro);
             setValue("bairro", response.data.bairro);
@@ -74,59 +72,78 @@ export const AdoptionForm = () => {
   };
 
   useEffect(() => {
-    const fetchPetAndGuardian = async () => {
+    const fetchPet = async () => {
       try {
         const petRes = await api.get(`/pets/${petId}`);
         setPet(petRes.data);
 
-        const guardianRes = await api.get(
-          `/users/${petRes.data.guardianId}`
-        );
-        setGuardian(guardianRes.data);
       } catch (err) {
-        console.error("Erro ao buscar pet ou guardian:", err);
+        console.error("Erro ao buscar pet:", err);
       }
     };
 
-    fetchPetAndGuardian();
+    fetchPet();
   }, [petId]);
 
   const onSubmit = async (data) => {
-    if (!pet || !guardian) {
-      console.log("Dados do formulário:", data);
+    if (!pet) {
       toast.error("Dados do pet ou do guardião não carregados.");
-      await postAdoption(data);
       return;
     }
 
     const adoptionData = {
-      ...data,
+      nome: data.nome,
+      dataN: data.dataN,
+      cpf: data.cpf,
+      ec: data.ec,
+      profissao: data.profissao,
+      cel: data.cel,
+      cep: data.cep,
+      rua: data.rua,
+      bairro: data.bairro,
+      numero: data.numero,
+      cidade: data.cidade,
+      termo: data.termo,
+      custos: data.custos,
+      compromisso: data.compromisso,
+      visitas: data.visitas,
+      motivacao: data.motivacao,
       userId: user.id,
       petId: pet.id,
-      petName: pet.nome,
-      guardianId: guardian.id,
-      guardianName: guardian.name,
-      guardianEmail: guardian.email,
-      userEmail: user.email,
+      favoritado: false
     };
+    
+
+    console.log(adoptionData);
 
     try {
       await postAdoption(adoptionData);
       await updatePetStatus(pet.id, "Quase lá!");
       toast.success("Cadastro realizado com sucesso!");
 
-      console.log("Dados do formulário com userId:", adoptionData);
       navigate("/congratulations", {
         state: {
-          adoption: adoptionData,
           pet,
-          guardian,
           user,
+          guardian: pet.guardian,
+          adoption: adoptionData,
         },
       });
+      
     } catch (err) {
-      toast.error("Erro ao fazer cadastro.");
-      console.error("Erro ao cadastrar:", err);
+      const backendMessage = err.response?.data?.message || err.response?.data || err.message;
+
+      if (
+        typeof backendMessage === "string" &&
+        backendMessage.toLowerCase().includes("unique") &&
+        backendMessage.toLowerCase().includes("adoption")
+      ) {
+        toast.error("Você já fez uma solicitação de adoção para esse pet.");
+      } else {
+        toast.error("Erro ao fazer cadastro. Tente novamente.");
+      }
+
+      console.error("Erro ao cadastrar:", backendMessage);
     }
   };
 

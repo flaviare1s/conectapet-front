@@ -21,11 +21,13 @@ export async function fetchGuardianById(guardianId) {
 }
 
 export async function postAdoption(adoptionData) {
+  const token = localStorage.getItem("token");
   try {
-    const response = await axios.post(
-      `/adoptions`,
-      adoptionData
-    );
+    const response = await axios.post(`/adoptions`, adoptionData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Erro ao enviar adoção:", error);
@@ -34,8 +36,11 @@ export async function postAdoption(adoptionData) {
 }
 
 export async function getAdoptions() {
+  const token = localStorage.getItem("token");
   try {
-    const response = await axios.get(`/adoptions`);
+    const response = await axios.get(`/adoptions`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar adoções:", error);
@@ -44,8 +49,11 @@ export async function getAdoptions() {
 }
 
 export async function getAdoptionsByPetId(petId) {
+  const token = localStorage.getItem("token");
   try {
-    const response = await axios.get(`/adoptions?petId=${petId}`);
+    const response = await axios.get(`/adoptions?petId=${petId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar adoções por pet:", error);

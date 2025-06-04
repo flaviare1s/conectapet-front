@@ -1,34 +1,89 @@
-import{ createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import axios from '../services/api';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem('user');
-    return storedUser ? JSON.parse(storedUser) : null;
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        return jwtDecode(token);
+      } catch (err) {
+        console.error("Token inválido:", err);
+        return null;
+      }
+    }
+    return null;
   });
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+
+        axios
+          .get(`/users/${decoded.id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            setUser({
+              ...decoded,
+              nome: response.data.nome,
+            });
+          })
+          .catch((error) => {
+            console.error('Erro ao buscar dados do usuário:', error);
+            setUser(null);
+          });
+
+      } catch (error) {
+        console.error('Erro ao decodificar token:', error);
+        setUser(null);
+      }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localStorage.getItem("user")]);
+  }, []);
+  
 
   const login = (userData) => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    setUser(userData);
+    const { token } = userData;
 
-    const redirectTo = userData.role === "guardian" ? "/mypets" : "/";
+    try {
+      const decoded = jwtDecode(token);
+      localStorage.setItem('token', token);
 
-    setTimeout(() => navigate(redirectTo), 100);
+      axios
+        .get(`/users/${decoded.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setUser({
+            ...decoded,
+            nome: response.data.nome,
+          });
+
+          const redirectTo = decoded.role === "guardian" ? "/mypets" : "/";
+          setTimeout(() => navigate(redirectTo), 100);
+        })
+        .catch((error) => {
+          console.error('Erro ao buscar dados do usuário:', error);
+        });
+
+    } catch (error) {
+      console.error('Token inválido:', error);
+    }
   };
   
   const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     setUser(null);
     navigate('/login');
   };

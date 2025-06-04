@@ -17,6 +17,7 @@
     "conectapet-front": "file:",
     "dotenv": "^16.5.0",
     "json-server": "^1.0.0-beta.3",
+    "jwt-decode": "^4.0.0",
     "react": "^19.1.0",
     "react-burger-menu": "^3.1.0",
     "react-dom": "^19.1.0",

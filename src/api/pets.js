@@ -1,14 +1,14 @@
-import axios from "../services/api.js"
+import axios from "../services/api.js";
 
 export const getPets = async () => {
-  const { data } = await axios.get("/pets")
-  return data
-}
+  const { data } = await axios.get("/pets");
+  return data;
+};
 
 export const getPet = async (id) => {
-  const { data } = await axios.get(`/pets/${id}`)
-  return data
-}
+  const { data } = await axios.get(`/pets/${id}`);
+  return data;
+};
 
 export const getPetsByGuardianId = async (guardianId) => {
   const response = await axios.get(`/pets?guardianId=${guardianId}`);
@@ -19,17 +19,37 @@ export const getPetsByGuardianId = async (guardianId) => {
   return response.data.filter((pet) => pet.guardianId === guardianId);
 };
 
-export const addPet = async (pet) => {
-  await axios.post("/pets", pet);
-}
+export const addPet = async (formData) => {
+  const token = localStorage.getItem("token");
+  const response = await axios.post("/pets", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+};
 
 export const updatePet = async (id, pet) => {
-  await axios.put(`/pets/${id}`, pet);
-}
+  const token = localStorage.getItem("token");
+  await axios.put(`/pets/${id}`, pet, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 export const deletePet = async (id) => {
-  await axios.delete(`/pets/${id}`);
-}
+  const token = localStorage.getItem("token");
+  await axios.delete(`/pets/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+};
 
 export async function updatePetStatus(petId, newStatus) {
   try {

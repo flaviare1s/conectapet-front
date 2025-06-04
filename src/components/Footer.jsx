@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import logo from "../assets/logo-pb.png"
-import { useAuth } from "../contexts/AuthConText"
+import { useAuth } from "../contexts/AuthContext"
 
 export const Footer = () => {
   const { user } = useAuth()

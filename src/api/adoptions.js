@@ -21,11 +21,13 @@ export async function fetchGuardianById(guardianId) {
 }
 
 export async function postAdoption(adoptionData) {
+  const token = localStorage.getItem("token");
   try {
-    const response = await axios.post(
-      `/adoptions`,
-      adoptionData
-    );
+    const response = await axios.post(`/adoptions`, adoptionData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Erro ao enviar adoção:", error);
@@ -34,8 +36,11 @@ export async function postAdoption(adoptionData) {
 }
 
 export async function getAdoptions() {
+  const token = localStorage.getItem("token");
   try {
-    const response = await axios.get(`/adoptions`);
+    const response = await axios.get(`/adoptions`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar adoções:", error);
@@ -44,11 +49,43 @@ export async function getAdoptions() {
 }
 
 export async function getAdoptionsByPetId(petId) {
+  const token = localStorage.getItem("token");
   try {
-    const response = await axios.get(`/adoptions?petId=${petId}`);
+    const response = await axios.get(`/adoptions?petId=${petId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar adoções por pet:", error);
+    throw error;
+  }
+}
+
+export async function deleteAdoption(adoptionId) {
+  const token = localStorage.getItem("token");
+  try {
+    await axios.delete(`/adoptions/${adoptionId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  } catch (error) {
+    console.error("Erro ao deletar adoção:", error);
+    throw error;
+  }
+}
+
+export async function toggleFavoriteAdoption(adoptionId, favorited) {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await axios.put(
+      `/adoptions/${adoptionId}`,
+      { favoritado: favorited },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao atualizar favoritado:", error);
     throw error;
   }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -6,7 +6,6 @@ import api from "../services/api";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
-import { UserContext } from "../contexts/UserContext";
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
@@ -14,14 +13,14 @@ import bgDog4 from "../assets/bg-dog4.png";
 import { postAdoption } from "../api/adoptions";
 import toast from "react-hot-toast";
 import { updatePetStatus } from "../api/pets";
+import { useAuth } from "../contexts/AuthContext";
 
 export const AdoptionForm = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useAuth();
   const { petId } = useParams();
   const [formStep, setFormStep] = useState(1);
   const navigate = useNavigate();
   const [pet, setPet] = useState(null);
-  const [guardian, setGuardian] = useState(null);
 
   const {
     register,
@@ -41,7 +40,6 @@ export const AdoptionForm = () => {
           const response = await axios.get(
             `https://viacep.com.br/ws/${cep}/json/`
           );
-          console.log("Resposta da API:", response.data);
           if (!response.data.erro) {
             setValue("rua", response.data.logradouro);
             setValue("bairro", response.data.bairro);
@@ -74,66 +72,77 @@ export const AdoptionForm = () => {
   };
 
   useEffect(() => {
-    const fetchPetAndGuardian = async () => {
+    const fetchPet = async () => {
       try {
         const petRes = await api.get(`/pets/${petId}`);
         setPet(petRes.data);
 
-        const guardianRes = await api.get(
-          `/users/${petRes.data.guardianId}`
-        );
-        setGuardian(guardianRes.data);
       } catch (err) {
-        console.error("Erro ao buscar pet ou guardian:", err);
+        console.error("Erro ao buscar pet:", err);
       }
     };
 
-    fetchPetAndGuardian();
+    fetchPet();
   }, [petId]);
 
   const onSubmit = async (data) => {
-    if (!pet || !guardian) {
-      console.log("Dados do formulário:", data);
+    if (!pet) {
       toast.error("Dados do pet ou do guardião não carregados.");
-      await postAdoption(data);
       return;
     }
 
     const adoptionData = {
-      ...data,
+      nome: data.nome,
+      dataN: data.dataN,
+      cpf: data.cpf,
+      ec: data.ec,
+      profissao: data.profissao,
+      cel: data.cel,
+      cep: data.cep,
+      rua: data.rua,
+      bairro: data.bairro,
+      numero: data.numero,
+      cidade: data.cidade,
+      termo: data.termo,
+      custos: data.custos,
+      compromisso: data.compromisso,
+      visitas: data.visitas,
+      motivacao: data.motivacao,
       userId: user.id,
       petId: pet.id,
-      petName: pet.nome,
-      guardianId: guardian.id,
-      guardianName: guardian.name,
-      guardianEmail: guardian.email,
-      userEmail: user.email,
+      favoritado: false
     };
+
+
+    console.log(adoptionData);
 
     try {
       await postAdoption(adoptionData);
       await updatePetStatus(pet.id, "Quase lá!");
       toast.success("Cadastro realizado com sucesso!");
 
-      console.log("Dados do formulário com userId:", adoptionData);
       navigate("/congratulations", {
         state: {
-          adoption: adoptionData,
           pet,
-          guardian,
           user,
+          guardian: pet.guardian,
+          adoption: adoptionData,
         },
       });
+
     } catch (err) {
-      toast.error("Erro ao fazer cadastro.");
-      console.error("Erro ao cadastrar:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("Erro ao fazer cadastro.");
+      }
     }
   };
 
   const handleNext = () => {
     setFormStep((prev) => prev + 1);
   };
-  
+
   return (
     <div className="bg-rosa-forte flex flex-col flex-grow min-h-[95vh] items-center justify-center relative py-6">
       <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">
@@ -230,6 +239,7 @@ export const AdoptionForm = () => {
                 placeholder="(00) 0 0000-0000"
                 register={register}
                 validation={{
+                  required: "Campo obrigatório",
                   pattern: {
                     value: /^\(?\d{2}\)?[\s-]?9?\d{4}-?\d{4}$/,
                     message: "Número inválido",

@@ -54,7 +54,7 @@ export const PetCardByGuardian = ({ pet }) => {
           {pet.status}
         </div>
         <img
-          src={pet.imagem}
+          src={pet.imagemUrl}
           alt={`Foto de ${pet.nome}`}
           className="w-full h-[200px] object-cover rounded"
         />
@@ -67,7 +67,7 @@ export const PetCardByGuardian = ({ pet }) => {
         <div className="flex flex-col">
           <div className="flex items-center gap-1">
             <span className="bg-[#8F8F8F] h-[1px] w-10"></span>
-            <p className="text-sm text-cinza font-bold">{pet.responsavel}</p>
+            <p className="text-sm text-cinza font-bold">{pet.guardian.nome}</p>
           </div>
           <div className="flex items-center justify-end gap-2">
             <Link to={`/pets/${pet.id}`}><AiOutlineEye className="text-yellow-600 text-2xl hover:text-yellow-800 mt-1" /></Link>

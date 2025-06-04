@@ -1,7 +1,7 @@
 import bgMobile from "../assets/bg-banner1-mobile.png"
 import bgDesktop from "../assets/bg-banner1-desktop.png"
 import { Link } from "react-router-dom"
-import { useAuth } from "../contexts/AuthConText"
+import { useAuth } from "../contexts/AuthContext"
 
 export const Banner1 = () => {
   const { user } = useAuth()

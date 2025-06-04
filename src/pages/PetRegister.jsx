@@ -3,15 +3,14 @@ import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { addPet } from "../api/pets";
 import toast from "react-hot-toast";
-import { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
 import { SelectField } from "../components/SelectField";
 import { useNavigate } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
+import { useAuth } from "../contexts/AuthContext";
 
 export const PetRegister = () => {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -25,14 +24,26 @@ export const PetRegister = () => {
       return;
     }
 
-    const petData = {
-      ...data,
-      guardianId: user.id,
-      responsavel: user.name,
-    };
+    const formData = new FormData();
+
+    formData.append("imagem", data.imagem[0]);
+
+    formData.append("nome", data.nome);
+    formData.append("idade", data.idade);
+    formData.append("descricao", data.descricao);
+    formData.append("observacoes", data.observacoes || "");
+    formData.append("status", data.status);
+    formData.append("porte", data.porte);
+    formData.append("sexo", data.sexo);
+    formData.append("vacinado", data.vacinado);
+    formData.append("castrado", data.castrado);
+    formData.append("tipo", data.tipo);
+
+    formData.append("guardianId", user.id);
+    formData.append("responsavel", user.name);
 
     try {
-      await addPet(petData);
+      await addPet(formData);
       toast.success("Pet cadastrado com sucesso!");
       reset();
       navigate("/mypets");
@@ -88,9 +99,10 @@ export const PetRegister = () => {
           />
 
           <InputField
-            label="Imagem (URL)"
+            label="Foto"
             name="imagem"
-            placeholder="https://..."
+            type="file"
+            accept="image/*"
             register={register}
             validation={{ required: "Campo obrigatório" }}
             error={errors.imagem?.message}

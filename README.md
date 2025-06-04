@@ -1,7 +1,7 @@
 # ConectaPet
 
 ## Visão Geral:
-Esta aplicação foi desenvolvida como projeto de conclusão do curso, com o objetivo de aplicar na prática os conhecimentos adquiridos ao longo da formação.
+Esta aplicação foi desenvolvida como projeto de conclusão do curso Geração Tech 2.0, com o objetivo de aplicar na prática os conhecimentos adquiridos ao longo da formação.
 A proposta consiste em um site de adoção de animais que conta com a parceria de ONGs, facilitando a conexão entre pets resgatados e pessoas interessadas em adotar com responsabilidade.
 O projeto foca na experiência do usuário, na responsividade e na integração com dados simulados por meio de uma API fake, além de utilizar tecnologias modernas do ecossistema JavaScript.
 

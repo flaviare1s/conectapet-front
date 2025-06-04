@@ -72,3 +72,20 @@ export async function deleteAdoption(adoptionId) {
     throw error;
   }
 }
+
+export async function toggleFavoriteAdoption(adoptionId, favorited) {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await axios.put(
+      `/adoptions/${adoptionId}`,
+      { favoritado: favorited },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao atualizar favoritado:", error);
+    throw error;
+  }
+}

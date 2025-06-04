@@ -27,7 +27,7 @@ export const Filter = ({ onFilterChange, onClose }) => {
       {/* Botão de fechar (somente mobile) */}
       <div className="flex justify-end sm:hidden mb-2">
         <button
-          className="text-roxo-primario text-3xl font-semibold hover:underline"
+          className="text-roxo-primario text-3xl font-semibold cursor-pointer"
           onClick={onClose}
         >
           ✕

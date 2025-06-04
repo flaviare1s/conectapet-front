@@ -10,7 +10,7 @@ export const Pets = () => {
     <div className="flex flex-col sm:flex-row relative min-h-screen">
       {/* Botão de abrir filtro (somente mobile) */}
       <button
-        className="sm:hidden bg-roxo-primario text-white px-4 py-2 m-2 rounded self-start"
+        className="sm:hidden bg-roxo-primario text-white px-4 py-2 m-2 rounded self-start cursor-pointer"
         onClick={() => setShowFilter(!showFilter)}
       >
         {showFilter ? "Fechar Filtros" : "Filtrar"}

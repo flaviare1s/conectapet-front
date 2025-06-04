@@ -16,16 +16,15 @@ import { SelectAccountType } from "./pages/SelectAccountType";
 import { PetProfile } from "./pages/PetProfile";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { MyPets } from "./pages/MyPets";
-
 import { useEffect, useState } from "react";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Forbidden } from "./pages/Forbidden";
 import { Loader } from "./components/Loader";
 import { AdoptionForm } from "./pages/AdoptionForm";
-import { useAuth } from "./contexts/AuthContext";
 import { AdoptionListByPet } from "./components/AdoptionListByPet";
 import { RedirectHome } from "./components/RedirectHome";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { useAuth } from "./contexts/AuthContext";
 
 function App() {
   const { user } = useAuth();

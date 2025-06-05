@@ -113,9 +113,6 @@ export const AdoptionForm = () => {
       favoritado: false
     };
 
-
-    console.log(adoptionData);
-
     try {
       await postAdoption(adoptionData);
       await updatePetStatus(pet.id, "Quase lá!");

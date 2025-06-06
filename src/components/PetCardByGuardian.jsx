@@ -4,7 +4,7 @@ import { deletePet } from "../api/pets";
 import toast from "react-hot-toast";
 import { AiOutlineEye } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import { getAdoptions } from "../api/adoptions";
+import { getAdoptionsByPetId } from "../api/adoptions";
 import { FaWpforms } from "react-icons/fa";
 
 export const PetCardByGuardian = ({ pet }) => {
@@ -14,7 +14,7 @@ export const PetCardByGuardian = ({ pet }) => {
   useEffect(() => {
     const fetchAdoption = async () => {
       try {
-        const response = await getAdoptions();
+        const response = await getAdoptionsByPetId(pet.id);
         const match = response.find((a) => a.petId === pet.id);
         setAdoption(match || null);
       } catch (error) {

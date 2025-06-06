@@ -10,14 +10,3 @@ export async function loginUser(data) {
     throw customError;
   }
 }
-
-export const updateAdoptionFavorited = async (adoptionId, favorited) => {
-  try {
-    const response = await axios.patch(`/api/adoptions/${adoptionId}`, {
-      favoritado: favorited,
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error("Erro ao atualizar favoritado", error);
-  }
-};

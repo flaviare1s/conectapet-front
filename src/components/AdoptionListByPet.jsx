@@ -29,6 +29,14 @@ export const AdoptionListByPet = () => {
     }
   };
 
+  const handleToggleFavorite = (updatedAdoption) => {
+    setAdoptions((prevAdoptions) =>
+      prevAdoptions.map((a) =>
+        a.id === updatedAdoption.id ? updatedAdoption : a
+      )
+    );
+  };
+  
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -71,7 +79,7 @@ export const AdoptionListByPet = () => {
       }
 
       {filteredAdoptions.length === 0 ? (
-        <p className="text-center">Nenhuma solicitação recebida ainda!</p>
+        <p className="text-center">Nenhuma solicitação recebida ou favoritada!</p>
       ) : (
         <ul className="space-y-4">
           {filteredAdoptions.map((a) => (
@@ -79,6 +87,7 @@ export const AdoptionListByPet = () => {
               key={a.id}
               adoption={a}
               onDelete={() => handleDeleteAdoption(a.id, petId)}
+              onToggleFavorite={handleToggleFavorite}
             />
           ))}
         </ul>

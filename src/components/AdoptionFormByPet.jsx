@@ -5,7 +5,7 @@ import { IoClose } from "react-icons/io5";
 import { toggleFavoriteAdoption } from "../api/adoptions";
 import toast from "react-hot-toast";
 
-export const AdoptionFormByPet = ({ adoption, onDelete }) => {
+export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) => {
   const [favorited, setFavorited] = useState(adoption.favoritado);
   const [loadingFavorite, setLoadingFavorite] = useState(false);
 
@@ -15,12 +15,20 @@ export const AdoptionFormByPet = ({ adoption, onDelete }) => {
       const newFavoritedStatus = !favorited;
       await toggleFavoriteAdoption(adoption.id, newFavoritedStatus);
       setFavorited(newFavoritedStatus);
+
+      if (onToggleFavorite) {
+        onToggleFavorite({
+          ...adoption,
+          favoritado: newFavoritedStatus,
+        });
+      }
     } catch (error) {
       toast.error("Erro ao atualizar favorito", error);
     } finally {
       setLoadingFavorite(false);
     }
   };
+
   return (
     <div className="bg-verde-piscina/20 border border-verde-escuro/30 rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform">
       <div className="flex justify-between items-center mb-4">

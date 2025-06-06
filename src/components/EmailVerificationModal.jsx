@@ -15,9 +15,9 @@ export function EmailVerificationModal({ isOpen, onRequestClose, onVerify }) {
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      overlayClassName="fixed inset-0 bg-[#000000b3] flex justify-center items-center z-50"
+      overlayClassName="fixed inset-0 bg-[#000000b3] flex justify-center items-center z-50" 
       className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative mx-4"
-    >
+    > 
       <button
         onClick={onRequestClose}
         className="absolute top-2 right-3 text-roxo-primario hover:text-rosa-forte font-bold text-3xl cursor-pointer"

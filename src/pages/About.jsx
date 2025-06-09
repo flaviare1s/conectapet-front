@@ -1,7 +1,7 @@
 import { VscAccount } from "react-icons/vsc";
 import { RiImageCircleLine } from "react-icons/ri";
 import { SiGoogleforms } from "react-icons/si";
-import ReturnButton from "../components/ReturnButton";
+import { ReturnButton } from "../components/ReturnButton";
 
 export const About = () => {
   return (

@@ -7,7 +7,8 @@ import logoAu from "../assets/logos-ongs/logo-au.jpg";
 import logoCausaPet from "../assets/logos-ongs/logo-causapet.jpg";
 import logoGPA from "../assets/logos-ongs/logo-gpa.jpg";
 import logoUpac from "../assets/logos-ongs/logo-upac.jpg";
-import ReturnButton from "./ReturnButton";
+import { ReturnButton } from "./ReturnButton";
+
 
 export const ONGsList = () => {
   return (

@@ -5,8 +5,8 @@ import { addPet } from "../api/pets";
 import toast from "react-hot-toast";
 import { SelectField } from "../components/SelectField";
 import { useNavigate } from "react-router-dom";
-import ReturnButton from "../components/ReturnButton";
 import { useAuth } from "../contexts/AuthContext";
+import { ReturnButton } from "../components/ReturnButton";
 
 export const PetRegister = () => {
   const navigate = useNavigate();

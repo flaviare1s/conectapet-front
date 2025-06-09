@@ -14,6 +14,7 @@ import { postAdoption } from "../api/adoptions";
 import toast from "react-hot-toast";
 import { updatePetStatus } from "../api/pets";
 import { useAuth } from "../contexts/AuthContext";
+import { cleanFormData } from "../utils/validators";
 
 export const AdoptionForm = () => {
   const { user } = useAuth();
@@ -86,33 +87,34 @@ export const AdoptionForm = () => {
   }, [petId]);
 
   const onSubmit = async (data) => {
+    const cleanedData = cleanFormData(data);
     if (!pet) {
       toast.error("Dados do pet ou do guardião não carregados.");
       return;
     }
 
     const adoptionData = {
-      nome: data.nome,
-      dataN: data.dataN,
-      cpf: data.cpf,
-      ec: data.ec,
-      profissao: data.profissao,
-      cel: data.cel,
-      cep: data.cep,
-      rua: data.rua,
-      bairro: data.bairro,
-      numero: data.numero,
-      cidade: data.cidade,
-      termo: data.termo,
-      custos: data.custos,
-      compromisso: data.compromisso,
-      visitas: data.visitas,
-      motivacao: data.motivacao,
+      nome: cleanedData.nome,
+      dataN: cleanedData.dataN,
+      cpf: cleanedData.cpf,
+      ec: cleanedData.ec,
+      profissao: cleanedData.profissao,
+      cel: cleanedData.cel,
+      cep: cleanedData.cep,
+      rua: cleanedData.rua,
+      bairro: cleanedData.bairro,
+      numero: cleanedData.numero,
+      cidade: cleanedData.cidade,
+      termo: cleanedData.termo,
+      custos: cleanedData.custos,
+      compromisso: cleanedData.compromisso,
+      visitas: cleanedData.visitas,
+      motivacao: cleanedData.motivacao,
       userId: user.id,
       petId: pet.id,
       favoritado: false
     };
-
+    
     try {
       await postAdoption(adoptionData);
       await updatePetStatus(pet.id, "Quase lá!");

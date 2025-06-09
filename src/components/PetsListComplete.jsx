@@ -2,9 +2,9 @@ import { PetCard } from "./PetCard";
 import { useEffect, useState } from "react";
 import { getPets } from "../api/pets";
 import { Loader } from "./Loader";
-import ReturnButton from "./ReturnButton";
 import { useResponsiveLimit } from "../hooks/useResponsiveLimit";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { ReturnButton } from "./ReturnButton";
 
 export const PetsListComplete = ({
   showDescricao = true,

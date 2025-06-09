@@ -5,7 +5,7 @@ import { getPet, updatePet } from "../api/pets";
 import { InputField } from "../components/InputField";
 import { SelectField } from "../components/SelectField";
 import { SubmitButton } from "../components/SubmitButton";
-import ReturnButton from "../components/ReturnButton";
+import { ReturnButton } from "../components/ReturnButton";
 
 export const PetEdit = () => {
   const { id } = useParams();
@@ -40,8 +40,12 @@ export const PetEdit = () => {
       const formData = new FormData();
 
       for (const key in data) {
-        if (key === "imagem" && data.imagem.length > 0) {
-          formData.append(key, data.imagem[0]);
+        if (key === "imagem") {
+          if (data.imagem.length > 0) {
+            formData.append("imagem", data.imagem[0]);
+          } else if (pet?.imagemUrl) {
+            formData.append("imagemUrl", pet.imagemUrl);
+          }
         } else {
           formData.append(key, data[key]);
         }
@@ -53,7 +57,7 @@ export const PetEdit = () => {
       console.error("Erro ao atualizar pet:", error);
     }
   };
-
+  
   const imagemSelecionada = watch("imagem");
   
   return (
@@ -115,7 +119,6 @@ export const PetEdit = () => {
             type="file"
             accept="image/*"
             register={register}
-            validation={{ required: "Campo obrigatório" }}
             error={errors.imagem?.message}
           />
           <InputField

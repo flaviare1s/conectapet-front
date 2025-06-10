@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const ReturnButton = () => {
+export const ReturnButton = () => {
     const navigate = useNavigate();
     
   return (
@@ -13,4 +13,3 @@ const ReturnButton = () => {
   );
 };
 
-export default ReturnButton;

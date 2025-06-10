@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
-import ReturnButton from "../components/ReturnButton";
 import toast from "react-hot-toast";
 import { useAuth } from "../contexts/AuthContext";
+import { ReturnButton } from "../components/ReturnButton";
 
 export const PetProfile = () => {
   const { user } = useAuth();

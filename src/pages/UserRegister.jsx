@@ -41,7 +41,7 @@ export const UserRegister = () => {
   } = useForm();
 
   return (
-    <div className="bg-verde-primario flex flex-col flex-grow min-h-[95vh] items-center justify-center relative">
+    <div className="relative pt-30 bg-verde-primario flex flex-col flex-grow min-h-[95vh] items-center justify-center">
       <div className="absolute bottom-0 right-0 hidden lg:block w-[250px]">
         <img className="w-full" src={bgDog1} alt="Desenho de cachorro" />
       </div>

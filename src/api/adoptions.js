@@ -21,9 +21,7 @@ export async function fetchGuardianById(guardianId) {
 }
 
 export async function postAdoption(adoptionData) {
-  console.log("Dados enviados:", adoptionData);
   const token = localStorage.getItem("token");
-  console.log("Token:", token);
   try {
     const response = await axios.post(`/adoptions`, adoptionData, {
       headers: {

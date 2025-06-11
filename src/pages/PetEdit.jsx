@@ -84,7 +84,7 @@ export const PetEdit = () => {
             ]}
             register={register}
             validation={{ required: "Campo obrigatório" }}
-            error={errors.status?.message}
+            error={errors.tipo?.message}
           />
           <InputField
             label="Nome"

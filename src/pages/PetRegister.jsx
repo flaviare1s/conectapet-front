@@ -77,7 +77,7 @@ export const PetRegister = () => {
             ]}
             register={register}
             validation={{ required: "Campo obrigatório" }}
-            error={errors.status?.message}
+            error={errors.tipo?.message}
           />
 
           <InputField

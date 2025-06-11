@@ -7,15 +7,20 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cypress": "npx cypress run",
+    "coverage:report": "nyc report --reporter=html",
+    "coverage:open": "start coverage/index.html"
   },
   "dependencies": {
+    "@cypress/code-coverage": "^3.14.4",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.5",
     "axios": "^1.9.0",
     "conectapet-front": "file:",
     "dotenv": "^16.5.0",
     "jwt-decode": "^4.0.0",
+    "nyc": "^17.1.0",
     "react": "^19.1.0",
     "react-burger-menu": "^3.1.0",
     "react-dom": "^19.1.0",
@@ -24,13 +29,15 @@
     "react-icons": "^5.5.0",
     "react-modal": "^3.16.3",
     "react-router-dom": "^7.5.3",
-    "swiper": "^11.2.7"
+    "swiper": "^11.2.7",
+    "vite-plugin-istanbul": "^7.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "cypress-file-upload": "^5.0.8",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",

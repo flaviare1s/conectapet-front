@@ -1,5 +1,7 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import Modal from "react-modal";
+
 
 Modal.setAppElement("#root");
 
@@ -12,10 +14,18 @@ export function EmailVerificationModal({ isOpen, onRequestClose, onVerify }) {
     setError("");
 
     try {
-      await onVerify(verificationCode);
+      const result = await onVerify(verificationCode);
+
+      if (result?.success || result?.status === 200) {
+        toast.success("Verificação concluída com sucesso!");
+        onRequestClose();
+      } else {
+        throw new Error();
+      }
     } catch (err) {
       console.error("Erro ao verificar código:", err);
       setError("Código inválido ou expirado. Tente novamente.");
+      toast.error("Código inválido ou expirado.");
     }
   };
 

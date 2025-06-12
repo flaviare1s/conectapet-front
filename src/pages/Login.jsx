@@ -15,7 +15,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 export const Login = () => {
   const { login } = useAuth();
-  // eslint-disable-next-line no-unused-vars
+ 
   const [userData, setUserData] = useState(null);
 
   const {
@@ -24,15 +24,22 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      const user = await loginUser(data);
-      login(user);
-    } catch (error) {
-      toast.error("Email ou senha inválidos");
-      console.error(error);
+const onSubmit = async (data) => {
+  try {
+    const user = await loginUser(data);
+
+    if (!user.emailVerified) {
+      toast.error("Você precisa verificar seu email antes de fazer login."); // Aquii /////////////////////////////////////////////////////////////////////////////
+      return;
     }
-  };
+
+    login(user);
+  } catch (error) {
+    toast.error("Email ou senha inválidos");
+    console.error(error);
+  } 
+};
+
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");

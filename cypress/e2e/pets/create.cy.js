@@ -4,7 +4,7 @@ describe("Fluxo de login de guardian e cadastro de pet", () => {
     cy.visit("http://localhost:5173/pets/add");
 
     // Login
-    cy.get("#email").type("apata@teste.com");
+    cy.get("#email").type("gpa@teste.com");
     cy.get("#senha").type("123456");
     cy.contains("button", "Entrar").click();
 
@@ -35,8 +35,6 @@ describe("Fluxo de login de guardian e cadastro de pet", () => {
     cy.contains("Pet cadastrado com sucesso", { timeout: 5000 }).should(
       "exist"
     );
-
-    cy.scrollTo("bottom");
 
     cy.wait(2000);
   });

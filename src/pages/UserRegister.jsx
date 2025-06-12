@@ -1,36 +1,53 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import { createUser } from "../api/users";
+import { verifyEmail } from "../api/email";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
-import { loginUser } from "../api/auth";
-import { useAuth } from "../contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { EmailVerificationModal } from "./EmailVerificationModal";
+import { useAuth } from "../contexts/AuthContext.jsx";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
 
-
 export const UserRegister = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState("");
+  const [formData, setFormData] = useState(null);
 
   const onSubmit = async (data) => {
     try {
       await createUser(data);
-      toast.success("Usuário cadastrado com sucesso!");
-
-      const loginResponse = await loginUser({
-        email: data.email,
-        senha: data.senha,
-      });
-
-      login(loginResponse);
+      toast.success("Código de verificação enviado!");
+      setPendingEmail(data.email);
+      setFormData(data);
+      setIsModalOpen(true);
     } catch (error) {
-      console.error("Erro no login:", error.response?.data || error.message);
-      toast.error("Erro ao cadastrar ou logar");
+      console.error("Erro no cadastro:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "Erro ao cadastrar");
+    }
+  };
+
+  const handleVerify = async (code) => {
+    try {
+      const response = await verifyEmail({ email: pendingEmail, codigo: code });
+
+      const { token } = response.data;
+
+      login({ token });
+
+      toast.success("E-mail verificado e login realizado com sucesso!");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Código inválido ou expirado.");
     }
   };
 
@@ -106,12 +123,15 @@ export const UserRegister = () => {
             }}
           />
           <HiddenRoleInput value="user" register={register} />
-          <SubmitButton
-            label="Criar conta"
-            bgColor="roxo-primario"
-          />
+          <SubmitButton label="Criar conta" bgColor="roxo-primario" />
         </form>
       </div>
+
+      <EmailVerificationModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        onVerify={handleVerify}
+      />
     </div>
   );
 };

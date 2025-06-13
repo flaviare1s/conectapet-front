@@ -6,7 +6,7 @@ import { HiddenRoleInput } from "../components/HiddenRoleInput";
 import { createUser } from "../api/users";
 import { verifyEmail } from "../api/email";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { EmailVerificationModal } from "./EmailVerificationModal";
 import { useAuth } from "../contexts/AuthContext.jsx";

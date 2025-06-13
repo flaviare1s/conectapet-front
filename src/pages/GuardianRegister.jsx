@@ -1,36 +1,57 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { InputField } from "../components/InputField";
 import { SubmitButton } from "../components/SubmitButton";
 import { HiddenRoleInput } from "../components/HiddenRoleInput";
+import { createGuardian } from "../api/users";
+import { verifyEmail } from "../api/email";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { createGuardian } from "../api/users.js";
-import { loginUser } from "../api/auth.js";
+import { useState } from "react";
+import { EmailVerificationModal } from "./EmailVerificationModal";
 import { useAuth } from "../contexts/AuthContext.jsx";
 
 import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
-
+import { loginUser } from "../api/auth.js";
 
 export const GuardianRegister = () => {
   const { login } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState("");
+  const [pendingSenha, setPendingSenha] = useState("");
 
   const onSubmit = async (data) => {
     try {
       await createGuardian(data);
-      toast.success("Usuário cadastrado com sucesso!");
+      toast.success("Código de verificação enviado para o e-mail!");
+
+      setPendingEmail(data.email);
+      setPendingSenha(data.senha);
+      setIsModalOpen(true);
+    } catch (error) {
+      console.error("Erro no cadastro:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "Erro ao cadastrar");
+    }
+  };
+
+  const handleVerify = async (code) => {
+    try {
+      await verifyEmail({ email: pendingEmail, codigo: code });
 
       const loginResponse = await loginUser({
-        email: data.email,
-        senha: data.senha,
+        email: pendingEmail,
+        senha: pendingSenha,
       });
 
       login(loginResponse);
+      toast.success("E-mail verificado e login realizado com sucesso!");
+      setIsModalOpen(false);
     } catch (error) {
-      console.error("Erro no login:", error.response?.data || error.message);
-      toast.error("Erro ao cadastrar ou logar");
+      console.error("Erro na verificação ou login:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "Código inválido ou erro no login.");
     }
   };
 
@@ -67,10 +88,10 @@ export const GuardianRegister = () => {
         </small>
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">
           <InputField
-            label="Nome ou ONG *"
+            label="Nome *"
             name="nome"
             type="text"
-            placeholder="Insira sua identificação"
+            placeholder="Insira seu nome"
             register={register}
             error={errors.name?.message}
             validation={{ required: "Nome é obrigatório" }}
@@ -106,12 +127,15 @@ export const GuardianRegister = () => {
             }}
           />
           <HiddenRoleInput value="guardian" register={register} />
-          <SubmitButton
-            label="Criar conta"
-            bgColor="roxo-primario"
-          />
+          <SubmitButton label="Criar conta" bgColor="roxo-primario" />
         </form>
       </div>
+
+      <EmailVerificationModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        onVerify={handleVerify}
+      />
     </div>
   );
 };

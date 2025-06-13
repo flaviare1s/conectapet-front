@@ -24,6 +24,7 @@ import { AdoptionListByPet } from "./components/AdoptionListByPet";
 import { RedirectHome } from "./components/RedirectHome";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { useAuth } from "./contexts/AuthContext";
+import { EmailVerificationModal } from "./pages/EmailVerificationModal";
 
 function App() {
   const { user } = useAuth();
@@ -47,6 +48,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SelectAccountType />} />
+          <Route path="/signup/verification" element={<EmailVerificationModal />} />
           <Route path="/signup/user" element={<UserRegister />} />
           <Route path="/signup/guardian" element={<GuardianRegister />} />
           <Route path="/pets" element={<Pets />} />

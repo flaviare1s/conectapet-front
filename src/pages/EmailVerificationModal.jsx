@@ -1,5 +1,4 @@
 import { useState } from "react";
-import toast from "react-hot-toast";
 import Modal from "react-modal";
 
 
@@ -12,20 +11,11 @@ export function EmailVerificationModal({ isOpen, onRequestClose, onVerify }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     try {
-      const result = await onVerify(verificationCode);
-
-      if (result?.success || result?.status === 200) {
-        toast.success("Verificação concluída com sucesso!");
-        onRequestClose();
-      } else {
-        throw new Error();
-      }
+      await onVerify(verificationCode);
     } catch (err) {
       console.error("Erro ao verificar código:", err);
       setError("Código inválido ou expirado. Tente novamente.");
-      toast.error("Código inválido ou expirado.");
     }
   };
 
@@ -33,7 +23,7 @@ export function EmailVerificationModal({ isOpen, onRequestClose, onVerify }) {
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      overlayClassName="fixed inset-0 bg-[#000000b3] flex justify-center items-center z-50"
+      overlayClassName="fixed inset-0 bg-[#000000ce] flex justify-center items-center z-50"
       className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative mx-4"
     >
       <button
@@ -51,7 +41,7 @@ export function EmailVerificationModal({ isOpen, onRequestClose, onVerify }) {
           <span role="img" aria-label="cachorrinho">🐶</span>
         </h2>
 
-        <p className="text-center text-gray-700 mb-2">
+        <p className="text-center text-cinza mb-2">
           Digite o código que enviamos para seu email para confirmar sua conta.
         </p>
 
@@ -65,7 +55,7 @@ export function EmailVerificationModal({ isOpen, onRequestClose, onVerify }) {
             value={verificationCode}
             onChange={(e) => setVerificationCode(e.target.value)}
             placeholder="Código de verificação"
-            className="border border-gray-300 rounded-md p-2 text-center text-xl font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-roxo-primario"
+            className="border border-gray-300 rounded-md p-2 text-center text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-roxo-primario"
             maxLength={6}
           />
 

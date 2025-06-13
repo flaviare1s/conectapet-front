@@ -15,21 +15,21 @@ import bgDog1 from "../assets/bg-dog1.png";
 import bgDog2 from "../assets/bg-dog2.png";
 import bgDog3 from "../assets/bg-dog3.png";
 import bgDog4 from "../assets/bg-dog4.png";
+import { loginUser } from "../api/auth.js";
 
 export const UserRegister = () => {
   const { login } = useAuth();
-  const navigate = useNavigate();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [pendingEmail, setPendingEmail] = useState("");
-  const [formData, setFormData] = useState(null);
+  const [pendingSenha, setPendingSenha] = useState("");
 
   const onSubmit = async (data) => {
     try {
       await createUser(data);
-      toast.success("Código de verificação enviado!");
+      toast.success("Código de verificação enviado para o e-mail!");
+
       setPendingEmail(data.email);
-      setFormData(data);
+      setPendingSenha(data.senha);
       setIsModalOpen(true);
     } catch (error) {
       console.error("Erro no cadastro:", error.response?.data || error.message);
@@ -39,15 +39,19 @@ export const UserRegister = () => {
 
   const handleVerify = async (code) => {
     try {
-      const response = await verifyEmail({ email: pendingEmail, codigo: code });
+      await verifyEmail({ email: pendingEmail, codigo: code });
 
-      const { token } = response.data;
+      const loginResponse = await loginUser({
+        email: pendingEmail,
+        senha: pendingSenha,
+      });
 
-      login({ token });
-
+      login(loginResponse);
       toast.success("E-mail verificado e login realizado com sucesso!");
+      setIsModalOpen(false);
     } catch (error) {
-      toast.error(error.response?.data?.message || "Código inválido ou expirado.");
+      console.error("Erro na verificação ou login:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "Código inválido ou erro no login.");
     }
   };
 

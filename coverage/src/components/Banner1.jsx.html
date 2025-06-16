@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,9 +116,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,15 +158,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import bgMobile from "../assets/bg-banner1-mobile.png"
 import bgDesktop from "../assets/bg-banner1-desktop.png"
 import { Link } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 &nbsp;
-export const Banner1<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > = <span class="fstat-no" title="function not covered" >(</span>) =&gt; <span class="cstat-no" title="statement not covered" >{</span></span></span>
-  const { user } = <span class="cstat-no" title="statement not covered" >useAuth()</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
+export const Banner1 = () =&gt; {
+  const { user } = useAuth()
+  return (
     &lt;div className="h-full relative"&gt;
       &lt;div className="absolute top-0 left-0 w-full h-full sm:hidden -z-20"&gt;
         &lt;img className="w-full h-full object-cover" src={bgMobile} alt="Pessoa abraçando um cachorro" /&gt;
@@ -180,7 +180,7 @@ export const Banner1<span class="cstat-no" title="statement not covered" ><span 
         &lt;h2 className="text-6xl font-extrabold text-roxo-primario py-5"&gt;&lt;span&gt;&lt;span className="text-verde-primario"&gt;&amp;lt;&lt;/span&gt;ConectaPet&lt;span className="text-verde-primario"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
         &lt;p className="font-medium mb-7 text-lg"&gt;Pronto para encontrar seu futuro companheiro?&lt;/p&gt;
         {user ? (
-          &lt;Link to="/pets" className="bg-roxo-primario text-branco w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-4 hover:bg-rosa-forte"&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >          &lt;Link to="/pets" className="bg-roxo-primario text-branco w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-4 hover:bg-rosa-forte"&gt;</span>
             Quero adotar
           &lt;/Link&gt;
         ) : (
@@ -194,7 +194,7 @@ export const Banner1<span class="cstat-no" title="statement not covered" ><span 
         &lt;div className="flex flex-col items-center justify-end"&gt;
           &lt;p className="font-bold mb-7 text-lg text-center px-10"&gt;Seu melhor amigo a um clique de distância!&lt;/p&gt;
           {user ? (
-            &lt;Link to="/pets" className="bg-roxo-primario text-branco w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-4 hover:bg-rosa-forte"&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;Link to="/pets" className="bg-roxo-primario text-branco w-[230px] h-[40px] flex items-center justify-center text-sm font-medium rounded-md mt-4 hover:bg-rosa-forte"&gt;</span>
               Quero adotar
             &lt;/Link&gt;
           ) : (
@@ -214,7 +214,7 @@ export const Banner1<span class="cstat-no" title="statement not covered" ><span 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-16T11:55:40.307Z
+                at 2025-06-16T12:12:21.249Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.66% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/15</span>
+                <span class='fraction'>9/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">45.45% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/11</span>
+                <span class='fraction'>5/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -167,29 +167,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,7 +253,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Abraco from '../assets/contact/card-abraço.png';
 import vectorx from '../assets/contact/vectorx.png';
 import { useForm } from 'react-hook-form';
@@ -264,10 +264,10 @@ import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 &nbsp;
 &nbsp;
-export const Contact<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > = <span class="fstat-no" title="function not covered" >(</span>) =&gt; <span class="cstat-no" title="statement not covered" >{</span></span></span>
-  const { register, handleSubmit, reset, formState: { errors } } = <span class="cstat-no" title="statement not covered" >useForm();</span>
+export const Contact = () =&gt; {
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 &nbsp;
-  const onSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (d</span>ata) =&gt; {</span>
+  const onSubmit = <span class="fstat-no" title="function not covered" >async (d</span>ata) =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      await emailjs.send(</span>
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -283,7 +283,7 @@ export const Contact<span class="cstat-no" title="statement not covered" ><span 
     }
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;section className="w-full min-h-[400px] bg-rosa-forte grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-between px-4 md:px-22 py-10 relative overflow-hidden"&gt;
       {/* X decorativo canto inferior esquerdo */}
       &lt;img src={vectorx} alt="decorativo" className="absolute left-2 bottom-8 w-10 md:w-16" /&gt;
@@ -305,7 +305,7 @@ export const Contact<span class="cstat-no" title="statement not covered" ><span 
                 placeholder="Nome completo"
                 className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-primario placeholder:text-sm bg-white"
               /&gt;
-              {errors.from_name &amp;&amp; &lt;small className="text-white mt-1"&gt;{errors.from_name.message}&lt;/small&gt;}
+              {errors.from_name &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;small className="text-white mt-1"&gt;{errors.from_name.message}&lt;/small&gt;}</span>
             &lt;/div&gt;
             &lt;div className="flex flex-col w-full my-2"&gt;
               &lt;label htmlFor="reply_to" className="text-sm font-medium mb-1 text-white"&gt;E-mail:&lt;/label&gt;
@@ -322,7 +322,7 @@ export const Contact<span class="cstat-no" title="statement not covered" ><span 
                 placeholder="Email@gmail.com"
                 className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-primario placeholder:text-sm bg-white"
               /&gt;
-              {errors.reply_to &amp;&amp; &lt;small className="text-white mt-1"&gt;{errors.reply_to.message}&lt;/small&gt;}
+              {errors.reply_to &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;small className="text-white mt-1"&gt;{errors.reply_to.message}&lt;/small&gt;}</span>
             &lt;/div&gt;
           &lt;/div&gt;
           &lt;div className="flex flex-col gap-2"&gt;
@@ -334,7 +334,7 @@ export const Contact<span class="cstat-no" title="statement not covered" ><span 
               rows={4}
               className="bg-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-primario placeholder:text-sm w-full resize-none"
             &gt;&lt;/textarea&gt;
-            {errors.message &amp;&amp; &lt;small className="text-white mt-1"&gt;{errors.message.message}&lt;/small&gt;}
+            {errors.message &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;small className="text-white mt-1"&gt;{errors.message.message}&lt;/small&gt;}</span>
           &lt;/div&gt;
           &lt;div className="flex gap-4 mt-4"&gt;
             &lt;div className="w-full"&gt;
@@ -361,7 +361,7 @@ export const Contact<span class="cstat-no" title="statement not covered" ><span 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-16T11:55:40.307Z
+                at 2025-06-16T12:12:21.249Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

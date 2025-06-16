@@ -44,9 +44,13 @@ export const PetsList = ({ limit, showDescricao = true, filters = {} }) => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {petsToShow.map((pet) => (
-            <PetCard key={pet.id} pet={pet} showDescricao={showDescricao} />
-          ))}
+          {petsToShow.length === 0 ? (
+            <p className="text-gray-600">Nenhum resultado encontrado!</p>
+          ) : (
+            petsToShow.map((pet) => (
+              <PetCard key={pet.id} pet={pet} showDescricao={showDescricao} />
+            ))
+          )}
         </div>
       </div>
     </div>

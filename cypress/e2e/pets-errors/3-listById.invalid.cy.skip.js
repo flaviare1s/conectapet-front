@@ -7,5 +7,4 @@ it("Deve direcionar para página de Not Found se o id do pet for inválido", fun
   );
 
   cy.wait(2000);
-  /* ==== End Cypress Studio ==== */
 });

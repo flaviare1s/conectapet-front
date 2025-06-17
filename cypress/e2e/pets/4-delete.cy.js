@@ -7,7 +7,7 @@ it('Deve deletar um pet adequadamente', function() {
   cy.get('#email').type('gpa@teste.com');
   cy.get('#senha').clear();
   cy.get('#senha').type('123456');
-  cy.get('.my-4 > .text-white').click();
+  cy.contains("button", "Entrar").click();
   cy.get(':nth-child(1) > .mt-3 > .flex-col > .justify-end > .cursor-pointer > .text-rosa-forte').first().click();
   cy.wait(2000);
   /* ==== End Cypress Studio ==== */

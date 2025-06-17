@@ -7,7 +7,7 @@ it('Deve listar todos os pets de um guardian específico', function() {
   cy.get('#email').type('apata@teste.com');
   cy.get('#senha').clear();
   cy.get('#senha').type('123456');
-  cy.get('.my-4 > .text-white').click();
+  cy.contains("button", "Entrar").click();
   cy.wait(2000);
   /* ==== End Cypress Studio ==== */
 });

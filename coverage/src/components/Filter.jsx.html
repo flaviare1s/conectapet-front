@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/18</span>
+                <span class='fraction'>6/18</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">26.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/15</span>
+                <span class='fraction'>4/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,8 +132,8 @@
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,19 +142,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,16 +174,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">130x</span>
-<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">140x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,11 +196,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">65x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
 &nbsp;
-export const Filter = ({ onFilterChange, onClose }) =&gt; {
-  const [filters, setFilters] = useState({
+export const Filter = <span class="fstat-no" title="function not covered" >({</span> onFilterChange, onClose }) =&gt; <span class="cstat-no" title="statement not covered" >{</span>
+  const [filters, setFilters] = <span class="cstat-no" title="statement not covered" >useState({</span>
     tipo: [],
     status: [],
     porte: [],
@@ -209,7 +209,7 @@ export const Filter = ({ onFilterChange, onClose }) =&gt; {
     castrado: [],
   });
 &nbsp;
-  const handleChange = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+  const handleChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
     const { name, value, checked } = <span class="cstat-no" title="statement not covered" >e.target;</span>
 &nbsp;
     const newValues = <span class="cstat-no" title="statement not covered" >checked</span>
@@ -221,7 +221,7 @@ export const Filter = ({ onFilterChange, onClose }) =&gt; {
 <span class="cstat-no" title="statement not covered" >    onFilterChange(newFilters);</span>
   };
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="sm:w-[190px] text-base w-full p-4 shadow-2xl bg-white/80 rounded-lg backdrop-blur h-screen sm:h-auto"&gt;
       {/* Botão de fechar (somente mobile) */}
       &lt;div className="flex justify-end sm:hidden mb-2"&gt;
@@ -243,12 +243,12 @@ export const Filter = ({ onFilterChange, onClose }) =&gt; {
   );
 };
 &nbsp;
-const FilterGroup = ({ title, name, options, selected, onChange }) =&gt; (
-  &lt;div className="mb-4"&gt;
+const FilterGroup = <span class="fstat-no" title="function not covered" >({</span> title, name, options, selected, onChange }) =&gt; (
+<span class="cstat-no" title="statement not covered" >  &lt;div className="mb-4"&gt;</span>
     &lt;label className="font-semibold block mb-2"&gt;{title}&lt;/label&gt;
     &lt;div className="flex flex-wrap gap-3"&gt;
-      {options.map((option) =&gt; (
-        &lt;label key={option} htmlFor={`${name}-${option}`} className="flex items-center space-x-1"&gt;
+      {options.map(<span class="fstat-no" title="function not covered" >(o</span>ption) =&gt; (
+<span class="cstat-no" title="statement not covered" >        &lt;label key={option} htmlFor={`${name}-${option}`} className="flex items-center space-x-1"&gt;</span>
           &lt;input
             type="checkbox"
             id={`${name}-${option}`}
@@ -258,7 +258,7 @@ const FilterGroup = ({ title, name, options, selected, onChange }) =&gt; (
             onChange={onChange}
             className="accent-roxo-primario"
           /&gt;
-          &lt;span&gt;{option}&lt;/span&gt;
+          &lt;span&gt;{option.charAt(0).toUpperCase() + option.slice(1)}&lt;/span&gt;
         &lt;/label&gt;
       ))}
     &lt;/div&gt;
@@ -271,7 +271,7 @@ const FilterGroup = ({ title, name, options, selected, onChange }) =&gt; (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-17T11:57:44.409Z
+                at 2025-06-17T14:16:30.731Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

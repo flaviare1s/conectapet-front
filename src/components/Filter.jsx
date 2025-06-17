@@ -59,7 +59,7 @@ const FilterGroup = ({ title, name, options, selected, onChange }) => (
             onChange={onChange}
             className="accent-roxo-primario"
           />
-          <span>{option}</span>
+          <span>{option.charAt(0).toUpperCase() + option.slice(1)}</span>
         </label>
       ))}
     </div>

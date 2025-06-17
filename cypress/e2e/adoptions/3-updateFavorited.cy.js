@@ -37,6 +37,11 @@ it("Deve alternar favoritos e filtrar apenas os verdadeiros", () => {
 
   // Marca checkbox novamente e verifica que lista fica vazia
   cy.get('input[type="checkbox"].accent-roxo-primario').check({ force: true });
+
+  // Aguarda sumirem todos os formulários antes de verificar o texto
+  cy.get('[data-testid^="favorite-button"]').should("have.length", 0);
+
   cy.contains("Nenhuma solicitação recebida ou favoritada!").should("exist");
+
   cy.wait(2000);
 });

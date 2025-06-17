@@ -10,16 +10,11 @@ it("Deve fazer o fluxo completo de cadastro de usuário com mocks, mas o usuári
   cy.intercept("POST", "/login", {
     statusCode: 200,
     body: {
-      user: {
-        id: "8",
-        nome: "José da Silva",
-        email: "ze@teste.com",
-        role: "user",
-      },
-      token:
+      accessToken:
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-        "eyJpZCI6IjEyIiwicm9sZSI6InVzZXIifQ." +
+        "eyJpZCI6IjEyIiwiZW1haWwiOiJ6ZUB0ZXN0ZS5jb20iLCJyb2xlIjoidXNlciJ9." +
         "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+      refreshToken: "fake_refresh_token",
     },
   }).as("loginUser");
 

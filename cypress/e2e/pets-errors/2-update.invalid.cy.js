@@ -2,7 +2,7 @@
 /* ==== Test Created with Cypress Studio ==== */
 it("Não deve permitir atualizar pet sem campo obrigatório preenchido", function () {
   /* ==== Generated with Cypress Studio ==== */
-  cy.visit("http://localhost:5173/mypets/edit/1");
+  cy.visit("http://localhost:5173/login");
   cy.get("#email").clear();
   cy.get("#email").type("apata@teste.com");
   cy.get("#senha").clear();
@@ -10,6 +10,8 @@ it("Não deve permitir atualizar pet sem campo obrigatório preenchido", functio
   cy.contains("button", "Entrar").click();
   cy.contains("Meus peludinhos:").should("be.visible");
   cy.get('[href="/mypets/edit/1"] > .text-verde-primario').click();
+  cy.visit("http://localhost:5173/mypets/edit/1");
+
 
   cy.get('input[name="nome"]', { timeout: 5000 }).should("be.visible");
 

@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { getPet } from "../api/pets";
 import { Loader } from "../components/Loader";
 import toast from "react-hot-toast";
@@ -10,6 +11,8 @@ export const PetProfile = () => {
   const { user } = useAuth();
   const { id } = useParams();
   const [petInfo, setPetInfo] = useState(null);
+  const [error, setError] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -17,11 +20,17 @@ export const PetProfile = () => {
         const data = await getPet(id);
         setPetInfo(data);
       } catch (error) {
-        console.error("Erro ao buscar pet:", error);
+        if (error?.response?.status === 404) {
+          navigate("/pet-nao-encontrado");
+        } else {
+          console.error("Erro ao buscar pet:", error);
+          toast.error("Erro ao carregar pet. Tente novamente mais tarde.");
+          setPetInfo(null);
+        }
       }
     };
     fetchPet();
-  }, [id]);
+  }, [id, navigate]);
 
   if (!petInfo) return <Loader />;
 

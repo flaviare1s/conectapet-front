@@ -312,7 +312,7 @@ export const AdoptionForm = () => {
                 name="custos"
                 options={[
                   { value: "sim", label: "Sim" },
-                  { value: "nao", label: "Não" },
+                  { value: "não", label: "Não" },
                 ]}
                 register={register}
                 validation={{ required: "Campo obrigatório" }}
@@ -323,7 +323,7 @@ export const AdoptionForm = () => {
                 name="compromisso"
                 options={[
                   { value: "sim", label: "Sim" },
-                  { value: "nao", label: "Não" },
+                  { value: "não", label: "Não" },
                 ]}
                 register={register}
                 validation={{ required: "Campo obrigatório" }}
@@ -334,7 +334,7 @@ export const AdoptionForm = () => {
                 name="visitas"
                 options={[
                   { value: "sim", label: "Sim" },
-                  { value: "nao", label: "Não" },
+                  { value: "não", label: "Não" },
                 ]}
                 register={register}
                 validation={{ required: "Campo obrigatório" }}

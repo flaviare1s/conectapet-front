@@ -170,7 +170,7 @@ export const About = () => {
                   <h4 className="font-bold">Formulário</h4>
                 </div>
                 <p className="p-10 py-5 text-justify">
-                  Nosso formulário de cadastro de pets foi pensado para reunir todas as informações essenciais sobre cada animalzinho — quanto mais detalhes, mais fácil será encontrar o lar perfeito! Já o formulário de adoção é o elo final dessa corrente do bem: nele, você recebe os dados do interessado, como endereço, documento e telefone, facilitando a análise e o contato direto. Assim, garantimos que cada peludinho encontre uma família responsável, e você pode acompanhar de perto cada nova história de amor que começa!
+                  Nosso formulário de cadastro de pets foi pensado para reunir todas as informações essenciais sobre cada animalzinho — quanto mais detalhes, mais fácil será encontrar o lar perfeito! Já o formulário de adoção é o elo final dessa corrente do bem: nele, você recebe os dados do interessado, como endereço, documento e telefone, facilitando a análise e o contato direto. Assim, garantimos que cada peludinho encontre uma família responsável, e você possa acompanhar de perto cada nova história de amor que começa!
                 </p>
               </li>
             </ul>

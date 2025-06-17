@@ -68,7 +68,7 @@ export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) => {
           {adoption.motivacao}
         </p>
       </div>
-      <button onClick={handleFavorite} disabled={loadingFavorite} className="mt-3 text-2xl cursor-pointer">
+      <button onClick={handleFavorite} disabled={loadingFavorite} className="mt-3 text-2xl cursor-pointer" data-testid={`favorite-button-${adoption.id}`}>
         {favorited ? <IoIosStar className="text-roxo-primario" /> : <IoIosStarOutline className="text-gray-400" />}
       </button>
     </div>

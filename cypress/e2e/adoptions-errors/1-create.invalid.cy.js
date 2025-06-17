@@ -1,7 +1,11 @@
 /* eslint-disable no-undef */
-/* ==== Test Created with Cypress Studio ==== */
-it('Deve criar um formulário de adoção válido', function() {
-  /* ==== Generated with Cypress Studio ==== */
+it("Deve dar erro ao criar um formulário de adoção com campo obrigatório vazio", () => {
+  // Intercepta o POST e simula falha
+  cy.intercept("POST", "/adoptions", {
+    statusCode: 500,
+    body: { message: "Erro ao enviar adoção" },
+  }).as("postAdoption");
+
   cy.visit("http://localhost:5173/login");
   cy.get("#email").type("maria@teste.com");
   cy.get("#senha").type("123456");
@@ -20,24 +24,22 @@ it('Deve criar um formulário de adoção válido', function() {
     "have.value",
     "Rua Caetano Ximenes Aragão"
   );
-  cy.get('input[name="bairro"]', { timeout: 10000 }).should(
+  cy.get('input[name="bairro"]').should(
     "have.value",
     "Engenheiro Luciano Cavalcante"
   );
-  cy.get('input[name="cidade"]', { timeout: 10000 }).should(
-    "have.value",
-    "Fortaleza"
-  );
+  cy.get('input[name="cidade"]').should("have.value", "Fortaleza");
   cy.get('input[name="numero"]').type("2");
   cy.contains("Próximo").click();
-  cy.get('select[name="custos"]', { timeout: 10000 }).should("be.visible").select("sim");
+  cy.get('select[name="custos"]').should("be.visible").select("sim");
   cy.get('select[name="compromisso"]').select("não");
   cy.get('select[name="visitas"]').select("sim");
-  cy.get('input[name="motivacao"]').type(
-    "Quero uma companhia pro meu outro pet."
-  );
+  cy.get('input[name="motivacao"]').clear();
   cy.get('input[name="termo"]').check();
+
   cy.contains("Finalizar").click();
+
+  cy.contains("Campo obrigatório").should("exist");
+
   cy.wait(2000);
-  /* ==== End Cypress Studio ==== */
 });

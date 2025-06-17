@@ -50,18 +50,18 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
   
-
   const login = (userData) => {
-    const { token } = userData;
+    const { accessToken, refreshToken } = userData;
 
     try {
-      const decoded = jwtDecode(token);
-      localStorage.setItem('token', token);
+      const decoded = jwtDecode(accessToken);
+      localStorage.setItem('token', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
 
       axios
         .get(`/users/${decoded.id}`, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         })
         .then((response) => {
@@ -80,14 +80,15 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error('Token inválido:', error);
     }
-  };
+  };  
   
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
     setUser(null);
     navigate('/login');
   };
-
+  
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
       {children}

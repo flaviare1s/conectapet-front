@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.51% </span>
+                <span class="strong">17.94% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/39</span>
+                <span class='fraction'>7/39</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.51% </span>
+                <span class="strong">17.94% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/39</span>
+                <span class='fraction'>7/39</span>
             </div>
         
             
@@ -205,12 +205,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">320x</span>
-<span class="cline-any cline-yes">320x</span>
-<span class="cline-any cline-yes">320x</span>
+<span class="cline-any cline-yes">86x</span>
+<span class="cline-any cline-yes">86x</span>
+<span class="cline-any cline-yes">86x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">302x</span>
+<span class="cline-any cline-yes">49x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -224,22 +236,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -308,10 +308,10 @@ export async function getAdoptionsByPetId(petId) {
   }
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >deleteAdoption(</span>adoptionId) {
-  const token = <span class="cstat-no" title="statement not covered" >localStorage.getItem("token");</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    await axios.delete(`/adoptions/${adoptionId}`, {</span>
+export async function deleteAdoption(adoptionId) {
+  const token = localStorage.getItem("token");
+  try {
+    await axios.delete(`/adoptions/${adoptionId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
   } catch (error) {
@@ -320,17 +320,17 @@ export async function <span class="fstat-no" title="function not covered" >delet
   }
 }
 &nbsp;
-export async function toggleFavoriteAdoption(adoptionId, favorited) {
-  const token = localStorage.getItem("token");
-  try {
-    const response = await axios.put(
+export async function <span class="fstat-no" title="function not covered" >toggleFavoriteAdoption(</span>adoptionId, favorited) {
+  const token = <span class="cstat-no" title="statement not covered" >localStorage.getItem("token");</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const response = <span class="cstat-no" title="statement not covered" >await axios.put(</span>
       `/adoptions/${adoptionId}`,
       { favoritado: favorited },
       {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    return response.data;
+<span class="cstat-no" title="statement not covered" >    return response.data;</span>
   } catch (error) {
 <span class="cstat-no" title="statement not covered" >    console.error("Erro ao atualizar favoritado:", error);</span>
 <span class="cstat-no" title="statement not covered" >    throw error;</span>
@@ -343,7 +343,7 @@ export async function toggleFavoriteAdoption(adoptionId, favorited) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-17T22:31:11.059Z
+                at 2025-06-18T10:42:16.678Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

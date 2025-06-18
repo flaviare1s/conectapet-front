@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.42% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -105,11 +105,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">84x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,29 +138,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
 import { Filter } from "../components/Filter";
 import { PetsListComplete } from "../components/PetsListComplete";
 &nbsp;
-export const Pets = () =&gt; {
-  const [filters, setFilters] = useState({});
-  const [showFilter, setShowFilter] = useState(false); // controle do filtro
+export const Pets = <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >{</span></span>
+  const [filters, setFilters] = <span class="cstat-no" title="statement not covered" >useState({});</span>
+  const [showFilter, setShowFilter] = <span class="cstat-no" title="statement not covered" >useState(false); // controle do filtro</span>
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="flex flex-col sm:flex-row relative min-h-screen"&gt;
       {/* Botão de abrir filtro (somente mobile) */}
       &lt;button
         className="sm:hidden bg-roxo-primario text-white px-4 py-2 m-2 rounded self-start cursor-pointer"
         onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etShowFilter(!showFilter)}</span>
       &gt;
-        {showFilter ? <span class="branch-0 cbranch-no" title="branch not covered" >"Fechar Filtros" : "</span>Filtrar"}
+        {showFilter ? "Fechar Filtros" : "Filtrar"}
       &lt;/button&gt;
 &nbsp;
       {/* Painel de filtros */}
       &lt;div
         className={`${
-          showFilter ? <span class="branch-0 cbranch-no" title="branch not covered" >"block" : "</span>hidden"
+          showFilter ? "block" : "hidden"
         } sm:block absolute sm:static bg-white z-10 w-full sm:w-auto`}
       &gt;
         &lt;Filter onFilterChange={setFilters} onClose={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etShowFilter(false)} </span>/&gt;
@@ -184,7 +184,7 @@ export const Pets = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-17T22:31:11.059Z
+                at 2025-06-18T10:42:16.678Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

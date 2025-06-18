@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.44% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/18</span>
+                <span class='fraction'>9/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>6/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>6/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -146,19 +146,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">216x</span>
-<span class="cline-any cline-yes">216x</span>
-<span class="cline-any cline-yes">216x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">216x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,15 +166,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">216x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,7 +210,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
 import { FaPaw } from "react-icons/fa";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
@@ -226,15 +226,15 @@ export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) =&gt
   const [favorited, setFavorited] = useState(adoption.favoritado);
   const [loadingFavorite, setLoadingFavorite] = useState(false);
 &nbsp;
-  const handleFavorite = async () =&gt; {
-    setLoadingFavorite(true);
-    try {
-      const newFavoritedStatus = !favorited;
-      await toggleFavoriteAdoption(adoption.id, newFavoritedStatus);
-      setFavorited(newFavoritedStatus);
+  const handleFavorite = <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setLoadingFavorite(true);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const newFavoritedStatus = <span class="cstat-no" title="statement not covered" >!favorited;</span>
+<span class="cstat-no" title="statement not covered" >      await toggleFavoriteAdoption(adoption.id, newFavoritedStatus);</span>
+<span class="cstat-no" title="statement not covered" >      setFavorited(newFavoritedStatus);</span>
 &nbsp;
-      if (onToggleFavorite) {
-        onToggleFavorite({
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (onToggleFavorite) {</span>
+<span class="cstat-no" title="statement not covered" >        onToggleFavorite({</span>
           ...adoption,
           favoritado: newFavoritedStatus,
         });
@@ -242,7 +242,7 @@ export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) =&gt
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >      toast.error("Erro ao atualizar favorito", error);</span>
     } finally {
-      setLoadingFavorite(false);
+<span class="cstat-no" title="statement not covered" >      setLoadingFavorite(false);</span>
     }
   };
 &nbsp;
@@ -270,7 +270,7 @@ export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) =&gt
         &lt;hr className="my-2 opacity-50" /&gt;
         &lt;p&gt;
           &lt;span className="font-semibold"&gt;Custa vacinas e cuidados?&lt;/span&gt;{" "}
-          {adoption.custos === "sim" ? "Sim" : <span class="branch-1 cbranch-no" title="branch not covered" >"Não"}</span>
+          {adoption.custos === "sim" ? "Sim" : "Não"}
         &lt;/p&gt;
         &lt;p&gt;
           &lt;span className="font-semibold"&gt;Compromisso vitalício?&lt;/span&gt;{" "}
@@ -286,7 +286,7 @@ export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) =&gt
         &lt;/p&gt;
       &lt;/div&gt;
       &lt;button onClick={handleFavorite} disabled={loadingFavorite} className="mt-3 text-2xl cursor-pointer" data-testid={`favorite-button-${adoption.id}`}&gt;
-        {favorited ? &lt;IoIosStar className="text-roxo-primario" /&gt; : &lt;IoIosStarOutline className="text-gray-400" /&gt;}
+        {favorited ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;IoIosStar className="text-roxo-primario" /&gt; : &lt;</span>IoIosStarOutline className="text-gray-400" /&gt;}
       &lt;/button&gt;
     &lt;/div&gt;
   );
@@ -298,7 +298,7 @@ export const AdoptionFormByPet = ({ adoption, onDelete, onToggleFavorite }) =&gt
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-17T22:31:11.059Z
+                at 2025-06-18T10:42:16.678Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.51% </span>
+                <span class="strong">28.2% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/39</span>
+                <span class='fraction'>11/39</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.51% </span>
+                <span class="strong">28.2% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/39</span>
+                <span class='fraction'>11/39</span>
             </div>
         
             
@@ -205,24 +205,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">320x</span>
-<span class="cline-any cline-yes">320x</span>
-<span class="cline-any cline-yes">320x</span>
+<span class="cline-any cline-yes">222x</span>
+<span class="cline-any cline-yes">222x</span>
+<span class="cline-any cline-yes">222x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">302x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">183x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -230,16 +218,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -308,10 +308,10 @@ export async function getAdoptionsByPetId(petId) {
   }
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >deleteAdoption(</span>adoptionId) {
-  const token = <span class="cstat-no" title="statement not covered" >localStorage.getItem("token");</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    await axios.delete(`/adoptions/${adoptionId}`, {</span>
+export async function deleteAdoption(adoptionId) {
+  const token = localStorage.getItem("token");
+  try {
+    await axios.delete(`/adoptions/${adoptionId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
   } catch (error) {
@@ -343,7 +343,7 @@ export async function toggleFavoriteAdoption(adoptionId, favorited) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-17T22:31:11.059Z
+                at 2025-06-18T10:48:00.775Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

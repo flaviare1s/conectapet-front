@@ -1,0 +1,133 @@
+[33m3b0bb21[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdeploy-back[m[33m, [m[1;31morigin/deploy-back[m[33m)[m Update api.js
+[33me67a25e[m Create e -i f227bee2cb81e2289efae1382a86a77a6d72f1a0^
+[33mc95ee26[m Adiciona API URL ao .env
+[33m6ac317a[m Ajusta URL para deploy
+[33m742aa8b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #110 from flaviare1s/develop
+[33m00d2989[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m fix: corrige erro de digitação
+[33md544d88[m fix: email footer, uppercase filtros
+[33ma51b425[m Merge pull request #113 from flaviare1s/feat/refresh-token
+[33m8769fb1[m[33m ([m[1;32mfeat/refresh-token[m[33m)[m fix: ajusta refresh token
+[33m2f7c91a[m feat: refresh token
+[33mf71343e[m fix: ajusta componente PetList para exibir mensagem quando não existem pets cadastrados
+[33m75bb059[m fix: corrige componente pet profile
+[33mbd01d0e[m Merge pull request #109 from flaviare1s/feat/verificacao-email
+[33m06915e7[m feat: fluxo de verificação de email para guardians
+[33md1303c6[m fix: ajusta login
+[33m88de136[m fix: tenta ajustar modal
+[33mfde7aaa[m feat: inicia implementação de verificação por e-mail
+[33medc47d4[m Merge pull request #108 from flaviare1s/develop
+[33m376e72c[m fix: corrige erro de digitação
+[33m4ad3764[m Merge pull request #98 from flaviare1s/feat/correcaoDeBugs
+[33ma22f176[m Merge pull request #97 from flaviare1s/feat/correcaoDeBugs
+[33m23675cb[m correção de bugs
+[33mef14917[m Merge pull request #96 from flaviare1s/develop
+[33mb202359[m apaga console.logs
+[33mecf7242[m style: ajusta área de toque do link de seleção de cadastro
+[33mb45df96[m Merge pull request #95 from flaviare1s/fix/bugfix
+[33m0a0addc[m Ajusta erros de integração
+[33m892f696[m fix: corrige filtragem de adoções
+[33mf7886e2[m Merge pull request #91 from flaviare1s/develop
+[33m25bbc77[m apaga console.log
+[33mda57d48[m fix: corrige filtragem de formulários favoritados
+[33m498e861[m Merge pull request #90 from flaviare1s/develop
+[33m70ed6dd[m Update README.md
+[33mbda2f90[m ajusta README
+[33m7a86fea[m Update README.md
+[33ma86cd24[m atualiza README
+[33m64cce45[m Merge pull request #89 from flaviare1s/feat/-docker
+[33me1f5340[m feat: Dockerfile
+[33m87f7e4c[m Merge pull request #88 from flaviare1s/develop
+[33m82863f4[m Merge branch 'main' into develop
+[33m7950fb6[m Merge branch 'develop' of https://github.com/flaviare1s/conectapet-front into develop
+[33m7136e30[m fix: corrige importação
+[33mcc12d08[m fix: corrige nome de arquivo
+[33mafab37d[m fix: corrige nome de arquivo
+[33mabfd762[m fix: corrige nome de arquivo
+[33mbce3680[m fix: corrige erro de importação
+[33m143fa0f[m Merge pull request #87 from flaviare1s/feat/auth
+[33m9254936[m feat: filtro de forms favoritados
+[33m67d2b94[m feat: adiciona funcionalidade para favoritar formulários
+[33mafd3ced[m ajusta lista de formulários para integração com back
+[33m412e52b[m feat: ajusta formulário de adoção para integração com back
+[33ma50aa74[m fix: corrige erro de digitação
+[33m6510d92[m style: ajusta adoption form
+[33m7c7f382[m fix: ajusta cards para puxar nome do responsável pelo pet e adequar ao front
+[33m1a20bab[m feat: adiciona token em funções exclusivas de guardian
+[33me9d2eb1[m feat: ajusta pet profile e edit pet para se adequar ao back
+[33maf0365c[m feat: ajusta cards para adequação com backend
+[33m484d1b0[m feat: ajusta login após registro para integração com back
+[33m393aa5a[m fix: retira console.log
+[33mb78e154[m feat: ajusta login para buscar nome do user no backend
+[33m6aff1e6[m feat: inicia ajuste de login e autenticação para adequação com o backend
+[33m8236836[m Merge pull request #82 from flaviare1s/develop
+[33mcdd63d7[m fix: retira random uuid
+[33m9cd3763[m fix: ajusta userEmail no adoption form
+[33m01dd839[m Merge pull request #81 from flaviare1s/develop
+[33mf5265d9[m fix: ajusta onSubmit no formulário de adoção
+[33m1620d64[m Merge pull request #80 from flaviare1s/develop
+[33mc159e18[m Update api.js
+[33m5c1ab5f[m fix: retira uuid para conexão com back
+[33m55d0e4c[m fix: corrige campos no formulário de cadastro para conexão com o backend
+[33mee47bb0[m Merge pull request #79 from flaviare1s/develop
+[33m16b1945[m fix: deleta link em vez de remover
+[33m35c05bc[m Merge pull request #78 from flaviare1s/feat/hide-adopt-btn-for-guardian
+[33mb148592[m Esconde botão de adoção, caso esteja logado como guardian. Ajusta footer.
+[33mb5a9db4[m Update README.md
+[33mcacb758[m Update README.md
+[33m03dc3b0[m Update README.md
+[33m8e1f125[m fix: ajusta favicon
+[33mded3f0e[m feat: scroll to top
+[33ma8aa27e[m Merge branch 'develop' of https://github.com/flaviare1s/conectapet-front
+[33m7358d8a[m fix: ajusta roteamento inicial e banner
+[33me007f1a[m style: ajusta margem
+[33ma96283e[m style: ajusta margem
+[33m83ba149[m fix: ajusta links nas páginas de cadastro e edição de pets. Ajusta link em menu mobile
+[33mfc68839[m fix: remove link de voltar para a home de MyPets
+[33m49930a7[m Merge pull request #76 from flaviare1s/develop
+[33me1cabbb[m fix: ajusta links no footer
+[33m5626e01[m Merge pull request #77 from flaviare1s/feat/role-guardian
+[33m6877880[m fix: ajusta link na logo
+[33m9f8ece1[m feat: ajusta página para users guardians
+[33m77af5fc[m Merge pull request #75 from flaviare1s/feat/filtro
+[33m796b717[m fix: ajusta imagem da seção de contato da home
+[33mbb031c0[m feat(ui): ajustar layout dos blocos de cadastro para desktop
+[33m767aaf4[m Merge pull request #74 from flaviare1s/develop
+[33m78114db[m fix: ajustes finais
+[33mee365d7[m Merge pull request #73 from flaviare1s/feat/filtro
+[33m1adc6db[m feat: melhorias no filtro para mobile e responsividade
+[33m6c4aa7d[m Merge pull request #72 from flaviare1s/develop
+[33m013c5ed[m Merge pull request #71 from flaviare1s/fix-ajustes-finais
+[33m06fb84d[m fix: ajusta db.example.json
+[33m87f70d4[m feat: torna assinatura do termo de responsabilidade obrigatória e adiciona campo para motivação
+[33mc7a3eff[m style: ajusta espaço
+[33mc3c0d5b[m fix: ajusta página de ONGs
+[33m1ad18f0[m Merge pull request #70 from flaviare1s/develop
+[33m79e5a7c[m fix: corrige email
+[33m3bf3fb9[m Merge pull request #69 from flaviare1s/feat-send-form
+[33me9086cf[m feat: pets com status em andamento podem receber propostas de adoção
+[33ma0fffee[m feat: adiciona formulário de adoção
+[33m6dda96d[m Merge pull request #68 from flaviare1s/develop
+[33mc914eac[m Merge pull request #67 from flaviare1s/feat-cr-adoption
+[33m19812f6[m feat: altera status do pet quando finaliza cadastro de adoção
+[33m5b28fe1[m fix: ajusta lógica para pets em processo de aguardo de adoção
+[33m66900ce[m fix: ajusta para que pets já adotados não possam ser selecionados.
+[33m0c943ef[m feat: integra adoption form com congratulations
+[33m64987fe[m feat: integração com página de congratulations em andamento
+[33m2794a94[m feat: captura dados de pet e de ong responsável
+[33m0553177[m feat: post de adoptions
+[33mbf48807[m Merge pull request #66 from flaviare1s/feat-cr-adoption
+[33ma80e534[m feat: valida idade
+[33m1721522[m feat: integra com cep api
+[33m8de1aec[m feat: validação de dados no formulário
+[33m04e9b2e[m Merge pull request #62 from flaviare1s/fix/sobre
+[33m2c102c8[m Merge branch 'develop' of https://github.com/flaviare1s/conectapet-front into fix/sobre
+[33m14748f7[m Style: ajusta padding
+[33m78611d6[m feat:passoapasso-conecteumpet
+[33m287d7ad[m Merge branch 'develop' of https://github.com/flaviare1s/conectapet-front into fix/sobre
+[33m5e3f6d7[m Merge pull request #65 from flaviare1s/feat/adoptForm
+[33m0517cdd[m construção da feat/adoptForm e mudanças na congratulations
+[33m3c1b6b8[m renomeia db.example.json
+[33m0d0c35c[m Merge pull request #63 from flaviare1s/feat/paginacao
+[33m318e22d[m fix: ajusta links de pet profile
+[33m4fa3ed2[m style: ajusta pets card
+[33m4362f58[m feat: adiciona n

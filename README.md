@@ -41,7 +41,7 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 
 ## Link do Deploy
 🔗 https://conectapet-front.vercel.app/
-(Versão publicada anteriormente usando JSON Server como API fake)
+(Versão publicada anteriormente usava um JSON Server como API fake, agora já está atualizada com a base de dados do backend).
 
 ## Equipe de desenvolvimento:
 - [André](https://github.com/AndreFMoura11)

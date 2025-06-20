@@ -1,12 +1,10 @@
-# ConectaPet
+# 🐾 ConectaPet - Frontend
 
 ## Visão Geral:
 Esta aplicação foi desenvolvida como projeto de conclusão do curso Geração Tech 2.0, com o objetivo de aplicar na prática os conhecimentos adquiridos ao longo da formação.
 A proposta consiste em um site de adoção de animais que conta com a parceria de ONGs, facilitando a conexão entre pets resgatados e pessoas interessadas em adotar com responsabilidade.
 O projeto foca na experiência do usuário, na responsividade e na integração com dados simulados por meio de uma API fake, além de utilizar tecnologias modernas do ecossistema JavaScript.
-
 ## Tecnologias utilizadas:
-
 ### Frontend
 - **React** – Biblioteca JavaScript para construção da interface.
 - **Tailwind CSS** – Framework de estilos utilitários para criação de interfaces responsivas e modernas.
@@ -14,8 +12,13 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 - **Axios** – Cliente HTTP para comunicação com APIs.
 - **EmailJS** – Serviço de envio de e-mails direto do frontend.
 - **dotenv** – Carrega variáveis de ambiente a partir de um arquivo .env.
+- **Cypress** – Testes end-to-end.
+- **Docker** – Criação de dockerfile e criação de imagem no Docker Hub.
+
+🔗 Link do Docker: https://hub.docker.com/repository/docker/flaviare1s/conectapet-front/general
 
 ### Backend
+## Conecte com o Backend
 - A aplicação agora se comunica com um backend real (desenvolvido separadamente), sendo necessário que ele esteja em execução local ou hospedado para o frontend funcionar corretamente.
 > 🔗 Repositório do backend: [https://github.com/flaviare1s/conectapet-back](https://github.com/flaviare1s/conectapet-back)
 
@@ -36,12 +39,22 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 8. Inicie o projeto localmente:
    ```npm run dev```
 9. Acesse o projeto no navegador através do link gerado (geralmente ```http://localhost:5173```) com Ctrl + click
-
 ⚠️ Certifique-se de que o backend esteja rodando antes de iniciar o frontend. A porta padrão esperada é a 3000.
-
 ## Link do Deploy
-🔗 https://conectapet-front.vercel.app/
-(Versão publicada anteriormente usando JSON Server como API fake)
+🔗 [https://conectapet-front.vercel.app/](https://conectapet-front.vercel.app/)
+
+## Testes
+Os testes foram feitos com **Cypress**, com mais de 80% de cobertura em todos os arquivos.
+
+### Comando para executar os testes com Cypress:
+```bash
+npm run cypress
+```
+
+### Branch de teste:
+```tests```
+
+---
 
 ## Equipe de desenvolvimento:
 - [André](https://github.com/AndreFMoura11)
@@ -49,4 +62,5 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 - [Flávia](https://github.com/flaviare1s)
 - [Lucas](https://github.com/1uc-dev)
 - [Olavo](https://github.com/olavoVieira)
+- [Palloma](https://github.com/pallomadvm)
 - [Palloma](https://github.com/pallomadvm)

@@ -23,21 +23,40 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 
 ## Como executar localmente:
 1. Abra o Git Bash ou terminal e vá até a pasta desejada:
-   ```cd Documents/```
+   ```
+   cd Documents/
+   ```
+
 2. Clone o projeto na sua máquina utilizando o comando:
-   ```git clone https://github.com/flaviare1s/conectapet-front.git```
+   ```
+   git clone https://github.com/flaviare1s/conectapet-front.git
+   ```
+
 3. Acesse o diretório com do projeto:
-   ```cd conectapet-front```
+   ```
+   cd conectapet-front
+   ```
+
 4. Abra o Visual Studio Code (ou o editor de sua preferência):
-   ```code .```
+   ```
+   code .
+   ```
+
 5. Instale as dependências:
-   ```npm install```
-6. Renomeie o arquivo de variáveis de ambiente de exemplo:
-   ```mv .env.example .env```
-7. Edite o arquivo .env com suas chaves reais do EmailJS caso deseje usar o envio de e-mails. Caso contrário, pode manter os valores como estão no .env.example.
+   ```
+   npm install
+   ```
+
+6. Copie o arquivo `.env.example`, cole na raiz do projeto e renomeie-o para `.env`.
+
+7. Configure o  arquivo `.env` com as variáveis adequadas do EmailJS, caso deseje usar o envio de e-mails. Caso contrário, mantenha os valores como estão no `.env.example`.
+
 8. Inicie o projeto localmente:
-   ```npm run dev```
-9. Acesse o projeto no navegador através do link gerado (geralmente ```http://localhost:5173```) com Ctrl + click
+   ```
+   npm run dev
+   ```
+
+9. Acesse o projeto no navegador através do link gerado (geralmente ```http://localhost:5173```) com Ctrl + click.
 
 ⚠️ Certifique-se de que o backend esteja rodando antes de iniciar o frontend. A porta padrão esperada é a 3000.
 
@@ -49,7 +68,7 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 Os testes foram feitos com **Cypress**, com mais de 80% de cobertura em todos os arquivos.
 
 ### Branch de testes:
-```tests``` e ```test/adoptions```
+```tests```
 
 ### Comando para executar os testes com cypress:
 ```

@@ -1,4 +1,4 @@
-# ConectaPet
+# 🐾 ConectaPet - Frontend
 
 ## Visão Geral:
 Esta aplicação foi desenvolvida como projeto de conclusão do curso Geração Tech 2.0, com o objetivo de aplicar na prática os conhecimentos adquiridos ao longo da formação.
@@ -14,8 +14,10 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 - **Axios** – Cliente HTTP para comunicação com APIs.
 - **EmailJS** – Serviço de envio de e-mails direto do frontend.
 - **dotenv** – Carrega variáveis de ambiente a partir de um arquivo .env.
+- **Cypress** – Testes end-to-end.
+- **Docker** – Contêinerização e padronização do ambiente de desenvolvimento.
 
-### Backend
+## Conecte com o Backend
 - A aplicação agora se comunica com um backend real (desenvolvido separadamente), sendo necessário que ele esteja em execução local ou hospedado para o frontend funcionar corretamente.
 > 🔗 Repositório do backend: [https://github.com/flaviare1s/conectapet-back](https://github.com/flaviare1s/conectapet-back)
 
@@ -42,6 +44,19 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 ## Link do Deploy
 🔗 https://conectapet-front.vercel.app/
 (Versão publicada anteriormente usando JSON Server como API fake)
+
+## Testes
+Os testes foram feitos com **Cypress**, com mais de 80% de cobertura em todos os arquivos.
+
+### Comando para executar os testes com Cypress:
+```bash
+npx cypress open
+```
+
+### Branch de teste:
+```tests```
+
+---
 
 ## Equipe de desenvolvimento:
 - [André](https://github.com/AndreFMoura11)

@@ -63,4 +63,4 @@ npm run cypress
 - [Lucas](https://github.com/1uc-dev)
 - [Olavo](https://github.com/olavoVieira)
 - [Palloma](https://github.com/pallomadvm)
-- [Palloma](https://github.com/pallomadvm)
+  

@@ -9,11 +9,20 @@ O projeto foca na experiência do usuário, na responsividade e na integração 
 
 ### Frontend
 - **React** – Biblioteca JavaScript para construção da interface.
-- **Tailwind CSS** – Framework de estilos utilitários para criação de interfaces responsivas e modernas.
 - **Vite** – Ferramenta de build e desenvolvimento ultrarrápida.
+- **Tailwind CSS** – Framework de estilos utilitários para criação de interfaces responsivas e modernas.
 - **Axios** – Cliente HTTP para comunicação com APIs.
+- **React Router DOM** – Roteamento e navegação entre páginas.
+- **React Hook Form** – Gerenciamento e validação de formulários.
+- **React Hot Toast** – Notificações toast para feedback ao usuário.
+- **React Icons** – Biblioteca de ícones para React.
+- **React Modal** – Criação de modais acessíveis.
+- **React Burger Menu** – Menu lateral responsivo.
+- **JWT Decode** – Decodificação de tokens JWT.
+- **Swiper** – Carrossel responsivo.
+- **ESLint** – Linter para padronização do código.
 - **EmailJS** – Serviço de envio de e-mails direto do frontend.
-- **dotenv** – Carrega variáveis de ambiente a partir de um arquivo .env.
+- **Dotenv** – Carrega variáveis de ambiente a partir de um arquivo .env.
 - **Cypress** – Testes end-to-end.
 - **Docker** – Contêinerização e padronização do ambiente de desenvolvimento.
 

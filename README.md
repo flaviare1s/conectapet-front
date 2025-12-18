@@ -173,43 +173,6 @@ npm run lint         # Executa o linter
 npm run cypress      # Abre o Cypress Test Runner
 ```
 
-## 👥 Equipe de Desenvolvimento
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/AndreFMoura11">
-        <img src="https://github.com/AndreFMoura11.png" width="100px;" alt="André"/><br>
-        <sub><b>André Moura</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/flaviare1s">
-        <img src="https://github.com/flaviare1s.png" width="100px;" alt="Flávia"/><br>
-        <sub><b>Flávia Reis</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/1uc-dev">
-        <img src="https://github.com/1uc-dev.png" width="100px;" alt="Lucas"/><br>
-        <sub><b>Lucas</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/olavoVieira">
-        <img src="https://github.com/olavoVieira.png" width="100px;" alt="Olavo"/><br>
-        <sub><b>Olavo Vieira</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/pallomadvm">
-        <img src="https://github.com/pallomadvm.png" width="100px;" alt="Palloma"/><br>
-        <sub><b>Palloma</b></sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
 ## 📄 Licença
 
 Este projeto foi desenvolvido para fins educacionais como parte do curso Geração Tech 2.0.
